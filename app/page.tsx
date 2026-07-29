@@ -106,7 +106,7 @@ export default function Home() {
         </Reveal>
       </div>
 
-      <section id="servicios" className={styles.section}>
+      <section id="servicios" className={`${styles.section} ${styles.serviciosSection}`}>
         <div className={styles.container}>
           <Reveal as="span" className={styles.tag}>
             [ LO QUE HACEMOS ]
@@ -162,7 +162,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="porque" className={`${styles.section} ${styles.sectionBordered}`}>
+      <section
+        id="porque"
+        className={`${styles.section} ${styles.sectionBordered} ${styles.porqueSection}`}
+      >
         <div className={styles.container}>
           <Reveal as="span" className={styles.tag}>
             [ POR QUÉ PIXO ]

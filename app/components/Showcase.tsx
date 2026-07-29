@@ -4,37 +4,17 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "../page.module.css";
 
-const TILE_COUNT = 10;
 const INTERVAL_MS = 6000;
 
-function orderedTiles() {
-  const tiles: string[] = [];
-  for (let n = 1; n <= TILE_COUNT; n++) {
-    tiles.push(`/assets/t${String(n).padStart(2, "0")}.jpg`);
-  }
-  return tiles;
-}
-
-function shuffle(tiles: string[]) {
-  const shuffled = tiles.slice();
-  for (let n = shuffled.length - 1; n > 0; n--) {
-    const j = Math.floor(Math.random() * (n + 1));
-    [shuffled[n], shuffled[j]] = [shuffled[j], shuffled[n]];
-  }
-  return shuffled;
-}
+const IMAGES = [
+  "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=80",
+  "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=1200&q=80",
+  "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80",
+];
 
 export default function Showcase() {
-  const [tiles, setTiles] = useState(orderedTiles);
   const [active, setActive] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    // Shuffle only after mount: randomizing during render would produce a
-    // server/client markup mismatch since SSR has no randomness source.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setTiles((t) => shuffle(t));
-  }, []);
 
   useEffect(() => {
     const reduceMotion =
@@ -43,10 +23,10 @@ export default function Showcase() {
     if (reduceMotion) return;
 
     const id = window.setInterval(() => {
-      setActive((v) => (v + 1) % tiles.length);
+      setActive((v) => (v + 1) % IMAGES.length);
     }, INTERVAL_MS);
     return () => window.clearInterval(id);
-  }, [tiles.length]);
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -94,16 +74,17 @@ export default function Showcase() {
 
   return (
     <section id="showcase" ref={sectionRef} className={styles.showcaseSection}>
-      <div className={styles.showcaseSlides} aria-hidden="true">
-        {tiles.map((src, i) => (
-          <div
+      <div className={styles.showcaseImages} aria-hidden="true">
+        {IMAGES.map((src, i) => (
+          // eslint-disable-next-line @next/next/no-img-element -- necesita <img> nativo para el crossfade por opacidad
+          <img
             key={src}
+            src={src}
+            alt=""
             className={`${styles.showcaseSlide} ${i === active ? styles.showcaseSlideActive : ""}`}
-            style={{ backgroundImage: `url(${src})` }}
           />
         ))}
       </div>
-      <div className={styles.showcaseOverlay} aria-hidden="true" />
       <Image
         src="/assets/pixo-logo-transparent.png"
         alt="Pixo Design"

@@ -147,15 +147,28 @@
   margin: 0 auto;
 }
 .tag {
+  display: inline-block;
   font-family: "JetBrains Mono", monospace;
   font-size: 12px;
-  color: var(--accent);
+  letter-spacing: 0.02em;
+  color: #0d7058;
+  background: #e6f9f4;
+  padding: 6px 14px;
+  border-radius: 999px;
 }
 .section {
   padding: clamp(72px, 10vw, 130px) 24px;
 }
 .sectionBordered {
-  border-top: 1px solid rgba(237, 237, 233, 0.14);
+  border-top: 1px solid #e0e0e0;
+}
+.serviciosSection {
+  background: #ffffff;
+  color: #111111;
+}
+.porqueSection {
+  background: #f5f5f5;
+  color: #111111;
 }
 
 /* hero */
@@ -331,29 +344,29 @@
     ),
     #101013;
 }
-.showcaseSlides {
+.showcaseImages {
   position: absolute;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: hidden;
   z-index: 0;
 }
 .showcaseSlide {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
-  filter: brightness(0.55) saturate(0.95);
 }
 .showcaseSlideActive {
-  opacity: 1;
-}
-.showcaseOverlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.35), rgba(10, 10, 10, 0.6));
-  pointer-events: none;
+  opacity: 0.35;
 }
 .showcaseLogo {
   position: relative;
@@ -385,11 +398,11 @@
   flex-direction: column;
   gap: 1px;
   margin-top: 44px;
-  background: rgba(237, 237, 233, 0.16);
-  border: 1px solid rgba(237, 237, 233, 0.16);
+  background: #e0e0e0;
+  border: 1px solid #e0e0e0;
 }
 .serviceRow {
-  background: #111111;
+  background: #ffffff;
   padding: 34px 22px;
   display: grid;
   grid-template-columns: 1fr minmax(220px, 360px);
@@ -400,10 +413,10 @@
     transform 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 .serviceRow:hover {
-  background-color: #17171a;
+  background-color: #fafafa;
   transform: translateY(-2px);
-  border-color: var(--accent);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: #2ec4a0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 .serviceText {
   display: flex;
@@ -419,7 +432,7 @@
 .serviceNum {
   font-family: "JetBrains Mono", monospace;
   font-size: 13px;
-  color: var(--accent);
+  color: #2ec4a0;
 }
 .serviceTitle {
   margin: 0;
@@ -430,6 +443,7 @@
   line-height: 1;
   letter-spacing: -0.02em;
   overflow-wrap: anywhere;
+  color: #111111;
 }
 .serviceBody {
   display: flex;
@@ -440,7 +454,7 @@
   margin: 0;
   font-size: 17px;
   line-height: 1.55;
-  opacity: 0.8;
+  color: #555555;
   text-wrap: pretty;
 }
 .chips {
@@ -452,8 +466,8 @@
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
   padding: 6px 12px;
-  border: 1px solid rgba(237, 237, 233, 0.24);
-  opacity: 0.8;
+  border: 1px solid #e0e0e0;
+  color: #555555;
 }
 .serviceMedia {
   order: 2;
@@ -510,22 +524,23 @@
 .whyGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
+  gap: 24px;
   margin-top: 48px;
 }
 .whyCard {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 22px 16px 16px;
-  border: 1px solid transparent;
-  border-top-color: rgba(237, 237, 233, 0.2);
+  padding: 28px 24px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
   transition: transform 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 .whyCard:hover {
   transform: translateY(-2px);
-  border-color: var(--accent);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: #2ec4a0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 .whyTitle {
   margin: 0;
@@ -534,28 +549,29 @@
   text-transform: uppercase;
   font-size: 20px;
   letter-spacing: 0.01em;
+  color: #111111;
 }
 .whyDesc {
   margin: 0;
   font-size: 15px;
   line-height: 1.6;
-  opacity: 0.7;
+  color: #555555;
   text-wrap: pretty;
 }
 .porqueDivider {
   height: 1px;
-  background: rgba(237, 237, 233, 0.16);
+  background: #e0e0e0;
   margin: 48px 0 40px;
 }
 .numbersGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1px;
-  background: rgba(237, 237, 233, 0.16);
-  border: 1px solid rgba(237, 237, 233, 0.16);
+  background: #e0e0e0;
+  border: 1px solid #e0e0e0;
 }
 .numberCard {
-  background: #111111;
+  background: #ffffff;
   padding: 30px 24px;
   display: flex;
   flex-direction: column;
@@ -565,10 +581,10 @@
     transform 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 .numberCard:hover {
-  background-color: #17171a;
+  background-color: #fafafa;
   transform: translateY(-2px);
-  border-color: var(--accent);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: #2ec4a0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 .numberValue {
   font-weight: 850;
@@ -576,20 +592,23 @@
   font-size: clamp(40px, 4.6vw, 64px);
   line-height: 1;
   font-variant-numeric: tabular-nums;
+  color: #111111;
 }
 .numberValueAccent {
-  color: var(--accent);
+  color: #2ec4a0;
 }
 .numberLabel {
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
-  opacity: 0.6;
+  color: #555555;
 }
 
 /* contacto */
 .contactSection {
   padding: clamp(72px, 10vw, 130px) 24px clamp(56px, 8vw, 90px);
-  border-top: 1px solid rgba(237, 237, 233, 0.14);
+  border-top: 1px solid #e0e0e0;
+  background: #ffffff;
+  color: #111111;
 }
 .contactTitle {
   margin: 26px 0 0;
@@ -610,13 +629,19 @@
 .contactMail {
   font-family: "JetBrains Mono", monospace;
   font-size: 13px;
-  opacity: 0.8;
+  color: #555555;
+  transition: color 0.2s;
+}
+.contactMail:hover {
+  color: #2ec4a0;
 }
 
 /* footer */
 .footer {
   padding: 22px 24px 30px;
-  border-top: 1px solid rgba(237, 237, 233, 0.14);
+  border-top: 1px solid #e0e0e0;
+  background: #fafafa;
+  color: #111111;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -636,7 +661,7 @@
 .footerLoc {
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
-  opacity: 0.6;
+  color: #555555;
 }
 .footerLinks {
   display: flex;
@@ -645,16 +670,18 @@
   font-size: 11px;
 }
 .footerLink {
-  opacity: 0.68;
-  transition: opacity 0.2s;
+  color: #333333;
+  opacity: 0.75;
+  transition: opacity 0.2s, color 0.2s;
 }
 .footerLink:hover {
   opacity: 1;
+  color: #2ec4a0;
 }
 .footerCode {
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
-  opacity: 0.5;
+  color: #999999;
 }
 
 /* ===== responsive ===== */
@@ -696,7 +723,7 @@
   }
   .whyGrid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 20px;
   }
   .numbersGrid {
     grid-template-columns: repeat(2, 1fr);
