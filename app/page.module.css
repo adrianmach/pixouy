@@ -699,7 +699,6 @@
   }
   .parallaxSection {
     height: 50vh;
-    background-attachment: scroll;
   }
   .whyGrid {
     grid-template-columns: 1fr;
