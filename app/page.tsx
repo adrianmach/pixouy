@@ -1,5 +1,9 @@
+import Image from "next/image";
+import Header from "./components/Header";
 import HeroTrail from "./components/HeroTrail";
+import HeroFade from "./components/HeroFade";
 import Reveal from "./components/Reveal";
+import Counter from "./components/Counter";
 import styles from "./page.module.css";
 
 const SERVICIOS = [
@@ -8,18 +12,21 @@ const SERVICIOS = [
     title: "Páginas Web",
     desc: "Sitios diseñados desde cero. Responsive, optimizados, construidos para convertir.",
     chips: ["Diseño a medida", "SEO", "Mobile first", "Carga rápida"],
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
   },
   {
     num: "02",
     title: "Automatizaciones",
     desc: "Procesos conectados. Herramientas integradas. Tiempo recuperado.",
     chips: ["Flujos automáticos", "APIs", "Reportes", "Notificaciones"],
+    image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&q=80",
   },
   {
     num: "03",
     title: "Bots Inteligentes",
     desc: "Atención continua. Respuestas automáticas. Disponibilidad total.",
     chips: ["WhatsApp Bot", "Chat web", "IA", "Seguimiento"],
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
   },
 ];
 
@@ -52,52 +59,33 @@ const PORQUE = [
 export default function Home() {
   return (
     <div className={styles.page}>
-      <header className={styles.header}>
-        <a href="#top" className={styles.logo}>
-          PIXO
-        </a>
-        <nav className={styles.nav}>
-          <a href="#servicios" className={styles.navLink}>
-            servicios
-          </a>
-          <a href="#numeros" className={styles.navLink}>
-            números
-          </a>
-          <a href="#porque" className={styles.navLink}>
-            por qué pixo
-          </a>
-          <a href="#contacto" className={styles.navLink}>
-            contacto
-          </a>
-        </nav>
-        <span className={styles.copyright}>
-          <span>©</span>
-          <span>2025—</span>
-          <span>2026</span>
-        </span>
-      </header>
+      <Header />
 
       <section id="top" className={styles.heroSection}>
         <div className={styles.container}>
-          <HeroTrail />
-          <Reveal as="span" className={styles.eyebrow}>
-            {"// diseño web · automatización · bots"}
-          </Reveal>
-          <Reveal as="h1" className={styles.h1}>
-            <span className={styles.h1Bold}>sistemas digitales</span>{" "}
-            <span className={styles.h1Italic}>diseñados con</span>{" "}
-            <span className={styles.h1Accent}>precisión</span>
-            <span className={styles.h1Bold}>.</span>
-          </Reveal>
-          <div className={styles.heroFooter}>
-            <Reveal as="p" className={styles.heroText}>
-              Diseñamos productos digitales para negocios modernos.
-            </Reveal>
-            <Reveal delay={70}>
-              <a href="https://wa.me/598955038" className={styles.ctaOutline}>
-                CONTACTAR ↗
-              </a>
-            </Reveal>
+          <div className={styles.heroGrid}>
+            <HeroFade className={styles.heroContent}>
+              <Reveal as="span" className={styles.eyebrow}>
+                {"// diseño web · automatización · bots"}
+              </Reveal>
+              <Reveal as="h1" className={styles.h1}>
+                <span className={styles.h1Bold}>sistemas digitales</span>{" "}
+                <span className={styles.h1Italic}>diseñados con</span>{" "}
+                <span className={styles.h1Accent}>precisión</span>
+                <span className={styles.h1Bold}>.</span>
+              </Reveal>
+              <Reveal as="p" className={styles.heroText}>
+                Diseñamos productos digitales para negocios modernos.
+              </Reveal>
+              <Reveal delay={70}>
+                <a href="https://wa.me/598955038" className={styles.ctaOutline}>
+                  CONTACTAR ↗
+                </a>
+              </Reveal>
+            </HeroFade>
+            <div className={styles.heroVisual}>
+              <HeroTrail />
+            </div>
           </div>
         </div>
       </section>
@@ -123,20 +111,32 @@ export default function Home() {
           <div className={styles.servicesGrid}>
             {SERVICIOS.map((s, i) => (
               <Reveal as="div" key={s.num} delay={i * 70} className={styles.serviceRow}>
-                <div className={styles.serviceHead}>
-                  <span className={styles.serviceNum}>{s.num}</span>
-                  <h2 className={styles.serviceTitle}>{s.title}</h2>
-                </div>
-                <div className={styles.serviceBody}>
-                  <p className={styles.serviceDesc}>{s.desc}</p>
-                  <div className={styles.chips}>
-                    {s.chips.map((chip) => (
-                      <span key={chip} className={styles.chip}>
-                        {chip}
-                      </span>
-                    ))}
+                <div className={styles.serviceText}>
+                  <div className={styles.serviceHead}>
+                    <span className={styles.serviceNum}>{s.num}</span>
+                    <h2 className={styles.serviceTitle}>{s.title}</h2>
+                  </div>
+                  <div className={styles.serviceBody}>
+                    <p className={styles.serviceDesc}>{s.desc}</p>
+                    <div className={styles.chips}>
+                      {s.chips.map((chip) => (
+                        <span key={chip} className={styles.chip}>
+                          {chip}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
+                <Reveal delay={i * 70 + 70} className={styles.serviceMedia}>
+                  <Image
+                    src={s.image}
+                    alt={s.title}
+                    width={800}
+                    height={600}
+                    className={styles.serviceImg}
+                    sizes="(max-width: 768px) 100vw, 380px"
+                  />
+                </Reveal>
               </Reveal>
             ))}
           </div>
@@ -154,7 +154,7 @@ export default function Home() {
                 <span
                   className={`${styles.numberValue} ${n.accent ? styles.numberValueAccent : ""}`}
                 >
-                  {n.value}
+                  <Counter value={n.value} />
                 </span>
                 <span className={styles.numberLabel}>{n.label}</span>
               </Reveal>
@@ -169,11 +169,11 @@ export default function Home() {
             [ POR QUÉ PIXO ]
           </Reveal>
           <div className={styles.whyGrid}>
-            {PORQUE.map((p) => (
-              <div key={p.title} className={styles.whyCard}>
+            {PORQUE.map((p, i) => (
+              <Reveal as="div" key={p.title} delay={i * 70} className={styles.whyCard}>
                 <h3 className={styles.whyTitle}>{p.title}</h3>
                 <p className={styles.whyDesc}>{p.desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

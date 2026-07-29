@@ -106,6 +106,11 @@ export default function HeroTrail() {
 
   return (
     <div ref={heroRef} className={styles.heroBox}>
+      <div className={styles.blobField} aria-hidden="true">
+        <span className={`${styles.blob} ${styles.blob1}`} />
+        <span className={`${styles.blob} ${styles.blob2}`} />
+        <span className={`${styles.blob} ${styles.blob3}`} />
+      </div>
       <Image
         src="/assets/pixo-logo-transparent.png"
         alt="Pixo Design"
@@ -116,8 +121,6 @@ export default function HeroTrail() {
         sizes="(max-width: 900px) 86vw, 640px"
       />
       <div ref={trailRef} className={styles.trailLayer} />
-      <span className={styles.heroHint}>[ mové el cursor ]</span>
-      <span className={styles.heroFig}>fig. 01</span>
     </div>
   );
 }
