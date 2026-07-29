@@ -1,0 +1,234 @@
+import HeroTrail from "./components/HeroTrail";
+import Reveal from "./components/Reveal";
+import styles from "./page.module.css";
+
+const SERVICIOS = [
+  {
+    num: "01",
+    title: "Páginas Web",
+    desc: "Sitios diseñados desde cero. Responsive, optimizados, construidos para convertir.",
+    chips: ["Diseño a medida", "SEO", "Mobile first", "Carga rápida"],
+  },
+  {
+    num: "02",
+    title: "Automatizaciones",
+    desc: "Procesos conectados. Herramientas integradas. Tiempo recuperado.",
+    chips: ["Flujos automáticos", "APIs", "Reportes", "Notificaciones"],
+  },
+  {
+    num: "03",
+    title: "Bots Inteligentes",
+    desc: "Atención continua. Respuestas automáticas. Disponibilidad total.",
+    chips: ["WhatsApp Bot", "Chat web", "IA", "Seguimiento"],
+  },
+];
+
+const NUMEROS = [
+  { value: "+50", label: "proyectos entregados" },
+  { value: "+30", label: "clientes activos", accent: true },
+  { value: "24/7", label: "soporte disponible" },
+  { value: "99%", label: "clientes satisfechos" },
+];
+
+const PORQUE = [
+  {
+    title: "Diseño a medida",
+    desc: "Cada sitio se diseña desde cero para tu marca y tu público.",
+  },
+  {
+    title: "Entrega rápida",
+    desc: "Tu web lista en días, no meses. Procesos ágiles sin perder calidad.",
+  },
+  {
+    title: "Soporte continuo",
+    desc: "No te dejamos solo después del lanzamiento.",
+  },
+  {
+    title: "SEO y conversión",
+    desc: "Optimizado para que Google te encuentre y tus visitantes conviertan.",
+  },
+];
+
+export default function Home() {
+  return (
+    <div className={styles.page}>
+      <header className={styles.header}>
+        <a href="#top" className={styles.logo}>
+          PIXO
+        </a>
+        <nav className={styles.nav}>
+          <a href="#servicios" className={styles.navLink}>
+            servicios
+          </a>
+          <a href="#numeros" className={styles.navLink}>
+            números
+          </a>
+          <a href="#porque" className={styles.navLink}>
+            por qué pixo
+          </a>
+          <a href="#contacto" className={styles.navLink}>
+            contacto
+          </a>
+        </nav>
+        <span className={styles.copyright}>
+          <span>©</span>
+          <span>2025—</span>
+          <span>2026</span>
+        </span>
+      </header>
+
+      <section id="top" className={styles.heroSection}>
+        <div className={styles.container}>
+          <HeroTrail />
+          <Reveal as="span" className={styles.eyebrow}>
+            {"// diseño web · automatización · bots"}
+          </Reveal>
+          <Reveal as="h1" className={styles.h1}>
+            <span className={styles.h1Bold}>sistemas digitales</span>{" "}
+            <span className={styles.h1Italic}>diseñados con</span>{" "}
+            <span className={styles.h1Accent}>precisión</span>
+            <span className={styles.h1Bold}>.</span>
+          </Reveal>
+          <div className={styles.heroFooter}>
+            <Reveal as="p" className={styles.heroText}>
+              Diseñamos productos digitales para negocios modernos.
+            </Reveal>
+            <Reveal delay={70}>
+              <a href="https://wa.me/598955038" className={styles.ctaOutline}>
+                CONTACTAR ↗
+              </a>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <div className={styles.ticker} data-ticker="true">
+        {["diseño web", "automatización", "bots inteligentes", "seo", "integraciones"].map(
+          (item, i) => (
+            <Reveal as="span" key={item} delay={i * 70}>
+              {item} ✺
+            </Reveal>
+          )
+        )}
+        <Reveal as="span" delay={5 * 70}>
+          soporte
+        </Reveal>
+      </div>
+
+      <section id="servicios" className={styles.section}>
+        <div className={styles.container}>
+          <Reveal as="span" className={styles.tag}>
+            [ LO QUE HACEMOS ]
+          </Reveal>
+          <div className={styles.servicesGrid}>
+            {SERVICIOS.map((s, i) => (
+              <Reveal as="div" key={s.num} delay={i * 70} className={styles.serviceRow}>
+                <div className={styles.serviceHead}>
+                  <span className={styles.serviceNum}>{s.num}</span>
+                  <h2 className={styles.serviceTitle}>{s.title}</h2>
+                </div>
+                <div className={styles.serviceBody}>
+                  <p className={styles.serviceDesc}>{s.desc}</p>
+                  <div className={styles.chips}>
+                    {s.chips.map((chip) => (
+                      <span key={chip} className={styles.chip}>
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="numeros" className={styles.numbersSection}>
+        <div className={styles.container}>
+          <Reveal as="span" className={styles.tag}>
+            [ NÚMEROS ]
+          </Reveal>
+          <div className={styles.numbersGrid}>
+            {NUMEROS.map((n, i) => (
+              <Reveal as="div" key={n.label} delay={i * 70} className={styles.numberCard}>
+                <span
+                  className={`${styles.numberValue} ${n.accent ? styles.numberValueAccent : ""}`}
+                >
+                  {n.value}
+                </span>
+                <span className={styles.numberLabel}>{n.label}</span>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="porque" className={`${styles.section} ${styles.sectionBordered}`}>
+        <div className={styles.container}>
+          <Reveal as="span" className={styles.tag}>
+            [ POR QUÉ PIXO ]
+          </Reveal>
+          <div className={styles.whyGrid}>
+            {PORQUE.map((p) => (
+              <div key={p.title} className={styles.whyCard}>
+                <h3 className={styles.whyTitle}>{p.title}</h3>
+                <p className={styles.whyDesc}>{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" className={styles.contactSection}>
+        <div className={styles.container}>
+          <Reveal as="span" className={styles.tag}>
+            [ CONTACTO ]
+          </Reveal>
+          <Reveal as="h2" className={styles.contactTitle}>
+            <span className={styles.h1Bold}>tu próximo proyecto digital</span>
+            <span className={styles.h1Italic}>, a un mensaje.</span>
+          </Reveal>
+          <div className={styles.contactLinks}>
+            <Reveal delay={0}>
+              <a href="https://wa.me/598955038" className={styles.ctaFilled}>
+                CONTACTAR ↗
+              </a>
+            </Reveal>
+            <Reveal delay={70}>
+              <a href="mailto:adrianmachinrodriguez@gmail.com" className={styles.contactMail}>
+                adrianmachinrodriguez@gmail.com
+              </a>
+            </Reveal>
+            <Reveal delay={140}>
+              <a href="https://instagram.com/pixodesign.uy" className={styles.contactMail}>
+                @pixodesign.uy
+              </a>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <footer className={styles.footer}>
+        <span className={styles.footerBrand}>
+          <span className={styles.footerName}>PIXO</span>
+          <span className={styles.footerLoc}>Montevideo, 2026</span>
+        </span>
+        <span className={styles.footerLinks}>
+          <a href="#servicios" className={styles.footerLink}>
+            Servicios
+          </a>
+          <a href="#porque" className={styles.footerLink}>
+            Nosotros
+          </a>
+          <a href="https://wa.me/598955038" className={styles.footerLink}>
+            WhatsApp
+          </a>
+          <a href="https://instagram.com/pixodesign.uy" className={styles.footerLink}>
+            Instagram
+          </a>
+        </span>
+        <span className={styles.footerCode}>PIXO_DSN_2026</span>
+      </footer>
+    </div>
+  );
+}
