@@ -22,7 +22,7 @@ body {
 
 body {
   min-height: 100%;
-  background: #0b0b0c;
+  background: #111111;
   color: #edede9;
   font-family: "Archivo", "Helvetica Neue", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,7 +40,7 @@ a:hover {
 
 ::selection {
   background: oklch(0.68 0.2 40);
-  color: #0b0b0c;
+  color: #111111;
 }
 
 @media (prefers-reduced-motion: reduce) {

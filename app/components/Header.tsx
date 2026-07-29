@@ -5,7 +5,6 @@ import styles from "../page.module.css";
 
 const LINKS = [
   { href: "#servicios", label: "servicios" },
-  { href: "#numeros", label: "números" },
   { href: "#porque", label: "por qué pixo" },
   { href: "#contacto", label: "contacto" },
 ];

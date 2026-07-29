@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Header from "./components/Header";
-import HeroTrail from "./components/HeroTrail";
+import Showcase from "./components/Showcase";
 import HeroFade from "./components/HeroFade";
 import Reveal from "./components/Reveal";
 import Counter from "./components/Counter";
@@ -62,33 +62,36 @@ export default function Home() {
       <Header />
 
       <section id="top" className={styles.heroSection}>
+        <div className={styles.blobField} aria-hidden="true">
+          <span className={`${styles.blob} ${styles.blob1}`} />
+          <span className={`${styles.blob} ${styles.blob2}`} />
+          <span className={`${styles.blob} ${styles.blob3}`} />
+        </div>
+        <div className={styles.heroGlow} aria-hidden="true" />
         <div className={styles.container}>
-          <div className={styles.heroGrid}>
-            <HeroFade className={styles.heroContent}>
-              <Reveal as="span" className={styles.eyebrow}>
-                {"// diseño web · automatización · bots"}
-              </Reveal>
-              <Reveal as="h1" className={styles.h1}>
-                <span className={styles.h1Bold}>sistemas digitales</span>{" "}
-                <span className={styles.h1Italic}>diseñados con</span>{" "}
-                <span className={styles.h1Accent}>precisión</span>
-                <span className={styles.h1Bold}>.</span>
-              </Reveal>
-              <Reveal as="p" className={styles.heroText}>
-                Diseñamos productos digitales para negocios modernos.
-              </Reveal>
-              <Reveal delay={70}>
-                <a href="https://wa.me/598955038" className={styles.ctaOutline}>
-                  CONTACTAR ↗
-                </a>
-              </Reveal>
-            </HeroFade>
-            <div className={styles.heroVisual}>
-              <HeroTrail />
-            </div>
-          </div>
+          <HeroFade className={styles.heroContent}>
+            <Reveal as="span" className={styles.eyebrow}>
+              {"// diseño web · automatización · bots"}
+            </Reveal>
+            <Reveal as="h1" className={styles.h1}>
+              <span className={styles.h1Bold}>sistemas digitales</span>{" "}
+              <span className={styles.h1Italic}>diseñados con</span>{" "}
+              <span className={styles.h1Accent}>precisión</span>
+              <span className={styles.h1Bold}>.</span>
+            </Reveal>
+            <Reveal as="p" className={styles.heroText}>
+              Diseñamos productos digitales para negocios modernos.
+            </Reveal>
+            <Reveal delay={70}>
+              <a href="https://wa.me/598955038" className={styles.ctaOutline}>
+                CONTACTAR ↗
+              </a>
+            </Reveal>
+          </HeroFade>
         </div>
       </section>
+
+      <Showcase />
 
       <div className={styles.ticker} data-ticker="true">
         {["diseño web", "automatización", "bots inteligentes", "seo", "integraciones"].map(
@@ -143,23 +146,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="numeros" className={styles.numbersSection}>
-        <div className={styles.container}>
-          <Reveal as="span" className={styles.tag}>
-            [ NÚMEROS ]
+      <section id="tecnologia" className={styles.parallaxSection}>
+        <div className={styles.parallaxBg}>
+          {/* eslint-disable-next-line @next/next/no-img-element -- necesita <img> nativo para el efecto sticky/parallax */}
+          <img
+            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&q=80"
+            alt=""
+            className={styles.parallaxImg}
+          />
+        </div>
+        <div className={styles.parallaxContent}>
+          <Reveal as="p" className={styles.parallaxLabel}>
+            TECNOLOGÍA · DISEÑO · INNOVACIÓN
           </Reveal>
-          <div className={styles.numbersGrid}>
-            {NUMEROS.map((n, i) => (
-              <Reveal as="div" key={n.label} delay={i * 70} className={styles.numberCard}>
-                <span
-                  className={`${styles.numberValue} ${n.accent ? styles.numberValueAccent : ""}`}
-                >
-                  <Counter value={n.value} />
-                </span>
-                <span className={styles.numberLabel}>{n.label}</span>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -173,6 +172,19 @@ export default function Home() {
               <Reveal as="div" key={p.title} delay={i * 70} className={styles.whyCard}>
                 <h3 className={styles.whyTitle}>{p.title}</h3>
                 <p className={styles.whyDesc}>{p.desc}</p>
+              </Reveal>
+            ))}
+          </div>
+          <div className={styles.porqueDivider} />
+          <div className={styles.numbersGrid}>
+            {NUMEROS.map((n, i) => (
+              <Reveal as="div" key={n.label} delay={i * 70} className={styles.numberCard}>
+                <span
+                  className={`${styles.numberValue} ${n.accent ? styles.numberValueAccent : ""}`}
+                >
+                  <Counter value={n.value} />
+                </span>
+                <span className={styles.numberLabel}>{n.label}</span>
               </Reveal>
             ))}
           </div>
