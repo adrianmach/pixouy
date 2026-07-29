@@ -147,14 +147,6 @@ export default function Home() {
       </section>
 
       <section id="tecnologia" className={styles.parallaxSection}>
-        <div className={styles.parallaxBg}>
-          {/* eslint-disable-next-line @next/next/no-img-element -- necesita <img> nativo para el efecto sticky/parallax */}
-          <img
-            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&q=80"
-            alt=""
-            className={styles.parallaxImg}
-          />
-        </div>
         <div className={styles.parallaxContent}>
           <Reveal as="p" className={styles.parallaxLabel}>
             TECNOLOGÍA · DISEÑO · INNOVACIÓN
