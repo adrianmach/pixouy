@@ -90,7 +90,7 @@ export default function Home() {
               Diseñamos productos digitales para negocios modernos.
             </Reveal>
             <Reveal delay={70}>
-              <a href="https://wa.me/598955038" className={styles.ctaOutline}>
+              <a href="https://wa.me/59898955038" className={styles.ctaOutline}>
                 CONTACTAR ↗
               </a>
             </Reveal>
@@ -179,7 +179,7 @@ export default function Home() {
                   </span>
                 ))}
               </div>
-              <a href="https://wa.me/598955038" className={styles.ctaOutline}>
+              <a href="https://wa.me/59898955038" className={styles.ctaOutline}>
                 VER MÁS ↗
               </a>
             </Reveal>
@@ -247,7 +247,7 @@ export default function Home() {
           </Reveal>
           <div className={styles.contactLinks}>
             <Reveal delay={0}>
-              <a href="https://wa.me/598955038" className={styles.ctaFilled}>
+              <a href="https://wa.me/59898955038" className={styles.ctaFilled}>
                 CONTACTAR ↗
               </a>
             </Reveal>
@@ -277,7 +277,7 @@ export default function Home() {
           <a href="#porque" className={styles.footerLink}>
             Nosotros
           </a>
-          <a href="https://wa.me/598955038" className={styles.footerLink}>
+          <a href="https://wa.me/59898955038" className={styles.footerLink}>
             WhatsApp
           </a>
           <a href="https://instagram.com/pixodesign.uy" className={styles.footerLink}>
