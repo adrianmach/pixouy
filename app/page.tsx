@@ -30,6 +30,13 @@ const SERVICIOS = [
   },
 ];
 
+const ECOMMERCE = {
+  title: "Tiendas online que venden.",
+  desc: "Creamos tiendas digitales completas. Catálogo, carrito, pagos integrados, gestión de inventario y envíos. Tu negocio abierto 24/7.",
+  chips: ["Shopify", "WooCommerce", "MercadoPago", "Pasarelas de pago", "Gestión de stock"],
+  image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+};
+
 const NUMEROS = [
   { value: "+50", label: "proyectos entregados" },
   { value: "+30", label: "clientes activos", accent: true },
@@ -146,7 +153,50 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="ecommerce" className={styles.ecommerceSection}>
+        <div className={styles.container}>
+          <Reveal as="span" className={styles.tag}>
+            [ ECOMMERCE ]
+          </Reveal>
+          <div className={styles.ecommerceGrid}>
+            <Reveal className={styles.ecommerceMedia}>
+              <Image
+                src={ECOMMERCE.image}
+                alt="Ecommerce"
+                width={800}
+                height={600}
+                className={styles.ecommerceImg}
+                sizes="(max-width: 768px) 100vw, 480px"
+              />
+            </Reveal>
+            <Reveal delay={70} className={styles.ecommerceText}>
+              <h2 className={styles.ecommerceTitle}>{ECOMMERCE.title}</h2>
+              <p className={styles.ecommerceDesc}>{ECOMMERCE.desc}</p>
+              <div className={styles.chips}>
+                {ECOMMERCE.chips.map((chip) => (
+                  <span key={chip} className={styles.chip}>
+                    {chip}
+                  </span>
+                ))}
+              </div>
+              <a href="https://wa.me/598955038" className={styles.ctaOutline}>
+                VER MÁS ↗
+              </a>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       <section id="tecnologia" className={styles.parallaxSection}>
+        <div className={styles.parallaxBg}>
+          {/* eslint-disable-next-line @next/next/no-img-element -- necesita <img> nativo para el efecto sticky/parallax */}
+          <img
+            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&q=80"
+            alt=""
+            className={styles.parallaxImg}
+          />
+        </div>
+        <div className={styles.parallaxOverlay} aria-hidden="true" />
         <div className={styles.parallaxContent}>
           <Reveal as="p" className={styles.parallaxLabel}>
             TECNOLOGÍA · DISEÑO · INNOVACIÓN
