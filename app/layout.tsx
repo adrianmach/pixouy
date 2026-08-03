@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PIXO — Diseño web, automatización y bots",
+  title: "PIXO — Diseño web, automatización y ecommerce",
   description:
-    "Diseñamos productos digitales para negocios modernos: páginas web, automatizaciones y bots inteligentes.",
+    "Diseñamos productos digitales para negocios modernos: páginas web, automatizaciones y tiendas online.",
 };
 
 export default function RootLayout({

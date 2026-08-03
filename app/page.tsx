@@ -13,29 +13,35 @@ const SERVICIOS = [
     title: "Páginas Web",
     desc: "Sitios diseñados desde cero. Responsive, optimizados, construidos para convertir.",
     chips: ["Diseño a medida", "SEO", "Mobile first", "Carga rápida"],
-    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&q=80",
   },
   {
     num: "02",
     title: "Automatizaciones",
     desc: "Procesos conectados. Herramientas integradas. Tiempo recuperado.",
     chips: ["Flujos automáticos", "APIs", "Reportes", "Notificaciones"],
-    image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&q=80",
-  },
-  {
-    num: "03",
-    title: "Bots Inteligentes",
-    desc: "Atención continua. Respuestas automáticas. Disponibilidad total.",
-    chips: ["WhatsApp Bot", "Chat web", "IA", "Seguimiento"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
   },
 ];
 
 const ECOMMERCE = {
-  title: "Tiendas online que venden.",
-  desc: "Creamos tiendas digitales completas. Catálogo, carrito, pagos integrados, gestión de inventario y envíos. Tu negocio abierto 24/7.",
-  chips: ["Shopify", "WooCommerce", "MercadoPago", "Pasarelas de pago", "Gestión de stock"],
-  image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+  label: "ECOMMERCE",
+  title: "Mientras no vendés online, tu competencia sí.",
+  desc: "Cada día sin tienda online son ventas que perdés. Clientes que buscan tus productos a las 11 de la noche, los domingos, los feriados — y no te encuentran. Nosotros creamos tu tienda digital completa: catálogo, carrito, pagos, stock y envíos. Lista para vender 24/7.",
+  painPoints: [
+    "Tu cliente busca a las 2am. ¿Tu negocio está abierto?",
+    "Tu competencia ya vende online. ¿Vos?",
+    "Cada día sin ecommerce son ventas que se pierden.",
+  ],
+  chips: [
+    "Shopify",
+    "WooCommerce",
+    "MercadoPago",
+    "Pasarelas de pago",
+    "Gestión de stock",
+    "Envíos",
+  ],
+  image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
 };
 
 const NUMEROS = [
@@ -79,7 +85,7 @@ export default function Home() {
         <div className={styles.container}>
           <HeroFade className={styles.heroContent}>
             <Reveal as="span" className={styles.eyebrow}>
-              {"// diseño web · automatización · bots"}
+              {"// diseño web · automatización · ecommerce"}
             </Reveal>
             <Reveal as="h1" className={styles.h1}>
               <span className={styles.h1Bold}>sistemas digitales</span>{" "}
@@ -102,7 +108,7 @@ export default function Home() {
       <Showcase />
 
       <div className={styles.ticker} data-ticker="true">
-        {["diseño web", "automatización", "bots inteligentes", "seo", "integraciones"].map(
+        {["diseño web", "automatización", "ecommerce", "seo", "integraciones"].map(
           (item, i) => (
             <Reveal as="span" key={item} delay={i * 70}>
               {item} ✺
@@ -157,22 +163,29 @@ export default function Home() {
       <section id="ecommerce" className={styles.ecommerceSection}>
         <div className={styles.container}>
           <Reveal as="span" className={styles.tag}>
-            [ ECOMMERCE ]
+            [ {ECOMMERCE.label} ]
           </Reveal>
           <div className={styles.ecommerceGrid}>
             <Reveal className={styles.ecommerceMedia}>
               <Image
                 src={ECOMMERCE.image}
                 alt="Ecommerce"
-                width={800}
+                width={900}
                 height={600}
                 className={styles.ecommerceImg}
-                sizes="(max-width: 768px) 100vw, 480px"
+                sizes="(max-width: 768px) 100vw, 560px"
               />
             </Reveal>
             <Reveal delay={70} className={styles.ecommerceText}>
               <h2 className={styles.ecommerceTitle}>{ECOMMERCE.title}</h2>
               <p className={styles.ecommerceDesc}>{ECOMMERCE.desc}</p>
+              <ul className={styles.painPoints}>
+                {ECOMMERCE.painPoints.map((point) => (
+                  <li key={point} className={styles.painPoint}>
+                    {point}
+                  </li>
+                ))}
+              </ul>
               <div className={styles.chips}>
                 {ECOMMERCE.chips.map((chip) => (
                   <span key={chip} className={styles.chip}>
@@ -180,8 +193,8 @@ export default function Home() {
                   </span>
                 ))}
               </div>
-              <a href="https://wa.me/59898955038" className={styles.ctaOutline}>
-                VER MÁS ↗
+              <a href="https://wa.me/59898955038" className={styles.ctaEcommerce}>
+                QUIERO MI TIENDA ↗
               </a>
             </Reveal>
           </div>
@@ -259,6 +272,9 @@ export default function Home() {
         <span className={styles.footerLinks}>
           <a href="#servicios" className={styles.footerLink}>
             Servicios
+          </a>
+          <a href="#ecommerce" className={styles.footerLink}>
+            Ecommerce
           </a>
           <a href="#porque" className={styles.footerLink}>
             Nosotros
