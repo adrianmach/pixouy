@@ -59,11 +59,18 @@ export default function Counter({ value }: { value: string }) {
       return;
     }
 
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < vh && rect.bottom > 0) {
+      run();
+      return;
+    }
+
     const io = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) run();
       },
-      { threshold: 0.4 }
+      { threshold: [0, 0.2, 0.4] }
     );
     io.observe(el);
     return () => io.disconnect();

@@ -463,74 +463,12 @@
   border-radius: 16px;
   filter: brightness(0.85) saturate(0.9);
 }
-
-/* ecommerce */
-.ecommerceSection {
-  background: #111111;
-  padding: 128px 24px;
+.serviceRowFeatured {
+  border-left: 2px solid #2ec4a0;
 }
-.ecommerceGrid {
-  display: grid;
-  grid-template-columns: minmax(280px, 560px) 1fr;
-  gap: 56px;
-  align-items: center;
-  margin-top: 44px;
-}
-.ecommerceMedia {
-  order: 0;
-}
-.ecommerceImg {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  border-radius: 16px;
-  filter: brightness(0.85) saturate(0.9);
-}
-.ecommerceText {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 18px;
-}
-.ecommerceTitle {
-  margin: 0;
-  font-weight: 900;
-  font-size: 48px;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
-  color: #ffffff;
-}
-.ecommerceDesc {
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.6;
-  color: #aaaaaa;
-  text-wrap: pretty;
-}
-.painPoints {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.painPoint {
-  position: relative;
-  padding-left: 22px;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #aaaaaa;
-}
-.painPoint::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: #2ec4a0;
-}
-.ctaEcommerce {
+.serviceFeaturedCta {
   display: inline-block;
+  align-self: flex-start;
   font-family: "JetBrains Mono", monospace;
   font-size: 13px;
   letter-spacing: 0.1em;
@@ -539,7 +477,7 @@
   color: #0a0a0a;
   transition: background 0.2s ease-out, transform 0.2s ease-out;
 }
-.ctaEcommerce:hover {
+.serviceFeaturedCta:hover {
   background: #27ab8b;
   color: #0a0a0a;
   transform: translateY(-1px);
@@ -792,19 +730,6 @@
   }
   .serviceImg {
     width: 100%;
-  }
-  .ecommerceSection {
-    padding: 64px 20px;
-  }
-  .ecommerceGrid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .ecommerceImg {
-    width: 100%;
-  }
-  .ecommerceTitle {
-    font-size: 32px;
   }
   .parallaxSection {
     height: 50vh;

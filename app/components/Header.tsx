@@ -5,7 +5,6 @@ import styles from "../page.module.css";
 
 const LINKS = [
   { href: "#servicios", label: "servicios" },
-  { href: "#ecommerce", label: "ecommerce" },
   { href: "#porque", label: "por qué pixo" },
   { href: "#contacto", label: "contacto" },
 ];
@@ -44,7 +43,6 @@ export default function Header() {
       </nav>
       <span className={styles.copyright}>
         <span>©</span>
-        <span>2025—</span>
         <span>2026</span>
       </span>
       <button

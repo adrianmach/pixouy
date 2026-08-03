@@ -22,27 +22,16 @@ const SERVICIOS = [
     chips: ["Flujos automáticos", "APIs", "Reportes", "Notificaciones"],
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
   },
+  {
+    num: "03",
+    title: "Tiendas Online",
+    desc: "Tu negocio abierto 24/7. Creamos tiendas digitales completas con catálogo, carrito, pagos integrados y gestión de envíos. Mientras dormís, tu tienda vende.",
+    chips: ["Shopify", "WooCommerce", "MercadoPago", "Gestión de stock", "Envíos"],
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
+    featured: true,
+    cta: { label: "QUIERO MI TIENDA ↗", href: "https://wa.me/59898955038" },
+  },
 ];
-
-const ECOMMERCE = {
-  label: "ECOMMERCE",
-  title: "Mientras no vendés online, tu competencia sí.",
-  desc: "Cada día sin tienda online son ventas que perdés. Clientes que buscan tus productos a las 11 de la noche, los domingos, los feriados — y no te encuentran. Nosotros creamos tu tienda digital completa: catálogo, carrito, pagos, stock y envíos. Lista para vender 24/7.",
-  painPoints: [
-    "Tu cliente busca a las 2am. ¿Tu negocio está abierto?",
-    "Tu competencia ya vende online. ¿Vos?",
-    "Cada día sin ecommerce son ventas que se pierden.",
-  ],
-  chips: [
-    "Shopify",
-    "WooCommerce",
-    "MercadoPago",
-    "Pasarelas de pago",
-    "Gestión de stock",
-    "Envíos",
-  ],
-  image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
-};
 
 const NUMEROS = [
   { value: "+50", label: "proyectos entregados" },
@@ -127,7 +116,12 @@ export default function Home() {
           </Reveal>
           <div className={styles.servicesGrid}>
             {SERVICIOS.map((s, i) => (
-              <Reveal as="div" key={s.num} delay={i * 70} className={styles.serviceRow}>
+              <Reveal
+                as="div"
+                key={s.num}
+                delay={i * 70}
+                className={`${styles.serviceRow} ${s.featured ? styles.serviceRowFeatured : ""}`}
+              >
                 <div className={styles.serviceText}>
                   <div className={styles.serviceHead}>
                     <span className={styles.serviceNum}>{s.num}</span>
@@ -142,6 +136,11 @@ export default function Home() {
                         </span>
                       ))}
                     </div>
+                    {s.cta && (
+                      <a href={s.cta.href} className={styles.serviceFeaturedCta}>
+                        {s.cta.label}
+                      </a>
+                    )}
                   </div>
                 </div>
                 <Reveal delay={i * 70 + 70} className={styles.serviceMedia}>
@@ -156,47 +155,6 @@ export default function Home() {
                 </Reveal>
               </Reveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="ecommerce" className={styles.ecommerceSection}>
-        <div className={styles.container}>
-          <Reveal as="span" className={styles.tag}>
-            [ {ECOMMERCE.label} ]
-          </Reveal>
-          <div className={styles.ecommerceGrid}>
-            <Reveal className={styles.ecommerceMedia}>
-              <Image
-                src={ECOMMERCE.image}
-                alt="Ecommerce"
-                width={900}
-                height={600}
-                className={styles.ecommerceImg}
-                sizes="(max-width: 768px) 100vw, 560px"
-              />
-            </Reveal>
-            <Reveal delay={70} className={styles.ecommerceText}>
-              <h2 className={styles.ecommerceTitle}>{ECOMMERCE.title}</h2>
-              <p className={styles.ecommerceDesc}>{ECOMMERCE.desc}</p>
-              <ul className={styles.painPoints}>
-                {ECOMMERCE.painPoints.map((point) => (
-                  <li key={point} className={styles.painPoint}>
-                    {point}
-                  </li>
-                ))}
-              </ul>
-              <div className={styles.chips}>
-                {ECOMMERCE.chips.map((chip) => (
-                  <span key={chip} className={styles.chip}>
-                    {chip}
-                  </span>
-                ))}
-              </div>
-              <a href="https://wa.me/59898955038" className={styles.ctaEcommerce}>
-                QUIERO MI TIENDA ↗
-              </a>
-            </Reveal>
           </div>
         </div>
       </section>
@@ -272,9 +230,6 @@ export default function Home() {
         <span className={styles.footerLinks}>
           <a href="#servicios" className={styles.footerLink}>
             Servicios
-          </a>
-          <a href="#ecommerce" className={styles.footerLink}>
-            Ecommerce
           </a>
           <a href="#porque" className={styles.footerLink}>
             Nosotros
