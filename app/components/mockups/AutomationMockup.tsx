@@ -1,24 +1,47 @@
 import Counter from "../Counter";
 import styles from "../Mockups.module.css";
 
-const Arrow = () => (
-  <svg className={styles.flowArrow} viewBox="0 0 34 12" aria-hidden="true">
-    <path d="M0 6 H28 M22 1 L28 6 L22 11" />
-  </svg>
-);
-
 export default function AutomationMockup() {
   return (
     <div className={`${styles.mockup} ${styles.flowMockup}`}>
-      <div className={styles.flowRow}>
-        <span className={styles.flowBox}>Nuevo pedido</span>
-        <Arrow />
-        <span className={styles.flowBox}>MercadoPago</span>
+      <div className={styles.appHeader}>
+        <span className={styles.appTitle}>⚡ Automatizaciones</span>
+        <span className={styles.appNewBtn}>+ Nuevo</span>
       </div>
-      <div className={styles.flowRow}>
-        <span className={styles.flowBox}>WhatsApp</span>
-        <Arrow />
-        <span className={styles.flowBox}>Email</span>
+      <div className={styles.flowCanvas}>
+        <div className={styles.flowNode}>
+          <span className={styles.nodeIcon} aria-hidden="true">
+            🛒
+          </span>
+          <span className={styles.nodeText}>
+            <span className={styles.nodeTitle}>Nueva venta</span>
+            <span className={styles.nodeSub}>Disparador</span>
+          </span>
+        </div>
+        <span className={styles.flowConnector} aria-hidden="true" />
+        <div className={styles.flowNode}>
+          <span className={styles.nodeIcon} aria-hidden="true">
+            💳
+          </span>
+          <span className={styles.nodeText}>
+            <span className={styles.nodeTitle}>Cobrar con MercadoPago</span>
+            <span className={styles.nodeSub}>
+              <span className={styles.statusDot} /> Activo
+            </span>
+          </span>
+        </div>
+        <span className={styles.flowConnector} aria-hidden="true" />
+        <div className={styles.flowNode}>
+          <span className={styles.nodeIcon} aria-hidden="true">
+            💬
+          </span>
+          <span className={styles.nodeText}>
+            <span className={styles.nodeTitle}>Avisar por WhatsApp</span>
+            <span className={styles.nodeSub}>
+              <span className={styles.statusDot} /> Activo
+            </span>
+          </span>
+        </div>
       </div>
       <div className={styles.metricsRow}>
         <div className={styles.metricCard}>
