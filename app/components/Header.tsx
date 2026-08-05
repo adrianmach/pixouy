@@ -5,8 +5,8 @@ import styles from "../page.module.css";
 
 const LINKS = [
   { href: "#servicios", label: "servicios" },
+  { href: "#trabajos", label: "trabajos" },
   { href: "#porque", label: "por qué pixo" },
-  { href: "#contacto", label: "contacto" },
 ];
 
 export default function Header() {
@@ -41,10 +41,9 @@ export default function Header() {
           </a>
         ))}
       </nav>
-      <span className={styles.copyright}>
-        <span>©</span>
-        <span>2026</span>
-      </span>
+      <a href="https://wa.me/59898955038" className={styles.navCta}>
+        CONTACTAR
+      </a>
       <button
         type="button"
         className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ""}`}
@@ -71,6 +70,13 @@ export default function Header() {
             {l.label}
           </a>
         ))}
+        <a
+          href="https://wa.me/59898955038"
+          className={styles.mobileMenuCta}
+          onClick={() => setMenuOpen(false)}
+        >
+          CONTACTAR ↗
+        </a>
       </div>
     </header>
   );

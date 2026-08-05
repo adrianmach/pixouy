@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PIXO — Diseño web, automatización y ecommerce",
+  title: "PIXO — Páginas web, ecommerce, automatización e IA",
   description:
-    "Diseñamos productos digitales para negocios modernos: páginas web, automatizaciones y tiendas online.",
+    "Creamos páginas web, tiendas online, automatizaciones e IA para hacer crecer tu negocio.",
 };
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
         />
         {/* eslint-disable-next-line @next/next/no-page-custom-font -- Archivo needs the wdth axis, which next/font/google doesn't expose */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=Inter:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
       </head>

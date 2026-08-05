@@ -1,6 +1,15 @@
 :root {
-  --accent: oklch(0.68 0.2 40);
-  --accent-hover: oklch(0.75 0.19 45);
+  --bg: #F5F1EA;
+  --bg-alt: #EFEAE0;
+  --surface: #FFFFFF;
+  --ink: #1A1613;
+  --ink-soft: #6B6155;
+  --ink-faint: #A89E90;
+  --line: #DDD5C8;
+  --orange: #FF5C1A;
+  --orange-deep: #E64200;
+  --orange-soft: #FFE8DC;
+  --dark: #16110D;
 }
 
 * {
@@ -22,25 +31,21 @@ body {
 
 body {
   min-height: 100%;
-  background: #0a0a0a;
-  color: #edede9;
-  font-family: "Archivo", "Helvetica Neue", Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  color: #edede9;
+  color: inherit;
   text-decoration: none;
 }
 
-a:hover {
-  color: var(--accent);
-}
-
 ::selection {
-  background: oklch(0.68 0.2 40);
-  color: #0a0a0a;
+  background: var(--orange);
+  color: var(--surface);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,99 +1,17 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import styles from "../page.module.css";
 
 const SHOWCASE_IMAGES = [
-  "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200&q=80",
-  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
-  "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&q=80",
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+  "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80",
+  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&q=80",
+  "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1200&q=80",
+  "https://images.unsplash.com/photo-1550439062-609e1531270e?w=1200&q=80",
 ];
 
 export default function Showcase() {
   const sectionRef = useRef<HTMLElement>(null);
-  const trailRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    const layer = trailRef.current;
-    if (!section || !layer) return;
-
-    const tiles: string[] = [...SHOWCASE_IMAGES];
-    for (let n = tiles.length - 1; n > 0; n--) {
-      const j = Math.floor(Math.random() * (n + 1));
-      [tiles[n], tiles[j]] = [tiles[j], tiles[n]];
-    }
-
-    tiles.forEach((src) => {
-      const im = new window.Image();
-      im.src = src;
-    });
-
-    let last: { x: number; y: number } | null = null;
-    let i = 0;
-
-    const spawn = (clientX: number, clientY: number) => {
-      const r = section.getBoundingClientRect();
-      const x = clientX - r.left;
-      const y = clientY - r.top;
-      if (last && Math.hypot(x - last.x, y - last.y) < 90) return;
-      last = { x, y };
-      const tile = tiles[i++ % tiles.length];
-      const el = document.createElement("div");
-      el.style.cssText =
-        "position:absolute;width:clamp(130px,16vw,240px);aspect-ratio:3/4;left:0;top:0;border:1px solid rgba(237,237,233,0.16);border-radius:16px;overflow:hidden;background:#0E0B09 center/cover no-repeat url('" +
-        tile +
-        "');filter:brightness(0.85) saturate(0.9);will-change:transform,opacity;";
-      el.style.transform =
-        "translate(" +
-        x +
-        "px," +
-        y +
-        "px) translate(-50%,-50%) scale(0.4) rotate(" +
-        (Math.random() * 14 - 7) +
-        "deg)";
-      layer.appendChild(el);
-      el.animate(
-        [
-          { transform: el.style.transform, opacity: 0 },
-          {
-            transform:
-              "translate(" + x + "px," + y + "px) translate(-50%,-50%) scale(1) rotate(0deg)",
-            opacity: 1,
-            offset: 0.25,
-          },
-          {
-            transform:
-              "translate(" + x + "px," + (y - 24) + "px) translate(-50%,-50%) scale(1.02)",
-            opacity: 1,
-            offset: 0.7,
-          },
-          {
-            transform:
-              "translate(" + x + "px," + (y - 60) + "px) translate(-50%,-50%) scale(0.9)",
-            opacity: 0,
-          },
-        ],
-        { duration: 1300, easing: "cubic-bezier(0.22,1,0.36,1)" }
-      ).onfinish = () => el.remove();
-      if (layer.childElementCount > 12) layer.firstElementChild?.remove();
-    };
-
-    const onMove = (e: MouseEvent) => spawn(e.clientX, e.clientY);
-    const onTouch = (e: TouchEvent) => {
-      const t = e.touches[0];
-      if (t) spawn(t.clientX, t.clientY);
-    };
-
-    section.addEventListener("mousemove", onMove);
-    section.addEventListener("touchmove", onTouch, { passive: true });
-    return () => {
-      section.removeEventListener("mousemove", onMove);
-      section.removeEventListener("touchmove", onTouch);
-    };
-  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -140,16 +58,20 @@ export default function Showcase() {
   }, []);
 
   return (
-    <section id="showcase" ref={sectionRef} className={styles.showcaseSection}>
-      <div ref={trailRef} className={styles.trailLayer} aria-hidden="true" />
-      <Image
-        src="/assets/pixo-logo-transparent.png"
-        alt="Pixo Design"
-        width={1660}
-        height={948}
-        className={styles.showcaseLogo}
-        sizes="(max-width: 900px) 70vw, 640px"
-      />
+    <section id="trabajos" ref={sectionRef} className={styles.showcaseSection}>
+      <div className={styles.showcaseBg} aria-hidden="true">
+        {SHOWCASE_IMAGES.map((src, i) => (
+          <div
+            key={src}
+            className={styles.showcaseBgImg}
+            style={{
+              backgroundImage: `url(${src})`,
+              animationDelay: `${i * 4.5}s`,
+            }}
+          />
+        ))}
+      </div>
+      <h2 className={styles.showcaseLogo}>Pixo Design</h2>
     </section>
   );
 }
