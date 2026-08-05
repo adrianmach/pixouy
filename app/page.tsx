@@ -118,7 +118,7 @@ export default function Home() {
 
       <section id="servicios" className={`${styles.section} ${styles.serviciosSection}`}>
         <div className={styles.container}>
-          <Reveal as="span" className={styles.tag}>
+          <Reveal as="span" className={`${styles.tag} ${styles.tagCentered}`}>
             [ lo que construimos ]
           </Reveal>
           <div className={styles.servicesGrid}>
@@ -167,7 +167,7 @@ export default function Home() {
         className={`${styles.section} ${styles.sectionBordered} ${styles.porqueSection}`}
       >
         <div className={styles.container}>
-          <Reveal as="span" className={styles.tag}>
+          <Reveal as="span" className={`${styles.tag} ${styles.tagCentered}`}>
             [ por qué pixo ]
           </Reveal>
           <div className={styles.whyGrid}>

@@ -198,6 +198,11 @@
   text-transform: uppercase;
   color: var(--orange);
 }
+.tagCentered {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
 .section {
   padding: clamp(72px, 10vw, 140px) 32px;
 }
@@ -225,8 +230,8 @@
 .heroBigNum {
   position: absolute;
   top: 50%;
-  right: 4%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-family: "Archivo", sans-serif;
   font-weight: 900;
   font-size: clamp(220px, 38vw, 560px);
@@ -242,11 +247,12 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   gap: 24px;
   width: 100%;
   max-width: 900px;
+  margin: 0 auto;
 }
 .eyebrow {
   display: block;
@@ -271,7 +277,7 @@
   color: var(--orange);
 }
 .heroText {
-  margin: 0;
+  margin: 0 auto;
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: clamp(1.1rem, 2vw, 1.4rem);
@@ -283,6 +289,7 @@
 .heroActions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
   margin-top: 4px;
 }
@@ -747,10 +754,6 @@
   }
   .hamburger {
     display: block;
-  }
-  .heroContent {
-    align-items: flex-start;
-    text-align: left;
   }
   .h1 {
     font-size: clamp(2.4rem, 8vw, 4.5rem);
