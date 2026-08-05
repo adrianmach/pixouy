@@ -53,7 +53,7 @@
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   min-width: 0;
   background: #fff;
   border: 1px solid #dcdcd8;
@@ -64,6 +64,10 @@
   color: #8a8a86;
   white-space: nowrap;
   overflow: hidden;
+}
+.urlBar svg {
+  flex-shrink: 0;
+  color: #a4a49f;
 }
 .pageNav {
   display: flex;
@@ -94,6 +98,9 @@
 }
 .pageNavCta {
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   background: var(--orange);
   color: #fff;
   font-family: "Inter", sans-serif;
@@ -137,6 +144,9 @@
   margin-top: 4px;
 }
 .btnFilled {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   background: var(--orange);
   color: #fff;
   font-family: "Inter", sans-serif;
@@ -156,17 +166,42 @@
 }
 .chartArea {
   flex-shrink: 0;
-  padding: 0 clamp(12px, 2.4vw, 18px) clamp(10px, 2vw, 16px);
-  height: clamp(30px, 8vw, 58px);
+  margin: 0 clamp(12px, 2.4vw, 18px) clamp(10px, 2vw, 16px);
+  border: 1px solid #eeeeeb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.chartHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: clamp(5px, 1.1vw, 8px) clamp(8px, 1.6vw, 12px) 0;
+}
+.chartLabel {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: clamp(6px, 1vw, 8px);
+  color: #7c7c76;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.chartTrend {
+  flex-shrink: 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: clamp(5.5px, 0.95vw, 7.5px);
+  color: #1a9c56;
+  background: #e5f7ec;
+  padding: 1.5px 6px;
+  border-radius: 999px;
 }
 .chartBars {
-  height: 100%;
+  height: clamp(24px, 6vw, 44px);
   display: flex;
   align-items: flex-end;
   gap: clamp(3px, 0.9vw, 6px);
-  background: linear-gradient(180deg, rgba(255, 92, 26, 0.07), transparent);
-  border-radius: 6px;
-  padding: 5px 6px 0;
+  padding: 6px clamp(8px, 1.6vw, 12px) 0;
 }
 .chartBar {
   flex: 1;
@@ -212,22 +247,22 @@
 @keyframes cursorMove {
   0%,
   100% {
-    transform: translate(72%, 30%);
+    transform: translate(72%, 26%);
     opacity: 0;
   }
   8% {
     opacity: 1;
   }
   28% {
-    transform: translate(30%, 22%);
+    transform: translate(30%, 20%);
     opacity: 1;
   }
   50% {
-    transform: translate(45%, 78%);
+    transform: translate(45%, 70%);
     opacity: 1;
   }
   75% {
-    transform: translate(72%, 78%);
+    transform: translate(72%, 70%);
     opacity: 1;
   }
   92% {
@@ -263,6 +298,10 @@
   white-space: nowrap;
   overflow: hidden;
 }
+.appTitle svg {
+  flex-shrink: 0;
+  color: var(--orange);
+}
 .appNewBtn {
   flex-shrink: 0;
   font-family: "Inter", sans-serif;
@@ -286,23 +325,32 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: clamp(6px, 1.4vw, 10px);
+  gap: clamp(7px, 1.5vw, 11px);
   background: var(--bg);
   border: 1.3px solid var(--line);
   border-radius: 8px;
-  padding: clamp(4px, 1vw, 8px) clamp(7px, 1.5vw, 11px);
+  padding: clamp(5px, 1.1vw, 9px) clamp(7px, 1.5vw, 11px);
 }
 .nodeIcon {
-  width: clamp(15px, 3vw, 22px);
-  height: clamp(15px, 3vw, 22px);
+  width: clamp(17px, 3.4vw, 25px);
+  height: clamp(17px, 3.4vw, 25px);
   border-radius: 50%;
-  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(8px, 1.6vw, 12px);
   flex-shrink: 0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.nodeIconOrder {
+  background: #eceae6;
+  color: #55534d;
+}
+.nodeIconPay {
+  background: #e1ecff;
+  color: #2f6fed;
+}
+.nodeIconChat {
+  background: #dcf8e7;
+  color: #22b156;
 }
 .nodeText {
   display: flex;
@@ -413,7 +461,7 @@
   min-width: 0;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   background: rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   padding: 4px 9px;
@@ -423,12 +471,14 @@
   white-space: nowrap;
   overflow: hidden;
 }
+.storeSearch svg {
+  flex-shrink: 0;
+}
 .storeCart {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 4px;
-  font-size: clamp(10px, 1.8vw, 14px);
+  gap: 5px;
 }
 .storeCartCount {
   font-family: "Archivo", sans-serif;
@@ -439,9 +489,12 @@
 }
 .storePromo {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   background: var(--orange-soft);
   color: var(--orange-deep);
-  text-align: center;
   font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: clamp(6px, 1vw, 8px);
@@ -468,12 +521,25 @@
   position: relative;
   aspect-ratio: 1;
   border-radius: 7px;
-  background: linear-gradient(135deg, var(--bg-alt), var(--line));
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(14px, 3vw, 22px);
   overflow: hidden;
+}
+.productImg svg {
+  opacity: 0.9;
+}
+.productImg1 {
+  background: linear-gradient(135deg, #fde3d3, #f7c9a8);
+  color: #d97a3f;
+}
+.productImg2 {
+  background: linear-gradient(135deg, #e4e8fb, #c7cff2);
+  color: #5a67c9;
+}
+.productImg3 {
+  background: linear-gradient(135deg, var(--bg-alt), var(--line));
+  color: #9c9690;
 }
 .productBadge {
   position: absolute;
@@ -497,9 +563,13 @@
   text-overflow: ellipsis;
 }
 .productRating {
-  font-size: clamp(6px, 1vw, 7.5px);
+  display: flex;
+  align-items: center;
+  gap: 1px;
   color: #f0a83c;
-  letter-spacing: 1px;
+}
+.productRating svg {
+  flex-shrink: 0;
 }
 .productPriceRow {
   display: flex;

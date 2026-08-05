@@ -1,17 +1,20 @@
 import Counter from "../Counter";
 import styles from "../Mockups.module.css";
+import { IconBag, IconBolt, IconCard, IconChat } from "./Icons";
 
 export default function AutomationMockup() {
   return (
     <div className={`${styles.mockup} ${styles.flowMockup}`}>
       <div className={styles.appHeader}>
-        <span className={styles.appTitle}>⚡ Automatizaciones</span>
+        <span className={styles.appTitle}>
+          <IconBolt /> Automatizaciones
+        </span>
         <span className={styles.appNewBtn}>+ Nuevo</span>
       </div>
       <div className={styles.flowCanvas}>
         <div className={styles.flowNode}>
-          <span className={styles.nodeIcon} aria-hidden="true">
-            🛒
+          <span className={`${styles.nodeIcon} ${styles.nodeIconOrder}`} aria-hidden="true">
+            <IconBag />
           </span>
           <span className={styles.nodeText}>
             <span className={styles.nodeTitle}>Nueva venta</span>
@@ -20,8 +23,8 @@ export default function AutomationMockup() {
         </div>
         <span className={styles.flowConnector} aria-hidden="true" />
         <div className={styles.flowNode}>
-          <span className={styles.nodeIcon} aria-hidden="true">
-            💳
+          <span className={`${styles.nodeIcon} ${styles.nodeIconPay}`} aria-hidden="true">
+            <IconCard />
           </span>
           <span className={styles.nodeText}>
             <span className={styles.nodeTitle}>Cobrar con MercadoPago</span>
@@ -32,8 +35,8 @@ export default function AutomationMockup() {
         </div>
         <span className={styles.flowConnector} aria-hidden="true" />
         <div className={styles.flowNode}>
-          <span className={styles.nodeIcon} aria-hidden="true">
-            💬
+          <span className={`${styles.nodeIcon} ${styles.nodeIconChat}`} aria-hidden="true">
+            <IconChat />
           </span>
           <span className={styles.nodeText}>
             <span className={styles.nodeTitle}>Avisar por WhatsApp</span>
