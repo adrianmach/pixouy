@@ -5,8 +5,9 @@ import styles from "../page.module.css";
 
 const LINKS = [
   { href: "#servicios", label: "servicios" },
-  { href: "#trabajos", label: "trabajos" },
-  { href: "#porque", label: "por qué pixo" },
+  { href: "#precios", label: "precios" },
+  { href: "#proceso", label: "proceso" },
+  { href: "#faq", label: "faq" },
 ];
 
 export default function Header() {
