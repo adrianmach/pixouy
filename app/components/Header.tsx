@@ -28,6 +28,15 @@ export default function Header() {
     };
   }, [menuOpen]);
 
+  const closeMenu = () => {
+    // Clear the scroll-lock synchronously, in the same click handler that
+    // triggers the anchor's native jump — the menuOpen useEffect cleanup
+    // runs too late (after paint), so the jump would fire while body is
+    // still non-scrollable and silently land at the top.
+    document.body.style.overflow = "";
+    setMenuOpen(false);
+  };
+
   return (
     <header
       className={`${styles.header} ${scrolled ? styles.headerScrolled : ""}`}
@@ -66,7 +75,7 @@ export default function Header() {
             key={l.href}
             href={l.href}
             className={styles.mobileMenuLink}
-            onClick={() => setMenuOpen(false)}
+            onClick={closeMenu}
           >
             {l.label}
           </a>
@@ -74,7 +83,7 @@ export default function Header() {
         <a
           href="https://wa.me/59898955038"
           className={styles.mobileMenuCta}
-          onClick={() => setMenuOpen(false)}
+          onClick={closeMenu}
         >
           CONTACTAR ↗
         </a>
