@@ -2,7 +2,22 @@
   "permissions": {
     "allow": [
       "Bash(jobs -l)",
-      "Bash(netstat -ano)"
+      "Bash(netstat -ano)",
+      "Bash(cp \"C:\\\\Users\\\\adrim\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Proyectos-pixouy3-next\\\\7ba100a8-e963-497e-8c31-c6836ada2d5e\\\\scratchpad\\\\check.mjs\" \"C:\\\\Proyectos\\\\pixouy3-next\\\\_check_tmp.mjs\")",
+      "Bash(node _check_tmp.mjs)",
+      "Bash(node _check4_tmp.mjs)",
+      "Bash(taskkill //PID 3948 //F)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000 --max-time 2)",
+      "Bash(git push *)",
+      "Bash(node _verify_trail.mjs)",
+      "Bash(node _verify_parallax.mjs)",
+      "Bash(node _final_check.mjs)",
+      "Bash(git commit -m ' *)",
+      "Bash(node _verify.mjs)",
+      "Bash(node _verify2.mjs)",
+      "Bash(node _verify3.mjs)",
+      "Bash(taskkill //PID 10200 //F)",
+      "Bash(npm uninstall *)"
     ]
   }
 }

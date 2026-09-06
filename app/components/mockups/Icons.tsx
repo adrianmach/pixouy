@@ -173,3 +173,12 @@ export function IconCode({ size = 20 }: IconProps) {
     </svg>
   );
 }
+
+export function IconDownload({ size = 13 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...base} strokeWidth={2.2}>
+      <path d="M12 3v12.5M7 11l5 5 5-5" />
+      <path d="M4 19.5h16" />
+    </svg>
+  );
+}

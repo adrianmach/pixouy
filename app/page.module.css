@@ -78,6 +78,11 @@
 .navLink:hover::after {
   width: 100%;
 }
+.navLinkWithIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 .navCta {
   display: inline-block;
   font-family: "Inter", sans-serif;
@@ -171,6 +176,12 @@
 }
 .mobileMenuLink:hover {
   color: var(--orange);
+}
+.mobileMenuLinkWithIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 28px;
 }
 .mobileMenuCta {
   margin-top: 12px;
