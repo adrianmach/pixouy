@@ -514,7 +514,19 @@ export default function Home() {
         </div>
         <div className={styles.footerBottom}>
           <span className={styles.footerCopy}>© 2026 Pixo · Hecho en Montevideo</span>
-          <span className={styles.footerCode}>PIXO_DSN_2026</span>
+          <div className={styles.footerBottomRight}>
+            <a
+              href="/portfolio-adrian-machin.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className={styles.footerPortfolioLink}
+              aria-label="Descargar portfolio técnico de Adrian Machin en PDF (se abre en una nueva pestaña)"
+            >
+              portfolio técnico
+            </a>
+            <span className={styles.footerCode}>PIXO_DSN_2026</span>
+          </div>
         </div>
       </footer>
     </div>

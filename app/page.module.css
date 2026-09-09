@@ -1163,6 +1163,21 @@
   font-size: 11px;
   color: rgba(245, 241, 234, 0.4);
 }
+.footerBottomRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.footerPortfolioLink {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  color: rgba(245, 241, 234, 0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footerPortfolioLink:hover {
+  color: var(--orange);
+}
 
 /* ===== responsive ===== */
 @media (max-width: 900px) {

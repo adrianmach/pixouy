@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import styles from "../page.module.css";
-import { IconDownload } from "./mockups/Icons";
 
 const LINKS = [
   { href: "#servicios", label: "servicios" },
@@ -10,8 +9,6 @@ const LINKS = [
   { href: "#proceso", label: "proceso" },
   { href: "#faq", label: "faq" },
 ];
-
-const PORTFOLIO_HREF = "/portfolio-adrian-machin.pdf";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,17 +50,6 @@ export default function Header() {
             {l.label}
           </a>
         ))}
-        <a
-          href={PORTFOLIO_HREF}
-          target="_blank"
-          rel="noopener noreferrer"
-          download
-          className={`${styles.navLink} ${styles.navLinkWithIcon}`}
-          aria-label="Descargar portfolio técnico de Adrian Machin en PDF (se abre en una nueva pestaña)"
-        >
-          <IconDownload size={13} />
-          portfolio técnico
-        </a>
       </nav>
       <a href="https://wa.me/59898955038" className={styles.navCta}>
         CONTACTAR
@@ -94,18 +80,6 @@ export default function Header() {
             {l.label}
           </a>
         ))}
-        <a
-          href={PORTFOLIO_HREF}
-          target="_blank"
-          rel="noopener noreferrer"
-          download
-          className={`${styles.mobileMenuLink} ${styles.mobileMenuLinkWithIcon}`}
-          aria-label="Descargar portfolio técnico de Adrian Machin en PDF (se abre en una nueva pestaña)"
-          onClick={closeMenu}
-        >
-          <IconDownload size={22} />
-          portfolio
-        </a>
         <a
           href="https://wa.me/59898955038"
           className={styles.mobileMenuCta}
