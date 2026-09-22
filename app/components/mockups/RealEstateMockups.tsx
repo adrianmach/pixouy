@@ -8,11 +8,10 @@ import {
   IconImagePlaceholder,
   IconLock,
   IconMapPin,
-  IconMic,
   IconSparkle,
 } from "./Icons";
 
-/* ===================== PASO 01 — fotos ===================== */
+/* ===================== PASO 01 — fotos + campos mínimos ===================== */
 export function PropertyPhotosMockup() {
   const { ref, inView } = useInView<HTMLDivElement>();
 
@@ -26,12 +25,29 @@ export function PropertyPhotosMockup() {
           <IconImagePlaceholder size={13} /> Nueva propiedad
         </span>
       </div>
-      <div className={styles.photoGrid}>
+      <div className={styles.photoStrip}>
         {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} className={styles.photoTile} style={{ transitionDelay: `${i * 110}ms` }}>
-            <IconImagePlaceholder size={16} />
+          <div key={i} className={styles.photoStripTile} style={{ transitionDelay: `${i * 90}ms` }}>
+            <IconImagePlaceholder size={13} />
           </div>
         ))}
+      </div>
+      <div className={styles.photoFields} style={{ transitionDelay: "620ms" }}>
+        <div className={styles.opChips}>
+          <span className={`${styles.opChip} ${styles.opChipActive}`}>Alquiler</span>
+          <span className={styles.opChip}>Venta</span>
+          <span className={styles.opChip}>Temporal</span>
+        </div>
+        <div className={styles.fieldRow}>
+          <div className={styles.fieldMini}>
+            <span className={styles.fieldMiniLabel}>Zona</span>
+            <span className={styles.fieldMiniValue}>Pocitos</span>
+          </div>
+          <div className={styles.fieldMini}>
+            <span className={styles.fieldMiniLabel}>Precio</span>
+            <span className={styles.fieldMiniValue}>USD 850</span>
+          </div>
+        </div>
       </div>
       <div className={styles.uploadBar}>
         <span className={styles.uploadBtn}>Subir fotos</span>
@@ -41,9 +57,9 @@ export function PropertyPhotosMockup() {
   );
 }
 
-/* ===================== PASO 02 — dictado ===================== */
+/* ===================== PASO 02 — descripción escrita ===================== */
 const VOICE_TEXT =
-  "Apartamento 2 dormitorios en Pocitos, muy luminoso, cocina equipada, garaje, a una cuadra de la rambla. Alquiler USD 850 más gastos.";
+  "Muy luminoso, cocina equipada, garaje, a una cuadra de la rambla. Ideal para pareja.";
 
 export function PropertyVoiceMockup() {
   const { ref, inView } = useInView<HTMLDivElement>();
@@ -69,10 +85,7 @@ export function PropertyVoiceMockup() {
   return (
     <div ref={ref} className={`${styles.mockup} ${styles.voiceMockup}`}>
       <div className={styles.appHeader}>
-        <span className={styles.appTitle}>Contale a la IA</span>
-        <span className={styles.micDot}>
-          <IconMic size={12} />
-        </span>
+        <span className={styles.appTitle}>Describí la propiedad</span>
       </div>
       <div className={styles.voiceBox}>
         <p className={styles.voiceText}>

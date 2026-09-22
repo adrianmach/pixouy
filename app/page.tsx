@@ -66,20 +66,20 @@ const REALESTATE_TAGS = [
 const REALESTATE_STEPS = [
   {
     num: "01",
-    title: "Sacá las fotos",
-    desc: "El agente saca las fotos de la propiedad desde el celular. Directo en la calle, sin volver a la oficina.",
+    title: "Sacá las fotos y cargá lo mínimo",
+    desc: "El agente saca las fotos desde el celular y completa solo los campos esenciales: operación (alquiler, venta o temporal), zona y precio. Lo mínimo indispensable.",
     Mockup: PropertyPhotosMockup,
   },
   {
     num: "02",
-    title: "Dictá o escribí en lenguaje natural",
-    desc: "Contale a la IA sobre la propiedad como se lo dirías a un cliente. Podés escribir o dictar por voz. Sin campos, sin planillas.",
+    title: "Describí el resto por escrito",
+    desc: "Escribí los detalles de la propiedad en lenguaje natural, como se lo contarías a un cliente. Sin formularios largos, sin campos interminables.",
     Mockup: PropertyVoiceMockup,
   },
   {
     num: "03",
-    title: "La IA arma la ficha completa",
-    desc: "En segundos, la inteligencia artificial genera el título, una descripción profesional, extrae las características y sugiere la categorización. Todo listo para revisar.",
+    title: "La IA completa la ficha",
+    desc: "Con las fotos, los datos mínimos y tu descripción, la inteligencia artificial genera el título profesional, redacta una descripción atractiva, extrae las características y completa la ficha. Todo listo para revisar.",
     Mockup: PropertyAIMockup,
   },
   {
