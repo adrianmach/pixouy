@@ -182,3 +182,41 @@ export function IconDownload({ size = 13 }: IconProps) {
     </svg>
   );
 }
+
+export function IconMic({ size = 14 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...base} strokeWidth={2.2}>
+      <rect x="9" y="2.5" width="6" height="12" rx="3" />
+      <path d="M5.5 11a6.5 6.5 0 0 0 13 0" />
+      <path d="M12 17.5V21" />
+      <path d="M8.5 21h7" />
+    </svg>
+  );
+}
+
+export function IconMapPin({ size = 13 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...base} strokeWidth={2}>
+      <path d="M12 21s7-7.4 7-12.6A7 7 0 0 0 5 8.4C5 13.6 12 21 12 21z" />
+      <circle cx="12" cy="8.4" r="2.4" />
+    </svg>
+  );
+}
+
+export function IconLayout({ size = 20 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...base} strokeWidth={1.8}>
+      <rect x="3" y="4" width="18" height="16" rx="2.2" />
+      <path d="M3 9.5h18" />
+      <path d="M9 9.5V20" />
+    </svg>
+  );
+}
+
+export function IconSparkle({ size = 11 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <path d="M11.2 2.5c.3 3.2 1.1 5.4 2.4 6.7 1.3 1.3 3.5 2.1 6.7 2.4-3.2.3-5.4 1.1-6.7 2.4-1.3 1.3-2.1 3.5-2.4 6.7-.3-3.2-1.1-5.4-2.4-6.7-1.3-1.3-3.5-2.1-6.7-2.4 3.2-.3 5.4-1.1 6.7-2.4 1.3-1.3 2.1-3.5 2.4-6.7z" />
+    </svg>
+  );
+}

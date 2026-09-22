@@ -648,6 +648,214 @@
   transform: translateY(-4px);
 }
 
+/* ============ servicio 04 — plataformas inmobiliarias ============ */
+.reBlock {
+  position: relative;
+  margin-top: clamp(72px, 10vw, 120px);
+  padding: clamp(40px, 6vw, 72px) clamp(24px, 4vw, 56px);
+  border-radius: 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.reHeader {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.reBigNum {
+  position: absolute;
+  top: clamp(-30px, -4vw, -10px);
+  right: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 900;
+  font-size: clamp(4.5rem, 12vw, 9rem);
+  line-height: 1;
+  color: var(--orange);
+  opacity: 0.14;
+  pointer-events: none;
+  user-select: none;
+}
+.reBadge {
+  display: inline-flex;
+  color: var(--teal);
+  background: var(--teal-soft);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+.reTitle {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  color: var(--ink);
+  max-width: 20ch;
+}
+.reSubtitle {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+
+.reStepsIntro {
+  margin-top: clamp(48px, 7vw, 80px);
+  text-align: center;
+}
+.reStepsTitle {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.reStepsSubtitle {
+  margin: 10px 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.reSteps {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 7vw, 80px);
+  margin-top: clamp(40px, 6vw, 64px);
+}
+.reStep {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(28px, 4.5vw, 56px);
+}
+.reStepReverse {
+  flex-direction: row-reverse;
+}
+.reStepMedia {
+  flex: 1 1 320px;
+  min-width: 0;
+  max-width: 380px;
+}
+.reStepText {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.reStepNum {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--teal-mid);
+}
+.reStepTitle {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.reStepDesc {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.reShowcase {
+  margin-top: clamp(64px, 8vw, 104px);
+  padding-top: clamp(48px, 7vw, 80px);
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.reShowcaseTitle {
+  margin: 0 auto;
+  max-width: 24ch;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.reShowcaseFrame {
+  margin: 32px auto 0;
+  max-width: 720px;
+}
+.reFeatures {
+  margin-top: clamp(40px, 6vw, 64px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+.reFeatureCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.reFeatureIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--teal-soft);
+  color: var(--teal);
+}
+.reFeatureTitle {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+}
+.reFeatureDesc {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.reCta {
+  margin-top: clamp(56px, 7vw, 88px);
+  padding-top: clamp(40px, 6vw, 64px);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+.reCtaText {
+  margin: 0;
+  max-width: 32ch;
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.reCtaNote {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
 /* ============ precios ============ */
 .pricingSection {
   background: var(--bg);
@@ -1184,6 +1392,9 @@
   .whyGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .reFeatures {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .pricingGrid {
     grid-template-columns: 1fr;
     max-width: 460px;
@@ -1294,6 +1505,40 @@
   }
   .chips {
     margin-bottom: 2px;
+  }
+  .reBlock {
+    margin-top: 56px;
+    padding: 36px 20px;
+    border-radius: 16px;
+  }
+  .reBigNum {
+    top: -8px;
+    font-size: clamp(3.2rem, 22vw, 4.5rem);
+  }
+  .reHeader {
+    padding-top: 26px;
+  }
+  .reStep,
+  .reStepReverse {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .reStepMedia {
+    flex: none;
+    max-width: 260px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .reStepText {
+    flex: none;
+  }
+  .reFeatures {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .reShowcaseFrame {
+    max-width: 280px;
   }
   .parallaxSection {
     height: 56vh;

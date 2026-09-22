@@ -649,9 +649,471 @@
   white-space: nowrap;
 }
 
+/* ===================== PROPERTY PHOTOS MOCKUP (paso 01) ===================== */
+.photosMockup {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+}
+.photoGrid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(6px, 1.4vw, 10px);
+  padding: clamp(8px, 1.8vw, 14px);
+}
+.photoTile {
+  aspect-ratio: 1;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-alt), var(--line));
+  color: #a89e90;
+  opacity: 0;
+  transform: translateY(8px) scale(0.94);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.inView .photoTile {
+  opacity: 1;
+  transform: none;
+}
+.uploadBar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 clamp(8px, 1.8vw, 14px) clamp(8px, 1.8vw, 14px);
+  padding: clamp(6px, 1.4vw, 11px) clamp(8px, 1.8vw, 13px);
+  background: var(--orange);
+  border-radius: 8px;
+}
+.uploadBtn {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: clamp(7.5px, 1.4vw, 10.5px);
+  color: #fff;
+}
+.uploadCount {
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(7px, 1.2vw, 9.5px);
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ===================== PROPERTY VOICE MOCKUP (paso 02) ===================== */
+.voiceMockup {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+}
+.micDot {
+  flex-shrink: 0;
+  width: clamp(18px, 3.6vw, 26px);
+  height: clamp(18px, 3.6vw, 26px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--teal);
+  color: #fff;
+  animation: micPulse 1.7s ease-in-out infinite;
+}
+@keyframes micPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(14, 79, 74, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(14, 79, 74, 0);
+  }
+}
+.voiceBox {
+  flex: 1;
+  min-height: 0;
+  margin: 0 clamp(10px, 2vw, 15px) clamp(10px, 2vw, 15px);
+  padding: clamp(10px, 2vw, 15px);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  overflow: hidden;
+}
+.voiceText {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(8px, 1.5vw, 11px);
+  line-height: 1.55;
+  color: var(--ink);
+}
+.voiceCursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  margin-left: 1px;
+  background: var(--teal);
+  vertical-align: -0.1em;
+  animation: cursorBlink 0.9s step-end infinite;
+}
+@keyframes cursorBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ===================== PROPERTY AI FICHA MOCKUP (paso 03) ===================== */
+.fichaMockup {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(7px, 1.4vw, 11px);
+  padding: clamp(12px, 2.4vw, 18px);
+}
+.fichaAiLabel,
+.fichaTitle,
+.fichaChips,
+.fichaDesc,
+.fichaFooter {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+}
+.inView .fichaAiLabel,
+.inView .fichaTitle,
+.inView .fichaChips,
+.inView .fichaDesc,
+.inView .fichaFooter {
+  opacity: 1;
+  transform: none;
+}
+.fichaAiLabel {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: clamp(6.5px, 1.1vw, 8.5px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: var(--teal-soft);
+  padding: 4px 9px;
+  border-radius: 999px;
+}
+.fichaTitle {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(10px, 2vw, 14px);
+  line-height: 1.25;
+  color: var(--ink);
+}
+.fichaChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.fichaChip {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: clamp(6px, 1vw, 7.5px);
+  color: var(--ink-soft);
+  background: var(--bg-alt);
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.fichaDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.fichaLine {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-alt);
+}
+.fichaFooter {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: clamp(6px, 1.2vw, 10px);
+  border-top: 1px solid var(--line);
+}
+.fichaPrice {
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(9px, 1.8vw, 12.5px);
+  color: var(--orange);
+  white-space: nowrap;
+}
+.fichaLocation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(6.5px, 1.1vw, 8.5px);
+  color: var(--ink-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fichaLocation svg {
+  flex-shrink: 0;
+  color: var(--teal-mid);
+}
+
+/* ===================== PROPERTY PUBLISH MOCKUP (paso 04) ===================== */
+.publishMockup {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+}
+.publishImg {
+  position: relative;
+  flex: 1.1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--teal-soft), #cfe4e1);
+  color: var(--teal-mid);
+}
+.publishLangs {
+  position: absolute;
+  top: clamp(7px, 1.4vw, 11px);
+  left: clamp(7px, 1.4vw, 11px);
+  display: flex;
+  gap: 4px;
+}
+.publishLang {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: clamp(5.5px, 1vw, 7px);
+  letter-spacing: 0.03em;
+  color: var(--teal);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+.publishBody {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: clamp(9px, 1.8vw, 14px);
+}
+.publishTitle {
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(8.5px, 1.7vw, 11.5px);
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.publishMeta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(6.5px, 1.1vw, 8.5px);
+  color: var(--ink-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.publishMeta svg {
+  flex-shrink: 0;
+  color: var(--teal-mid);
+}
+.publishRow {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.publishPrice {
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(9px, 1.8vw, 12.5px);
+  color: var(--orange);
+  white-space: nowrap;
+}
+.publishBtn {
+  flex-shrink: 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: clamp(6.5px, 1.3vw, 9.5px);
+  color: #fff;
+  background: var(--orange);
+  padding: clamp(5px, 1.2vw, 9px) clamp(10px, 2vw, 16px);
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.3s ease-out, color 0.3s ease-out;
+}
+.publishBtnDone {
+  background: var(--teal);
+}
+
+/* ===================== SITE MOCKUP (plataforma completa) ===================== */
+.siteMockup {
+  background: #ffffff;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.siteNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: clamp(7px, 1.4vw, 11px) clamp(12px, 2.4vw, 18px);
+  border-bottom: 1px solid #eeeeeb;
+  flex-shrink: 0;
+}
+.siteLogo {
+  font-family: "Archivo", sans-serif;
+  font-weight: 900;
+  font-size: clamp(9px, 1.6vw, 12px);
+  letter-spacing: 0.02em;
+  color: var(--teal);
+  flex-shrink: 0;
+}
+.siteNavLinks {
+  display: flex;
+  gap: clamp(8px, 1.6vw, 15px);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(6.5px, 1.1vw, 8.5px);
+  color: #8a8a86;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.sitePropGrid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(6px, 1.4vw, 10px);
+  padding: clamp(8px, 1.8vw, 14px) clamp(12px, 2.4vw, 18px);
+}
+.sitePropCard {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.sitePropImg {
+  aspect-ratio: 4 / 3;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sitePropImg1 {
+  background: linear-gradient(135deg, #fde3d3, #f7c9a8);
+  color: #d97a3f;
+}
+.sitePropImg2 {
+  background: linear-gradient(135deg, var(--teal-soft), #b9d9d5);
+  color: var(--teal-mid);
+}
+.sitePropImg3 {
+  background: linear-gradient(135deg, var(--bg-alt), var(--line));
+  color: #9c9690;
+}
+.sitePropName {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: clamp(6.5px, 1.1vw, 8.5px);
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sitePropPrice {
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(7.5px, 1.4vw, 10px);
+  color: var(--orange);
+}
+.siteMapStrip {
+  position: relative;
+  flex-shrink: 0;
+  height: clamp(24px, 5vw, 36px);
+  margin: 0 clamp(12px, 2.4vw, 18px) clamp(10px, 2vw, 15px);
+  border-radius: 7px;
+  background: linear-gradient(135deg, #e4ede9, #d4e3de);
+  overflow: hidden;
+}
+.siteMapLabel {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: clamp(5.5px, 1vw, 7px);
+  color: var(--teal);
+  white-space: nowrap;
+}
+.siteMapPin {
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50% 50% 50% 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background: var(--orange);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);
+}
+.siteChatBubble {
+  position: absolute;
+  right: clamp(10px, 2vw, 16px);
+  bottom: clamp(10px, 2vw, 16px);
+  width: clamp(22px, 4.4vw, 32px);
+  height: clamp(22px, 4.4vw, 32px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--teal);
+  color: #fff;
+  box-shadow: 0 8px 18px -6px rgba(14, 79, 74, 0.5);
+  animation: micPulse 2.2s ease-in-out infinite;
+}
+
 @media (max-width: 768px) {
   .mockup {
     max-height: 240px;
+  }
+  .siteMockup {
+    aspect-ratio: auto;
+    max-height: none;
+  }
+  .sitePropGrid {
+    grid-template-columns: 1fr;
+  }
+  .sitePropImg {
+    aspect-ratio: 16 / 9;
   }
 }
 
@@ -663,7 +1125,20 @@
   .flowConnector,
   .statusDot,
   .productPrice,
-  .ghostCursor {
+  .ghostCursor,
+  .micDot,
+  .voiceCursor,
+  .siteChatBubble {
     animation: none;
+  }
+  .photoTile,
+  .fichaAiLabel,
+  .fichaTitle,
+  .fichaChips,
+  .fichaDesc,
+  .fichaFooter {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

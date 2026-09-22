@@ -9,10 +9,21 @@ import WebMockup from "./components/mockups/WebMockup";
 import AutomationMockup from "./components/mockups/AutomationMockup";
 import StoreMockup from "./components/mockups/StoreMockup";
 import {
+  PropertyAIMockup,
+  PropertyPhotosMockup,
+  PropertyPublishMockup,
+  PropertyVoiceMockup,
+  RealEstateSiteMockup,
+} from "./components/mockups/RealEstateMockups";
+import {
+  IconChat,
   IconCheck,
   IconClock,
   IconCode,
   IconHeadset,
+  IconLayout,
+  IconMapPin,
+  IconSearch,
   IconTarget,
 } from "./components/mockups/Icons";
 import styles from "./page.module.css";
@@ -40,6 +51,65 @@ const SERVICIOS = [
     Mockup: StoreMockup,
     featured: true,
     cta: { label: "QUIERO MI TIENDA ↗", href: "https://wa.me/59898955038" },
+  },
+];
+
+const REALESTATE_TAGS = [
+  "Next.js",
+  "IA",
+  "Multi-idioma",
+  "Mapa interactivo",
+  "Bot conversacional",
+  "SEO",
+];
+
+const REALESTATE_STEPS = [
+  {
+    num: "01",
+    title: "Sacá las fotos",
+    desc: "El agente saca las fotos de la propiedad desde el celular. Directo en la calle, sin volver a la oficina.",
+    Mockup: PropertyPhotosMockup,
+  },
+  {
+    num: "02",
+    title: "Dictá o escribí en lenguaje natural",
+    desc: "Contale a la IA sobre la propiedad como se lo dirías a un cliente. Podés escribir o dictar por voz. Sin campos, sin planillas.",
+    Mockup: PropertyVoiceMockup,
+  },
+  {
+    num: "03",
+    title: "La IA arma la ficha completa",
+    desc: "En segundos, la inteligencia artificial genera el título, una descripción profesional, extrae las características y sugiere la categorización. Todo listo para revisar.",
+    Mockup: PropertyAIMockup,
+  },
+  {
+    num: "04",
+    title: "Revisá y publicá",
+    desc: "Revisás que todo esté bien, ajustás si querés, y publicás. La propiedad ya está online, en tu sitio, en todos los idiomas.",
+    Mockup: PropertyPublishMockup,
+  },
+];
+
+const REALESTATE_FEATURES = [
+  {
+    title: "Bot conversacional multi-idioma",
+    desc: "Responde consultas 24/7 sobre tu cartera, en español, inglés y ruso.",
+    Icon: IconChat,
+  },
+  {
+    title: "Mapa interactivo",
+    desc: "Tus propiedades ubicadas en el mapa, con filtros por zona.",
+    Icon: IconMapPin,
+  },
+  {
+    title: "Diseño profesional premium",
+    desc: "Estética editorial que transmite seriedad y calidad.",
+    Icon: IconLayout,
+  },
+  {
+    title: "SEO optimizado",
+    desc: "Para que Google te encuentre y captes más clientes.",
+    Icon: IconSearch,
   },
 ];
 
@@ -303,6 +373,87 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal as="div" className={styles.reBlock}>
+            <div className={styles.reHeader}>
+              <span className={styles.reBigNum} aria-hidden="true">
+                04
+              </span>
+              <span className={`${styles.tag} ${styles.reBadge}`}>
+                PARA INMOBILIARIAS
+              </span>
+              <h2 className={styles.reTitle}>Plataformas Inmobiliarias con IA</h2>
+              <p className={styles.reSubtitle}>
+                El sitio web que carga propiedades por vos. Tu agente saca fotos, la
+                inteligencia artificial arma la ficha completa. Sitio profesional, bot
+                multi-idioma y carga instantánea.
+              </p>
+              <div className={styles.chips}>
+                {REALESTATE_TAGS.map((t) => (
+                  <span key={t} className={styles.chip}>
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.reStepsIntro}>
+              <h3 className={styles.reStepsTitle}>Cargar una propiedad, en segundos.</h3>
+              <p className={styles.reStepsSubtitle}>
+                Olvidate de llenar formularios campo por campo. Así de simple:
+              </p>
+            </div>
+
+            <div className={styles.reSteps}>
+              {REALESTATE_STEPS.map((step, i) => (
+                <Reveal
+                  as="div"
+                  key={step.num}
+                  className={`${styles.reStep} ${i % 2 === 1 ? styles.reStepReverse : ""}`}
+                >
+                  <div className={styles.reStepMedia}>
+                    <step.Mockup />
+                  </div>
+                  <div className={styles.reStepText}>
+                    <span className={styles.reStepNum}>PASO {step.num}</span>
+                    <h4 className={styles.reStepTitle}>{step.title}</h4>
+                    <p className={styles.reStepDesc}>{step.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal as="div" className={styles.reShowcase}>
+              <h3 className={styles.reShowcaseTitle}>
+                Una plataforma completa, no solo un catálogo.
+              </h3>
+              <div className={styles.reShowcaseFrame}>
+                {/* REEMPLAZAR: captura real de inmo-intel.vercel.app */}
+                <RealEstateSiteMockup />
+              </div>
+              <div className={styles.reFeatures}>
+                {REALESTATE_FEATURES.map((f) => (
+                  <div key={f.title} className={styles.reFeatureCard}>
+                    <span className={styles.reFeatureIcon}>
+                      <f.Icon size={20} />
+                    </span>
+                    <h4 className={styles.reFeatureTitle}>{f.title}</h4>
+                    <p className={styles.reFeatureDesc}>{f.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal as="div" className={styles.reCta}>
+              <p className={styles.reCtaText}>
+                ¿Tenés una inmobiliaria? Dejá de perder tiempo cargando propiedades.
+              </p>
+              <a href="https://wa.me/59898955038" className={styles.ctaFilled}>
+                QUIERO MI PLATAFORMA ↗
+              </a>
+              <span className={styles.reCtaNote}>Desde USD 400. Demo disponible.</span>
+            </Reveal>
+          </Reveal>
         </div>
       </section>
 
