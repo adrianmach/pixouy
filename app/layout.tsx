@@ -21,9 +21,9 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font -- Archivo needs the wdth axis, which next/font/google doesn't expose */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font -- Keep the existing shared Google Fonts stylesheet with display=swap */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;800&display=swap"
           rel="stylesheet"
         />
       </head>

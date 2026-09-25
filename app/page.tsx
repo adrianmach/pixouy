@@ -1,127 +1,8 @@
+import Image from "next/image";
 import Header from "./components/Header";
-import Showcase from "./components/Showcase";
-import HeroFade from "./components/HeroFade";
 import Reveal from "./components/Reveal";
-import Counter from "./components/Counter";
-import Parallax from "./components/Parallax";
 import FAQAccordion from "./components/FAQAccordion";
-import WebMockup from "./components/mockups/WebMockup";
-import AutomationMockup from "./components/mockups/AutomationMockup";
-import StoreMockup from "./components/mockups/StoreMockup";
-import {
-  PropertyAIMockup,
-  PropertyPhotosMockup,
-  PropertyPublishMockup,
-  PropertyVoiceMockup,
-  RealEstateSiteMockup,
-} from "./components/mockups/RealEstateMockups";
-import {
-  IconChat,
-  IconCheck,
-  IconClock,
-  IconCode,
-  IconHeadset,
-  IconLayout,
-  IconMapPin,
-  IconSearch,
-  IconTarget,
-} from "./components/mockups/Icons";
 import styles from "./page.module.css";
-
-const SERVICIOS = [
-  {
-    num: "01",
-    title: "Páginas Web",
-    desc: "Sitios rápidos y a medida. Diseño, código y despliegue. Construidos para convertir visitantes en clientes.",
-    chips: ["Next.js", "SEO", "Mobile first", "Carga rápida"],
-    Mockup: WebMockup,
-  },
-  {
-    num: "02",
-    title: "Automatizaciones",
-    desc: "Conectamos tus herramientas. Pedidos, pagos, mensajes y reportes que se ejecutan solos, 24/7.",
-    chips: ["APIs", "Webhooks", "IA", "Notificaciones"],
-    Mockup: AutomationMockup,
-  },
-  {
-    num: "03",
-    title: "Tiendas Online",
-    desc: "Tu negocio abierto 24/7. Catálogo, carrito, pagos y envíos. Mientras dormís, tu tienda vende.",
-    chips: ["Shopify", "WooCommerce", "MercadoPago", "Stock", "Envíos"],
-    Mockup: StoreMockup,
-    featured: true,
-    cta: { label: "QUIERO MI TIENDA ↗", href: "https://wa.me/59898955038" },
-  },
-];
-
-const REALESTATE_TAGS = [
-  "Next.js",
-  "IA",
-  "Multi-idioma",
-  "Mapa interactivo",
-  "Bot conversacional",
-  "SEO",
-];
-
-const REALESTATE_STEPS = [
-  {
-    num: "01",
-    title: "Sacá las fotos y cargá lo mínimo",
-    desc: "El agente saca las fotos desde el celular y completa solo los campos esenciales: operación (alquiler, venta o temporal), zona y precio. Lo mínimo indispensable.",
-    Mockup: PropertyPhotosMockup,
-  },
-  {
-    num: "02",
-    title: "Describí el resto por escrito",
-    desc: "Escribí los detalles de la propiedad en lenguaje natural, como se lo contarías a un cliente. Sin formularios largos, sin campos interminables.",
-    Mockup: PropertyVoiceMockup,
-  },
-  {
-    num: "03",
-    title: "La IA completa la ficha",
-    desc: "Con las fotos, los datos mínimos y tu descripción, la inteligencia artificial genera el título profesional, redacta una descripción atractiva, extrae las características y completa la ficha. Todo listo para revisar.",
-    Mockup: PropertyAIMockup,
-  },
-  {
-    num: "04",
-    title: "Revisá y publicá",
-    desc: "Revisás que todo esté bien, ajustás si querés, y publicás. La propiedad ya está online, en tu sitio, en todos los idiomas.",
-    Mockup: PropertyPublishMockup,
-  },
-];
-
-const REALESTATE_FEATURES = [
-  {
-    title: "Bot conversacional multi-idioma",
-    desc: "Responde consultas 24/7 sobre tu cartera, en español, inglés y ruso.",
-    Icon: IconChat,
-  },
-  {
-    title: "Mapa interactivo",
-    desc: "Tus propiedades ubicadas en el mapa, con filtros por zona.",
-    Icon: IconMapPin,
-  },
-  {
-    title: "Diseño profesional premium",
-    desc: "Estética editorial que transmite seriedad y calidad.",
-    Icon: IconLayout,
-  },
-  {
-    title: "SEO optimizado",
-    desc: "Para que Google te encuentre y captes más clientes.",
-    Icon: IconSearch,
-  },
-];
-
-const TECH_STACK = [
-  "Next.js",
-  "React",
-  "Shopify",
-  "WordPress",
-  "MercadoPago",
-  "Stripe",
-  "Vercel",
-];
 
 const PRICING = [
   {
@@ -174,59 +55,6 @@ const PRICING = [
   },
 ];
 
-const PROCESO = [
-  {
-    num: "01",
-    title: "Consulta",
-    desc: "Nos contás qué necesitás. Analizamos tu negocio y objetivos.",
-  },
-  {
-    num: "02",
-    title: "Propuesta",
-    desc: "Te enviamos una propuesta con alcance, plazos y precio cerrado.",
-  },
-  {
-    num: "03",
-    title: "Desarrollo",
-    desc: "Construimos tu proyecto con actualizaciones constantes. Vos ves el avance.",
-  },
-  {
-    num: "04",
-    title: "Entrega + Soporte",
-    desc: "Lanzamos tu proyecto y te acompañamos después. No desaparecemos.",
-  },
-];
-
-const NUMEROS = [
-  { value: "+50", label: "proyectos entregados" },
-  { value: "+30", label: "clientes activos" },
-  { value: "24/7", label: "soporte disponible" },
-  { value: "99%", label: "clientes satisfechos" },
-];
-
-const PORQUE = [
-  {
-    title: "Diseño a medida",
-    desc: "Cada sitio se diseña desde cero para tu marca y tu público.",
-    Icon: IconTarget,
-  },
-  {
-    title: "Entrega rápida",
-    desc: "Tu web lista en días, no meses. Procesos ágiles sin perder calidad.",
-    Icon: IconClock,
-  },
-  {
-    title: "Soporte continuo",
-    desc: "No te dejamos solo después del lanzamiento.",
-    Icon: IconHeadset,
-  },
-  {
-    title: "Código propio",
-    desc: "El código y los accesos quedan a tu nombre. Sin dependencias ni ataduras.",
-    Icon: IconCode,
-  },
-];
-
 const FAQ = [
   {
     q: "¿Cuánto tarda un proyecto?",
@@ -254,429 +82,581 @@ const FAQ = [
   },
 ];
 
-const MARQUEE_ITEMS = [
-  "desarrollo web",
-  "ecommerce",
-  "automatización",
-  "ia",
-  "integraciones",
-  "soporte",
+const WHATSAPP = "https://wa.me/59898955038";
+const PROJECTS = [
+  {
+    name: "Benji$",
+    category: "Ecommerce · Moda independiente",
+    image: "benjis",
+    href: "https://benjis-production.up.railway.app/",
+    description:
+      "Una tienda con identidad propia. Catálogo, piezas únicas, pedidos personalizados y gestión en un mismo lugar.",
+  },
+  {
+    name: "Inmobiliaria",
+    category: "Plataforma inmobiliaria · IA",
+    image: "niko",
+    href: "https://inmo-intel.vercel.app/",
+    description:
+      "Propiedades, búsqueda y mapa. Una plataforma con inteligencia artificial que simplifica el trabajo de todos los días.",
+  },
+  {
+    name: "Branda",
+    category: "Software · Dirección creativa con IA",
+    image: "branda",
+    href: "https://branda-production-9d47.up.railway.app/",
+    description:
+      "Del brief a la campaña. Una plataforma para crear contenido sin perder la identidad de cada marca.",
+    status: "En desarrollo",
+  },
 ];
+const SERVICES = [
+  {
+    title: "Webs",
+    label: "Una primera impresión que queda.",
+    description:
+      "Diseño y desarrollo a medida. Sitios rápidos, claros y pensados para que tu marca se encuentre con su público.",
+    image: "/assets/studio.webp",
+    alt: "Espacio de trabajo luminoso con líneas arquitectónicas",
+    detail: "Diseño web · Desarrollo · SEO",
+  },
+  {
+    title: "Ecommerce",
+    label: "Tu marca, abierta al mundo.",
+    description:
+      "Tiendas que dan ganas de recorrer. Catálogo, pagos, envíos y un panel para manejar tu negocio.",
+    image: "/assets/projects/fluz.webp",
+    alt: "Sitio real de Fluz Concept, joyería contemporánea",
+    detail: "Tiendas online · Pagos · Gestión",
+  },
+  {
+    title: "Automatizaciones",
+    label: "Menos tareas. Más tiempo.",
+    description:
+      "Conectamos tus herramientas para que pedidos, mensajes y reportes sigan su curso sin hacerlo todo a mano.",
+    image: "/assets/objects.webp",
+    alt: "Composición de objetos y formas arquitectónicas",
+    detail: "Integraciones · APIs · Procesos",
+  },
+  {
+    title: "Plataformas con IA",
+    label: "Ideas que se vuelven herramientas.",
+    description:
+      "Productos digitales para problemas concretos. Desde una plataforma inmobiliaria hasta software para tu operación.",
+    image: "/assets/projects/branda.webp",
+    alt: "Dirección visual del proyecto Branda",
+    detail: "Software a medida · IA aplicada",
+  },
+];
+const WHY = [
+  ["Código tuyo, sin ataduras", "El código y los accesos quedan a tu nombre."],
+  ["Acompañamiento real", "Estamos antes, durante y después del lanzamiento."],
+  [
+    "Diseño a medida",
+    "Cada proyecto se diseña pensando en tu marca y tus objetivos.",
+  ],
+  [
+    "Resultados que impulsan tu negocio",
+    "Lo que hacemos no solo tiene que verse bien. Tiene que funcionar.",
+  ],
+];
+const PROCESS = [
+  [
+    "Consulta",
+    "Nos contás tu idea. Escuchamos, preguntamos y entendemos lo que tu negocio necesita.",
+  ],
+  [
+    "Propuesta",
+    "Definimos alcance, tiempos y un precio claro. Sabés qué vamos a hacer desde el principio.",
+  ],
+  [
+    "Diseño + desarrollo",
+    "Damos forma a la idea y la construimos. Compartimos avances y ajustamos con vos.",
+  ],
+  [
+    "Lanzamiento",
+    "Publicamos, probamos y te acompañamos. El proyecto sale al mundo; seguimos cerca.",
+  ],
+];
+
+function Arrow() {
+  return (
+    <span className={styles.arrow} aria-hidden="true">
+      ↗
+    </span>
+  );
+}
+function Asterisk({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 100 100"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M47 4L52 94M7 28L91 70M9 76L87 21"
+        stroke="currentColor"
+        strokeWidth="12"
+        strokeLinecap="square"
+      />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
     <div className={styles.page}>
+      <a href="#contenido" className={styles.skipLink}>
+        Saltar al contenido
+      </a>
       <Header />
-
-      <section id="top" className={styles.heroSection}>
-        <span className={styles.heroBigNum} aria-hidden="true">
-          01
-        </span>
-        <div className={styles.container}>
-          <HeroFade className={styles.heroContent}>
-            <Reveal as="span" className={styles.eyebrow}>
-              {"// desarrollo web · ecommerce · automatización · ia"}
-            </Reveal>
-            <Reveal as="h1" className={styles.h1}>
-              sistemas digitales diseñados con{" "}
-              <span className={styles.h1Accent}>precisión</span>.
-            </Reveal>
-            <Reveal as="p" className={styles.heroText}>
-              Creamos páginas web, tiendas online y automatizaciones para
-              hacer crecer tu negocio. Desde Montevideo, para toda LATAM.
-            </Reveal>
-            <Reveal delay={70} className={styles.heroActions}>
-              <a href="#precios" className={styles.ctaFilled}>
-                VER PRECIOS ↓
-              </a>
-              <a
-                href="https://wa.me/59898955038"
-                className={styles.ctaOutlineTeal}
-              >
-                CONTACTAR
-              </a>
-            </Reveal>
-            <Reveal delay={120} className={styles.heroBadges}>
-              <span className={styles.heroBadge}>
-                <IconCheck size={12} /> Entrega en días
-              </span>
-              <span className={styles.heroBadge}>
-                <IconCheck size={12} /> Soporte incluido
-              </span>
-              <span className={styles.heroBadge}>
-                <IconCheck size={12} /> Código propio
-              </span>
-            </Reveal>
-          </HeroFade>
-        </div>
-      </section>
-
-      <section className={styles.trustBar}>
-        <div className={styles.trustBarInner}>
-          <span className={styles.trustLabel}>Tecnologías que usamos</span>
-          <div className={styles.trustLogos}>
-            {TECH_STACK.map((t) => (
-              <span key={t} className={styles.trustLogo}>
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Showcase />
-
-      <div className={styles.ticker} data-ticker="true" aria-hidden="true">
-        <div className={styles.tickerTrack}>
-          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span className={styles.tickerItem} key={`${item}-${i}`}>
-              {item} ✺
+      <main id="contenido">
+        <section id="top" className={styles.hero}>
+          <div className={styles.heroMeta}>
+            <span>Estudio creativo independiente</span>
+            <span>
+              Montevideo, Uruguay <span className={styles.dot} />
             </span>
-          ))}
-        </div>
-      </div>
-
-      <section id="servicios" className={`${styles.section} ${styles.serviciosSection}`}>
-        <div className={styles.container}>
-          <Reveal as="span" className={`${styles.tag} ${styles.tagCentered}`}>
-            [ lo que construimos ]
-          </Reveal>
-          <div className={styles.servicesGrid}>
-            {SERVICIOS.map((s, i) => (
-              <Reveal
-                as="div"
-                key={s.num}
-                className={`${styles.serviceRow} ${s.featured ? styles.serviceRowFeatured : ""} ${i % 2 === 1 ? styles.serviceRowReverse : ""}`}
-              >
-                <div className={styles.serviceText}>
-                  <span className={styles.serviceNum} aria-hidden="true">
-                    {s.num}
-                  </span>
-                  <h2 className={styles.serviceTitle}>{s.title}</h2>
-                  <p className={styles.serviceDesc}>{s.desc}</p>
-                  <div className={styles.chips}>
-                    {s.chips.map((chip) => (
-                      <span key={chip} className={styles.chip}>
-                        {chip}
-                      </span>
-                    ))}
-                  </div>
-                  {s.cta && (
-                    <a href={s.cta.href} className={styles.serviceFeaturedCta}>
-                      {s.cta.label}
-                    </a>
-                  )}
-                </div>
-                <div className={styles.serviceMedia}>
-                  <s.Mockup />
-                </div>
-              </Reveal>
-            ))}
           </div>
-
-          <Reveal as="div" className={styles.reBlock}>
-            <div className={styles.reHeader}>
-              <span className={styles.reBigNum} aria-hidden="true">
-                04
-              </span>
-              <span className={`${styles.tag} ${styles.reBadge}`}>
-                PARA INMOBILIARIAS
-              </span>
-              <h2 className={styles.reTitle}>Plataformas Inmobiliarias con IA</h2>
-              <p className={styles.reSubtitle}>
-                El sitio web que carga propiedades por vos. Tu agente saca fotos, la
-                inteligencia artificial arma la ficha completa. Sitio profesional, bot
-                multi-idioma y carga instantánea.
+          <div className={styles.heroGrid}>
+            <div className={styles.heroCopy}>
+              <h1 className={styles.headline}>
+                <span>Diseño, desarrollo</span>
+                <span>y experiencias</span>
+                <span>digitales con</span>
+                <em>dirección creativa.</em>
+              </h1>
+              <p className={styles.heroDescription}>
+                Creamos páginas web, ecommerce, automatizaciones y productos
+                digitales para marcas que quieren crecer.
               </p>
-              <div className={styles.chips}>
-                {REALESTATE_TAGS.map((t) => (
-                  <span key={t} className={styles.chip}>
-                    {t}
-                  </span>
+              <div className={styles.heroActions}>
+                <a className={styles.button} href="#trabajos">
+                  Ver proyectos <Arrow />
+                </a>
+                <a className={styles.textLink} href={WHATSAPP}>
+                  Contactar <Arrow />
+                </a>
+              </div>
+            </div>
+            <div className={styles.collage}>
+              <div className={styles.colorPaper} />
+              <figure className={styles.heroPhoto}>
+                <Image
+                  src="/assets/montevideo.webp"
+                  alt="Palacio Salvo y arquitectura del centro de Montevideo"
+                  fill
+                  sizes="(max-width: 600px) 70vw, (max-width: 1000px) 43vw, 30vw"
+                  preload
+                />
+                <figcaption>Una mirada desde el sur.</figcaption>
+              </figure>
+              <div className={styles.collageCutout}>
+                <Image
+                  src="/assets/studio.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 600px) 32vw, 16vw"
+                />
+              </div>
+              <Asterisk className={styles.heroAsterisk} />
+              <div className={styles.collageNote}>
+                Marcas más humanas
+                <br />
+                en un mundo
+                <br />
+                <em>más digital.</em>
+              </div>
+              <span className={styles.handwritten}>
+                ideas que toman forma ↗
+              </span>
+              <span className={styles.collageCaption}>
+                Ideas / Sitios / Automatizaciones / Resultados
+              </span>
+            </div>
+          </div>
+          <div className={styles.heroBottom}>
+            <p>
+              Estrategia, diseño y tecnología
+              <br />
+              para un impacto real en tu negocio.
+            </p>
+            <span>Desde Montevideo para Uruguay y LATAM.</span>
+            <a href="#trabajos" aria-label="Explorar proyectos">
+              ↓
+            </a>
+          </div>
+        </section>
+
+        <section id="trabajos" className={styles.work}>
+          <div className={styles.container}>
+            <div className={styles.sectionTop}>
+              <span className={styles.eyebrow}>Proyectos seleccionados</span>
+              <span className={styles.eyebrow}>
+                Diseñados acá. Vividos allá afuera.
+              </span>
+            </div>
+            <div className={styles.workLayout}>
+              <div className={styles.workIntro}>
+                <h2>
+                  El trabajo
+                  <br />
+                  <em>habla.</em>
+                </h2>
+                <p>
+                  Trabajamos con marcas y negocios para crear experiencias
+                  digitales que se ven bien, funcionan y generan resultados.
+                </p>
+                <a
+                  className={styles.textLink}
+                  href="/portfolio-adrian-machin.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ver todos los proyectos <Arrow />
+                </a>
+                <span className={styles.smallNote}>
+                  Portfolio completo · PDF
+                </span>
+                <Asterisk className={styles.workAsterisk} />
+              </div>
+              <div className={styles.projects}>
+                {PROJECTS.map((project) => (
+                  <Reveal
+                    key={project.name}
+                    as="article"
+                    className={styles.project}
+                  >
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Ver proyecto ${project.name} (abre en otra pestaña)`}
+                    >
+                      <div
+                        className={`${styles.projectImage} ${styles[project.image]}`}
+                      >
+                        <Image
+                          src={`/assets/projects/${project.image}.webp`}
+                          alt={`Captura real del sitio de ${project.name}`}
+                          width={1440}
+                          height={1000}
+                          sizes="(max-width: 760px) 90vw, 65vw"
+                        />
+                        <span className={styles.projectView}>
+                          Ver proyecto <Arrow />
+                        </span>
+                      </div>
+                      <div className={styles.projectInfo}>
+                        <div>
+                          <span className={styles.eyebrow}>
+                            {project.category}
+                          </span>
+                          <h3>{project.name}</h3>
+                        </div>
+                        <Arrow />
+                      </div>
+                      <p>{project.description}</p>
+                      {project.status && (
+                        <span className={styles.projectStatus}>
+                          {project.status}
+                        </span>
+                      )}
+                    </a>
+                  </Reveal>
                 ))}
               </div>
             </div>
+          </div>
+        </section>
 
-            <div className={styles.reStepsIntro}>
-              <h3 className={styles.reStepsTitle}>Cargar una propiedad, en segundos.</h3>
-              <p className={styles.reStepsSubtitle}>
-                Olvidate de llenar formularios campo por campo. Así de simple:
-              </p>
+        <section id="servicios" className={styles.section}>
+          <div className={styles.container}>
+            <div className={styles.sectionTop}>
+              <span className={styles.eyebrow}>Lo que hacemos</span>
+              <span className={styles.eyebrow}>
+                Criterio creativo. Soluciones concretas.
+              </span>
             </div>
-
-            <div className={styles.reSteps}>
-              {REALESTATE_STEPS.map((step, i) => (
+            <Reveal className={styles.sectionHeading}>
+              <h2>
+                Diseño que se ve.
+                <br />
+                <em>Tecnología que funciona.</em>
+              </h2>
+              <p>
+                De la primera idea a la última línea de código. Pensamos,
+                diseñamos y construimos lo que tu negocio necesita.
+              </p>
+            </Reveal>
+            <div className={styles.services}>
+              {SERVICES.map((service) => (
                 <Reveal
-                  as="div"
-                  key={step.num}
-                  className={`${styles.reStep} ${i % 2 === 1 ? styles.reStepReverse : ""}`}
+                  key={service.title}
+                  as="article"
+                  className={styles.service}
                 >
-                  <div className={styles.reStepMedia}>
-                    <step.Mockup />
-                  </div>
-                  <div className={styles.reStepText}>
-                    <span className={styles.reStepNum}>PASO {step.num}</span>
-                    <h4 className={styles.reStepTitle}>{step.title}</h4>
-                    <p className={styles.reStepDesc}>{step.desc}</p>
-                  </div>
+                  <a
+                    href={WHATSAPP}
+                    aria-label={`Consultar por ${service.title}`}
+                  >
+                    <div className={styles.serviceImage}>
+                      <Image
+                        src={service.image}
+                        alt={service.alt}
+                        fill
+                        sizes="(max-width: 600px) 90vw, 42vw"
+                      />
+                    </div>
+                    <div className={styles.serviceTitle}>
+                      <h3>{service.title}</h3>
+                      <Arrow />
+                    </div>
+                  </a>
+                  <h4>{service.label}</h4>
+                  <p>{service.description}</p>
+                  <span className={styles.serviceDetail}>{service.detail}</span>
                 </Reveal>
               ))}
             </div>
-
-            <Reveal as="div" className={styles.reShowcase}>
-              <h3 className={styles.reShowcaseTitle}>
-                Una plataforma completa, no solo un catálogo.
-              </h3>
-              <div className={styles.reShowcaseFrame}>
-                {/* REEMPLAZAR: captura real de inmo-intel.vercel.app */}
-                <RealEstateSiteMockup />
+            <div className={styles.inmoNote}>
+              <div>
+                <span className={styles.eyebrow}>Para inmobiliarias</span>
+                <h3>
+                  Menos carga de datos.
+                  <br />
+                  <em>Más tiempo para tus clientes.</em>
+                </h3>
               </div>
-              <div className={styles.reFeatures}>
-                {REALESTATE_FEATURES.map((f) => (
-                  <div key={f.title} className={styles.reFeatureCard}>
-                    <span className={styles.reFeatureIcon}>
-                      <f.Icon size={20} />
-                    </span>
-                    <h4 className={styles.reFeatureTitle}>{f.title}</h4>
-                    <p className={styles.reFeatureDesc}>{f.desc}</p>
-                  </div>
-                ))}
+              <div>
+                <p>
+                  Fotos, datos esenciales y una descripción. La IA arma la ficha
+                  para que revises y publiques. Con mapa, bot multi-idioma y
+                  administración de propiedades.
+                </p>
+                <a className={styles.textLink} href={WHATSAPP}>
+                  Quiero mi plataforma <Arrow />
+                </a>
+                <span className={styles.smallNote}>
+                  Desde USD 400 · Demo disponible
+                </span>
               </div>
-            </Reveal>
+            </div>
+          </div>
+        </section>
 
-            <Reveal as="div" className={styles.reCta}>
-              <p className={styles.reCtaText}>
-                ¿Tenés una inmobiliaria? Dejá de perder tiempo cargando propiedades.
-              </p>
-              <a href="https://wa.me/59898955038" className={styles.ctaFilled}>
-                QUIERO MI PLATAFORMA ↗
-              </a>
-              <span className={styles.reCtaNote}>Desde USD 400. Demo disponible.</span>
-            </Reveal>
-          </Reveal>
-        </div>
-      </section>
-
-      <section id="precios" className={`${styles.section} ${styles.pricingSection}`}>
-        <div className={styles.container}>
-          <Reveal as="span" className={`${styles.tag} ${styles.tagCentered}`}>
-            [ precios ]
-          </Reveal>
-          <Reveal as="h2" className={`${styles.sectionTitle} ${styles.sectionTitleCentered}`}>
-            Planes claros, sin sorpresas.
-          </Reveal>
-          <Reveal as="p" className={`${styles.sectionSubtitle} ${styles.sectionSubtitleCentered}`}>
-            Precios de referencia. Cada proyecto se cotiza según tus necesidades.
-          </Reveal>
-          <div className={styles.pricingGrid}>
-            {PRICING.map((p, i) => (
-              <Reveal
-                as="div"
-                key={p.name}
-                delay={i * 80}
-                className={`${styles.pricingCard} ${p.featured ? styles.pricingCardFeatured : ""}`}
-              >
-                {p.badge && <span className={styles.pricingBadge}>{p.badge}</span>}
-                <span className={styles.pricingName}>{p.name}</span>
-                <span className={styles.pricingPrice}>{p.price}</span>
-                <p className={styles.pricingDesc}>{p.desc}</p>
-                <div className={styles.pricingFeatures}>
-                  {p.features.map((f) => (
-                    <span key={f} className={styles.pricingFeature}>
-                      <IconCheck size={13} />
-                      {f}
-                    </span>
+        <section id="porque" className={styles.why}>
+          <div className={styles.container}>
+            <div className={styles.whyGrid}>
+              <div className={styles.whyVisual}>
+                <span className={styles.eyebrow}>Por qué PIXO</span>
+                <div className={styles.whyPhoto}>
+                  <Image
+                    src="/assets/montevideo.webp"
+                    alt="Una mirada a Montevideo, la ciudad desde donde trabaja PIXO"
+                    fill
+                    sizes="(max-width: 760px) 85vw, 35vw"
+                  />
+                </div>
+                <span className={styles.whyHandwriting}>
+                  Montevideo → LATAM
+                </span>
+                <p>
+                  Ideas reales.
+                  <br />
+                  Resultados concretos.
+                </p>
+              </div>
+              <div className={styles.whyContent}>
+                <Reveal as="h2">
+                  Un estudio chico.
+                  <br />
+                  <em>Una mirada propia.</em>
+                </Reveal>
+                <p className={styles.whyLead}>
+                  Nos involucramos en lo que hacemos. Hablás con quienes
+                  piensan, diseñan y construyen tu proyecto.
+                </p>
+                <div>
+                  {WHY.map(([title, description]) => (
+                    <Reveal key={title} className={styles.reason}>
+                      <h3>{title}</h3>
+                      <p>{description}</p>
+                    </Reveal>
                   ))}
                 </div>
-                <a
-                  href={p.cta.href}
-                  className={
-                    p.variant === "filled"
-                      ? styles.ctaFilled
-                      : p.variant === "outlineTeal"
-                        ? styles.ctaOutlineTeal
-                        : styles.ctaOutline
-                  }
-                >
-                  {p.cta.label}
-                </a>
-              </Reveal>
-            ))}
+              </div>
+            </div>
           </div>
-          <p className={styles.pricingNote}>
-            Todos los precios en USD. Aceptamos transferencia, MercadoPago y crypto. Facturación disponible.
-          </p>
-        </div>
-      </section>
+        </section>
 
-      <section id="proceso" className={`${styles.section} ${styles.processSection}`}>
-        <div className={styles.container}>
-          <Reveal as="span" className={`${styles.tag} ${styles.tagCentered} ${styles.tagOnDark}`}>
-            [ cómo trabajamos ]
-          </Reveal>
-          <Reveal as="h2" className={`${styles.sectionTitle} ${styles.sectionTitleCentered} ${styles.sectionTitleOnDark}`}>
-            Un proceso claro, de principio a fin.
-          </Reveal>
-          <div className={styles.processGrid}>
-            <span className={styles.processLine} aria-hidden="true" />
-            {PROCESO.map((step, i) => (
-              <Reveal as="div" key={step.num} delay={i * 90} className={styles.processStep}>
-                <span className={styles.processNum}>{step.num}</span>
-                <h3 className={styles.processTitle}>{step.title}</h3>
-                <p className={styles.processDesc}>{step.desc}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Parallax id="parallax-tech" image="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80">
-        <Reveal as="p" className={styles.parallaxLabel}>
-          TECNOLOGÍA QUE FUNCIONA
-        </Reveal>
-      </Parallax>
-
-      <section
-        id="porque"
-        className={`${styles.section} ${styles.sectionBordered} ${styles.porqueSection}`}
-      >
-        <div className={styles.container}>
-          <Reveal as="span" className={`${styles.tag} ${styles.tagCentered}`}>
-            [ por qué pixo ]
-          </Reveal>
-          <div className={styles.whyGrid}>
-            {PORQUE.map((p, i) => (
-              <Reveal as="div" key={p.title} delay={i * 70} className={styles.whyCard}>
-                <span
-                  className={`${styles.whyIcon} ${i % 2 === 0 ? styles.whyIconOrange : styles.whyIconTeal}`}
-                >
-                  <p.Icon size={20} />
-                </span>
-                <h3 className={styles.whyTitle}>{p.title}</h3>
-                <p className={styles.whyDesc}>{p.desc}</p>
-              </Reveal>
-            ))}
-          </div>
-          <div className={styles.porqueDivider} />
-          <div className={styles.numbersGrid}>
-            {NUMEROS.map((n, i) => (
-              <Reveal as="div" key={n.label} delay={i * 70} className={styles.numberCard}>
-                <span
-                  className={`${styles.numberValue} ${i % 2 === 1 ? styles.numberValueTeal : ""}`}
-                >
-                  <Counter value={n.value} />
-                </span>
-                <span className={styles.numberLabel}>{n.label}</span>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Parallax id="parallax-code" image="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1920&q=80">
-        <Reveal as="p" className={styles.parallaxLabel}>
-          DESARROLLO · DISEÑO · RESULTADOS
-        </Reveal>
-      </Parallax>
-
-      <section id="faq" className={`${styles.section} ${styles.faqSection}`}>
-        <div className={styles.container}>
-          <Reveal as="span" className={`${styles.tag} ${styles.tagCentered}`}>
-            [ preguntas frecuentes ]
-          </Reveal>
-          <Reveal as="h2" className={`${styles.sectionTitle} ${styles.sectionTitleCentered}`}>
-            Todo lo que necesitás saber.
-          </Reveal>
-          <Reveal className={styles.faqWrap}>
-            <FAQAccordion items={FAQ} />
-          </Reveal>
-        </div>
-      </section>
-
-      <section id="contacto" className={styles.contactSection}>
-        <div className={styles.container}>
-          <Reveal as="span" className={styles.tag}>
-            [ contacto ]
-          </Reveal>
-          <Reveal as="h2" className={styles.contactTitle}>
-            tu próximo proyecto digital, a un mensaje.
-          </Reveal>
-          <Reveal as="p" className={styles.contactSubtitle}>
-            Contanos tu idea y te armamos una propuesta sin compromiso.
-          </Reveal>
-          <div className={styles.contactLinks}>
-            <Reveal delay={0}>
-              <a href="https://wa.me/59898955038" className={styles.ctaFilledLight}>
-                CONTACTAR POR WHATSAPP ↗
-              </a>
+        <section id="proceso" className={styles.section}>
+          <div className={styles.container}>
+            <div className={styles.sectionTop}>
+              <span className={styles.eyebrow}>Cómo trabajamos</span>
+              <span className={styles.eyebrow}>Conversar. Crear. Lanzar.</span>
+            </div>
+            <Reveal className={styles.sectionHeading}>
+              <h2>
+                Las buenas ideas
+                <br />
+                <em>se construyen juntos.</em>
+              </h2>
+              <p>
+                Un proceso claro, con espacio para probar, conversar y tomar
+                buenas decisiones.
+              </p>
             </Reveal>
+            <div className={styles.process}>
+              {PROCESS.map(([title, description]) => (
+                <Reveal key={title} className={styles.processStep}>
+                  <span aria-hidden="true">↗</span>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </Reveal>
+              ))}
+            </div>
           </div>
-          <div className={styles.contactMeta}>
-            <Reveal delay={70}>
-              <a href="mailto:adrianmachinrodriguez@gmail.com" className={styles.contactMail}>
-                adrianmachinrodriguez@gmail.com
-              </a>
-            </Reveal>
-            <Reveal delay={140}>
-              <a href="https://instagram.com/pixodesign.uy" className={styles.contactMail}>
-                @pixodesign.uy
-              </a>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <footer className={styles.footer}>
-        <div className={styles.footerInner}>
-          <div className={styles.footerCol}>
-            <span className={styles.footerName}>PIXO</span>
-            <p className={styles.footerDesc}>
-              Desarrollo web, ecommerce y automatización.
+        <section id="precios" className={styles.pricing}>
+          <div className={styles.container}>
+            <div className={styles.sectionTop}>
+              <span className={styles.eyebrow}>Inversión</span>
+              <span className={styles.eyebrow}>
+                Alcances claros. Precios honestos.
+              </span>
+            </div>
+            <Reveal className={styles.sectionHeading}>
+              <h2>
+                Un punto
+                <br />
+                <em>de partida.</em>
+              </h2>
+              <p>
+                Estos son nuestros precios de referencia. Cada proyecto tiene su
+                contexto y lo cotizamos según tus necesidades.
+              </p>
+            </Reveal>
+            <div>
+              {PRICING.map((plan) => (
+                <Reveal key={plan.name} className={styles.priceRow}>
+                  <div>
+                    <h3>{plan.name}</h3>
+                    <p>{plan.desc}</p>
+                  </div>
+                  <div>
+                    <span className={styles.price}>{plan.price}</span>
+                    <details className={styles.priceDetails}>
+                      <summary>
+                        Qué incluye <span aria-hidden="true">+</span>
+                      </summary>
+                      <ul>
+                        {plan.features.map((feature) => (
+                          <li key={feature}>{feature}</li>
+                        ))}
+                      </ul>
+                    </details>
+                  </div>
+                  <a className={styles.textLink} href={plan.cta.href}>
+                    {plan.cta.label} <Arrow />
+                  </a>
+                </Reveal>
+              ))}
+            </div>
+            <p className={styles.pricingNote}>
+              Todos los precios en USD. Aceptamos transferencia, MercadoPago y
+              crypto. Facturación disponible.
             </p>
-            <span className={styles.footerLoc}>Montevideo, Uruguay</span>
           </div>
-          <div className={styles.footerCol}>
-            <span className={styles.footerColTitle}>Navegación</span>
-            <a href="#servicios" className={styles.footerLink}>
-              Servicios
-            </a>
-            <a href="#precios" className={styles.footerLink}>
-              Precios
-            </a>
-            <a href="#proceso" className={styles.footerLink}>
-              Proceso
-            </a>
-            <a href="#faq" className={styles.footerLink}>
-              FAQ
-            </a>
+        </section>
+
+        <section id="faq" className={styles.section}>
+          <div className={`${styles.container} ${styles.faqLayout}`}>
+            <div>
+              <span className={styles.eyebrow}>Preguntas frecuentes</span>
+              <h2>
+                Antes de
+                <br />
+                <em>empezar.</em>
+              </h2>
+              <p>Las dudas también son parte del proceso.</p>
+            </div>
+            <FAQAccordion items={FAQ} />
           </div>
-          <div className={styles.footerCol}>
-            <span className={styles.footerColTitle}>Contacto</span>
-            <a href="https://wa.me/59898955038" className={styles.footerLink}>
-              WhatsApp
-            </a>
-            <a href="mailto:adrianmachinrodriguez@gmail.com" className={styles.footerLink}>
-              Email
-            </a>
-            <a href="https://instagram.com/pixodesign.uy" className={styles.footerLink}>
-              Instagram
-            </a>
+        </section>
+
+        <section id="contacto" className={styles.contact}>
+          <div className={styles.container}>
+            <div className={styles.sectionTop}>
+              <span className={styles.eyebrow}>¿Tenés una idea?</span>
+              <span className={styles.eyebrow}>Hagámosla realidad.</span>
+            </div>
+            <Reveal as="h2">
+              Hagamos algo
+              <br />
+              que valga la pena
+              <br />
+              <em>mirar.</em>
+              <Asterisk className={styles.contactAsterisk} />
+            </Reveal>
+            <div className={styles.contactBottom}>
+              <a href={WHATSAPP} className={styles.contactCta}>
+                Hablemos <Arrow />
+              </a>
+              <p>
+                Contanos qué tenés en mente.
+                <br />
+                La primera conversación es el comienzo.
+              </p>
+            </div>
           </div>
-        </div>
-        <div className={styles.footerBottom}>
-          <span className={styles.footerCopy}>© 2026 Pixo · Hecho en Montevideo</span>
-          <div className={styles.footerBottomRight}>
-            <a
-              href="/portfolio-adrian-machin.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              download
-              className={styles.footerPortfolioLink}
-              aria-label="Descargar portfolio técnico de Adrian Machin en PDF (se abre en una nueva pestaña)"
-            >
-              portfolio técnico
+        </section>
+      </main>
+      <footer className={styles.footer}>
+        <div className={styles.container}>
+          <div className={styles.footerTop}>
+            <p>
+              Creative digital studio
+              <br />
+              <span>Montevideo, Uruguay.</span>
+            </p>
+            <nav aria-label="Navegación del pie">
+              <a href="#servicios">Servicios</a>
+              <a href="#trabajos">Proyectos</a>
+              <a href="#precios">Precios</a>
+              <a href="#contacto">Contacto</a>
+            </nav>
+            <div>
+              <a
+                href="https://instagram.com/pixodesign.uy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram <Arrow />
+              </a>
+              <a href="mailto:adrianmachinrodriguez@gmail.com">
+                Email <Arrow />
+              </a>
+              <a href={WHATSAPP}>
+                WhatsApp <Arrow />
+              </a>
+            </div>
+          </div>
+          <a
+            href="#top"
+            className={styles.footerLogo}
+            aria-label="PIXO, volver al inicio"
+          >
+            PIXO<span>®</span>
+          </a>
+          <div className={styles.footerBottom}>
+            <span>© 2026 PIXO</span>
+            <span>Diseño + tecnología + dirección creativa.</span>
+            <a href="/portfolio-adrian-machin.pdf" download>
+              Descargar portfolio técnico <Arrow />
             </a>
-            <span className={styles.footerCode}>PIXO_DSN_2026</span>
           </div>
         </div>
       </footer>
