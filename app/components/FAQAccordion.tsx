@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import styles from "../page.module.css";
+import styles from "../digital.module.css";
 import { IconPlus } from "./mockups/Icons";
 
 type FAQItem = { q: string; a: string };

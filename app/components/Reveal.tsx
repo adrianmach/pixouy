@@ -1,5 +1,4 @@
 import type { ElementType, ReactNode, CSSProperties } from "react";
-import styles from "../page.module.css";
 
 type RevealProps = {
   children: ReactNode;
@@ -8,7 +7,7 @@ type RevealProps = {
   className?: string;
 };
 
-// Content stays readable without JavaScript. Supported browsers animate on entry.
+// HomepageMotion progressively enhances these server-rendered elements.
 export default function Reveal({
   children,
   as: As = "div",
@@ -17,7 +16,8 @@ export default function Reveal({
 }: RevealProps) {
   return (
     <As
-      className={`${styles.reveal} ${className}`}
+      className={className}
+      data-reveal=""
       style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}
     >
       {children}

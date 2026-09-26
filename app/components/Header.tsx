@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "../page.module.css";
+import styles from "../digital.module.css";
 
 const LINKS = [
   { href: "#servicios", label: "Servicios" },
   { href: "#trabajos", label: "Proyectos" },
-  { href: "#proceso", label: "Proceso" },
-  { href: "#precios", label: "Precios" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#porque", label: "Nosotros" },
+  { href: "#blog", label: "Blog" },
   { href: "#contacto", label: "Contacto" },
 ];
 
@@ -53,7 +52,7 @@ export default function Header() {
         }
       }
     };
-    const media = window.matchMedia("(min-width: 761px)");
+    const media = window.matchMedia("(min-width: 901px)");
     const onResize = () => {
       if (media.matches) close();
     };
@@ -83,11 +82,6 @@ export default function Header() {
         aria-label="PIXO, inicio"
       >
         <span className={styles.logo}>PIXO</span>
-        <span className={styles.brandCaption}>
-          Creative digital studio
-          <br />
-          Montevideo, Uruguay
-        </span>
       </a>
       <nav className={styles.nav} aria-label="Navegación principal">
         {LINKS.map((link) => (
@@ -96,8 +90,11 @@ export default function Header() {
           </a>
         ))}
       </nav>
+      <span className={styles.country} aria-label="Uruguay">
+        UY <span aria-hidden="true">↗</span>
+      </span>
       <a href="https://wa.me/59898955038" className={styles.navCta}>
-        Hablemos <span aria-hidden="true">↗</span>
+        Hablemos <span aria-hidden="true">→</span>
       </a>
       <button
         ref={toggleRef}
@@ -132,7 +129,7 @@ export default function Header() {
           className={styles.mobileMenuCta}
           onClick={closeMenu}
         >
-          Hablemos ↗
+          Hablemos →
         </a>
       </nav>
     </header>

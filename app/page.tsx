@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Header from "./components/Header";
 import Reveal from "./components/Reveal";
+import HomepageMotion from "./components/HomepageMotion";
 import FAQAccordion from "./components/FAQAccordion";
+import LaptopStage from "./components/LaptopStage";
+import ServiceSymbol, { type ServiceKind } from "./components/ServiceSymbol";
+import digital from "./digital.module.css";
 import styles from "./page.module.css";
 
 const PRICING = [
@@ -112,42 +116,75 @@ const PROJECTS = [
 ];
 const SERVICES = [
   {
-    title: "Webs",
-    label: "Una primera impresión que queda.",
+    title: "Web Design",
+    kind: "web",
     description:
-      "Diseño y desarrollo a medida. Sitios rápidos, claros y pensados para que tu marca se encuentre con su público.",
-    image: "/assets/studio.webp",
-    alt: "Espacio de trabajo luminoso con líneas arquitectónicas",
-    detail: "Diseño web · Desarrollo · SEO",
+      "Sitios con identidad. Diseño y desarrollo a medida para que tu marca se vea bien y funcione mejor.",
+    detail: "Diseño · Desarrollo · SEO",
   },
   {
     title: "Ecommerce",
-    label: "Tu marca, abierta al mundo.",
+    kind: "shop",
     description:
-      "Tiendas que dan ganas de recorrer. Catálogo, pagos, envíos y un panel para manejar tu negocio.",
-    image: "/assets/projects/fluz.webp",
-    alt: "Sitio real de Fluz Concept, joyería contemporánea",
-    detail: "Tiendas online · Pagos · Gestión",
+      "Tu próxima venta empieza con una buena experiencia. Tiendas con catálogo, pagos y gestión simple.",
+    detail: "Tiendas · Pagos · Gestión",
   },
   {
     title: "Automatizaciones",
-    label: "Menos tareas. Más tiempo.",
+    kind: "automation",
     description:
-      "Conectamos tus herramientas para que pedidos, mensajes y reportes sigan su curso sin hacerlo todo a mano.",
-    image: "/assets/objects.webp",
-    alt: "Composición de objetos y formas arquitectónicas",
-    detail: "Integraciones · APIs · Procesos",
+      "Menos tareas repetidas. Conectamos tus herramientas para que pedidos, mensajes y reportes fluyan.",
+    detail: "Procesos · APIs · Integraciones",
   },
   {
-    title: "Plataformas con IA",
-    label: "Ideas que se vuelven herramientas.",
+    title: "Desarrollo + IA",
+    kind: "ai",
     description:
-      "Productos digitales para problemas concretos. Desde una plataforma inmobiliaria hasta software para tu operación.",
-    image: "/assets/projects/branda.webp",
-    alt: "Dirección visual del proyecto Branda",
-    detail: "Software a medida · IA aplicada",
+      "Inteligencia artificial con un propósito. Creamos plataformas y herramientas para problemas reales.",
+    detail: "Software · Plataformas · IA",
+  },
+] satisfies {
+  title: string;
+  kind: ServiceKind;
+  description: string;
+  detail: string;
+}[];
+
+const NOTES = [
+  {
+    category: "Web · Planificación",
+    title: "Antes de diseñar, hacete estas preguntas.",
+    intro: "Una web empieza con una idea clara de lo que tiene que resolver.",
+    paragraphs: [
+      "¿Quién va a entrar a tu sitio y qué necesita encontrar? Empezá por esa persona: qué dudas tiene, qué información busca y qué acción querés que pueda completar.",
+      "Reuní los textos, las fotos y la información de tu negocio. No hace falta tener todo perfecto, pero sí saber qué querés contar y qué te diferencia.",
+      "Elegí una prioridad para el lanzamiento: recibir consultas, mostrar tu trabajo o vender. Ese objetivo ayuda a decidir qué construir primero y qué puede esperar.",
+    ],
+  },
+  {
+    category: "Ecommerce · Experiencia",
+    title: "Una tienda es mucho más que un catálogo.",
+    intro:
+      "Comprar debería ser fácil, desde el primer producto hasta la entrega.",
+    paragraphs: [
+      "Mostrá el producto con fotos claras, medidas y una descripción útil. Lo que una persona preguntaría en tu local también necesita encontrarlo en tu tienda.",
+      "Explicá cómo se paga, cuánto cuesta el envío y cuándo llega el pedido. Esa información tiene que estar disponible antes del último paso.",
+      "Probá el recorrido completo desde tu celular. Buscar, elegir una variante, agregar al carrito y consultar una duda son parte del diseño, tanto como la portada.",
+    ],
+  },
+  {
+    category: "Automatización · Negocios",
+    title: "¿Qué tarea podrías dejar de repetir?",
+    intro:
+      "El mejor punto de partida suele estar en tu rutina de todos los días.",
+    paragraphs: [
+      "Anotá las tareas que hacés una y otra vez: copiar pedidos, enviar avisos, actualizar una planilla. Buscá una que tenga pasos claros y se repita con frecuencia.",
+      "Antes de conectar herramientas, definí de dónde salen los datos, a dónde van y qué debería pasar si falta información. Automatizar también implica pensar las excepciones.",
+      "Empezá con un flujo pequeño y revisá su resultado. Conservá una forma de intervenir cuando haga falta; la herramienta tiene que ayudarte a trabajar mejor.",
+    ],
   },
 ];
+
 const WHY = [
   ["Código tuyo, sin ataduras", "El código y los accesos quedan a tu nombre."],
   ["Acompañamiento real", "Estamos antes, durante y después del lanzamiento."],
@@ -186,21 +223,11 @@ function Arrow() {
     </span>
   );
 }
-function Asterisk({ className = "" }: { className?: string }) {
+function ForwardArrow() {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 100 100"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M47 4L52 94M7 28L91 70M9 76L87 21"
-        stroke="currentColor"
-        strokeWidth="12"
-        strokeLinecap="square"
-      />
-    </svg>
+    <span className={digital.arrow} aria-hidden="true">
+      →
+    </span>
   );
 }
 
@@ -211,222 +238,165 @@ export default function Home() {
         Saltar al contenido
       </a>
       <Header />
-      <main id="contenido">
-        <section id="top" className={styles.hero}>
-          <div className={styles.heroMeta}>
-            <span>Estudio creativo independiente</span>
-            <span>
-              Montevideo, Uruguay <span className={styles.dot} />
-            </span>
-          </div>
-          <div className={styles.heroGrid}>
-            <div className={styles.heroCopy}>
-              <h1 className={styles.headline}>
-                <span>Diseño, desarrollo</span>
-                <span>y experiencias</span>
-                <span>digitales con</span>
-                <em>dirección creativa.</em>
-              </h1>
-              <p className={styles.heroDescription}>
-                Creamos páginas web, ecommerce, automatizaciones y productos
-                digitales para marcas que quieren crecer.
-              </p>
-              <div className={styles.heroActions}>
-                <a className={styles.button} href="#trabajos">
-                  Ver proyectos <Arrow />
-                </a>
-                <a className={styles.textLink} href={WHATSAPP}>
-                  Contactar <Arrow />
-                </a>
-              </div>
-            </div>
-            <div className={styles.collage}>
-              <div className={styles.colorPaper} />
-              <figure className={styles.heroPhoto}>
-                <Image
-                  src="/assets/montevideo.webp"
-                  alt="Palacio Salvo y arquitectura del centro de Montevideo"
-                  fill
-                  sizes="(max-width: 600px) 70vw, (max-width: 1000px) 43vw, 30vw"
-                  preload
-                />
-                <figcaption>Una mirada desde el sur.</figcaption>
-              </figure>
-              <div className={styles.collageCutout}>
-                <Image
-                  src="/assets/studio.webp"
-                  alt=""
-                  fill
-                  sizes="(max-width: 600px) 32vw, 16vw"
-                />
-              </div>
-              <Asterisk className={styles.heroAsterisk} />
-              <div className={styles.collageNote}>
-                Marcas más humanas
-                <br />
-                en un mundo
-                <br />
-                <em>más digital.</em>
-              </div>
-              <span className={styles.handwritten}>
-                ideas que toman forma ↗
-              </span>
-              <span className={styles.collageCaption}>
-                Ideas / Sitios / Automatizaciones / Resultados
-              </span>
-            </div>
-          </div>
-          <div className={styles.heroBottom}>
-            <p>
-              Estrategia, diseño y tecnología
-              <br />
-              para un impacto real en tu negocio.
-            </p>
-            <span>Desde Montevideo para Uruguay y LATAM.</span>
-            <a href="#trabajos" aria-label="Explorar proyectos">
-              ↓
-            </a>
-          </div>
-        </section>
-
-        <section id="trabajos" className={styles.work}>
-          <div className={styles.container}>
-            <div className={styles.sectionTop}>
-              <span className={styles.eyebrow}>Proyectos seleccionados</span>
-              <span className={styles.eyebrow}>
-                Diseñados acá. Vividos allá afuera.
-              </span>
-            </div>
-            <div className={styles.workLayout}>
-              <div className={styles.workIntro}>
-                <h2>
-                  El trabajo
-                  <br />
-                  <em>habla.</em>
-                </h2>
-                <p>
-                  Trabajamos con marcas y negocios para crear experiencias
-                  digitales que se ven bien, funcionan y generan resultados.
+      <HomepageMotion>
+        <section id="top" className={digital.hero}>
+          <div className={digital.container}>
+            <div className={digital.heroGrid}>
+              <div className={digital.heroCopy}>
+                <p className={digital.eyebrow}>
+                  <span className={digital.dot} /> Estudio digital en Uruguay
                 </p>
-                <a
-                  className={styles.textLink}
-                  href="/portfolio-adrian-machin.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Ver todos los proyectos <Arrow />
+                <h1 className={digital.headline}>
+                  <span>IDEAS</span>
+                  <span>QUE</span>
+                  <span>
+                    FUNCIONAN<span className={digital.underscore}>_</span>
+                  </span>
+                </h1>
+                <p className={digital.heroDescription}>
+                  Diseñamos y desarrollamos sitios web, ecommerce,
+                  automatizaciones e integraciones con IA para marcas que
+                  quieren ir más lejos.
+                </p>
+                <a href={WHATSAPP} className={digital.button}>
+                  Hablemos de tu proyecto <ForwardArrow />
                 </a>
-                <span className={styles.smallNote}>
-                  Portfolio completo · PDF
-                </span>
-                <Asterisk className={styles.workAsterisk} />
+                <p className={digital.heroProof}>
+                  <span aria-hidden="true">↳</span> Diseño propio. Código tuyo.
+                  Trato directo.
+                </p>
               </div>
-              <div className={styles.projects}>
-                {PROJECTS.map((project) => (
-                  <Reveal
-                    key={project.name}
-                    as="article"
-                    className={styles.project}
-                  >
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Ver proyecto ${project.name} (abre en otra pestaña)`}
-                    >
-                      <div
-                        className={`${styles.projectImage} ${styles[project.image]}`}
-                      >
-                        <Image
-                          src={`/assets/projects/${project.image}.webp`}
-                          alt={`Captura real del sitio de ${project.name}`}
-                          width={1440}
-                          height={1000}
-                          sizes="(max-width: 760px) 90vw, 65vw"
-                        />
-                        <span className={styles.projectView}>
-                          Ver proyecto <Arrow />
-                        </span>
-                      </div>
-                      <div className={styles.projectInfo}>
-                        <div>
-                          <span className={styles.eyebrow}>
-                            {project.category}
-                          </span>
-                          <h3>{project.name}</h3>
-                        </div>
-                        <Arrow />
-                      </div>
-                      <p>{project.description}</p>
-                      {project.status && (
-                        <span className={styles.projectStatus}>
-                          {project.status}
-                        </span>
-                      )}
-                    </a>
-                  </Reveal>
-                ))}
-              </div>
+              <LaptopStage />
+            </div>
+            <div className={digital.heroBottom}>
+              <span>De Montevideo al mundo.</span>
+              <span>34°54′ S · 56°11′ O</span>
+              <a href="#trabajos">
+                Explorá lo que hacemos <span aria-hidden="true">↓</span>
+              </a>
             </div>
           </div>
         </section>
 
-        <section id="servicios" className={styles.section}>
-          <div className={styles.container}>
-            <div className={styles.sectionTop}>
-              <span className={styles.eyebrow}>Lo que hacemos</span>
-              <span className={styles.eyebrow}>
-                Criterio creativo. Soluciones concretas.
-              </span>
-            </div>
-            <Reveal className={styles.sectionHeading}>
-              <h2>
-                Diseño que se ve.
-                <br />
-                <em>Tecnología que funciona.</em>
+        <section id="trabajos" className={digital.work}>
+          <div className={digital.container}>
+            <div className={digital.sectionBar}>
+              <h2 className={digital.eyebrow}>
+                <span className={digital.dot} /> Proyectos destacados
               </h2>
-              <p>
-                De la primera idea a la última línea de código. Pensamos,
-                diseñamos y construimos lo que tu negocio necesita.
-              </p>
-            </Reveal>
-            <div className={styles.services}>
-              {SERVICES.map((service) => (
+              <a
+                className={digital.textLink}
+                href="/portfolio-adrian-machin.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver todos los proyectos <ForwardArrow />
+                <span className={digital.pdfLabel}>PDF</span>
+              </a>
+            </div>
+            <div className={digital.projects}>
+              {PROJECTS.map((project, index) => (
                 <Reveal
-                  key={service.title}
                   as="article"
-                  className={styles.service}
+                  key={project.name}
+                  className={digital.project}
+                  delay={index * 100}
+                >
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Ver proyecto ${project.name} (abre en otra pestaña)`}
+                  >
+                    <div
+                      className={`${digital.projectImage} ${digital[project.image]}`}
+                    >
+                      <Image
+                        src={`/assets/projects/${project.image}.webp`}
+                        alt={`Captura real del sitio de ${project.name}`}
+                        width={1440}
+                        height={1000}
+                        sizes="(max-width: 700px) 90vw, 30vw"
+                      />
+                      <span className={digital.projectView} aria-hidden="true">
+                        Ver proyecto →
+                      </span>
+                    </div>
+                    <div className={digital.projectCategory}>
+                      {project.category}
+                    </div>
+                    <div className={digital.projectTitle}>
+                      <h3>{project.name}</h3>
+                      <ForwardArrow />
+                    </div>
+                    <p>{project.description}</p>
+                    {project.status && (
+                      <span className={digital.projectStatus}>
+                        {project.status}
+                      </span>
+                    )}
+                  </a>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="servicios" className={digital.servicesSection}>
+          <div className={digital.container}>
+            <div className={digital.sectionHeading}>
+              <div>
+                <p className={digital.eyebrow}>
+                  <span className={digital.dot} /> Lo que hacemos
+                </p>
+                <h2>
+                  NUESTROS
+                  <br />
+                  SERVICIOS<span className={digital.blue}>.</span>
+                </h2>
+              </div>
+              <p className={digital.sectionAside}>
+                Soluciones para
+                <br />
+                un mundo real <span aria-hidden="true">↗</span>
+              </p>
+            </div>
+            <div className={digital.services}>
+              {SERVICES.map((service, index) => (
+                <Reveal
+                  as="article"
+                  key={service.title}
+                  className={`${digital.service} ${digital[service.kind]}`}
+                  delay={index * 100}
                 >
                   <a
                     href={WHATSAPP}
                     aria-label={`Consultar por ${service.title}`}
                   >
-                    <div className={styles.serviceImage}>
-                      <Image
-                        src={service.image}
-                        alt={service.alt}
-                        fill
-                        sizes="(max-width: 600px) 90vw, 42vw"
-                      />
+                    <div className={digital.serviceIcon}>
+                      <ServiceSymbol kind={service.kind} />
                     </div>
-                    <div className={styles.serviceTitle}>
-                      <h3>{service.title}</h3>
-                      <Arrow />
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                    <div className={digital.serviceBottom}>
+                      <span>{service.detail}</span>
+                      <span className={digital.circleArrow} aria-hidden="true">
+                        ↗
+                      </span>
                     </div>
                   </a>
-                  <h4>{service.label}</h4>
-                  <p>{service.description}</p>
-                  <span className={styles.serviceDetail}>{service.detail}</span>
                 </Reveal>
               ))}
             </div>
-            <div className={styles.inmoNote}>
+            <div className={digital.inmoNote}>
               <div>
-                <span className={styles.eyebrow}>Para inmobiliarias</span>
+                <span className={digital.eyebrow}>
+                  También para inmobiliarias
+                </span>
                 <h3>
                   Menos carga de datos.
                   <br />
-                  <em>Más tiempo para tus clientes.</em>
+                  Más tiempo para tus clientes.
                 </h3>
               </div>
               <div>
@@ -435,10 +405,10 @@ export default function Home() {
                   para que revises y publiques. Con mapa, bot multi-idioma y
                   administración de propiedades.
                 </p>
-                <a className={styles.textLink} href={WHATSAPP}>
-                  Quiero mi plataforma <Arrow />
+                <a className={digital.textLink} href={WHATSAPP}>
+                  Quiero mi plataforma <ForwardArrow />
                 </a>
-                <span className={styles.smallNote}>
+                <span className={digital.smallNote}>
                   Desde USD 400 · Demo disponible
                 </span>
               </div>
@@ -446,72 +416,76 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="porque" className={styles.why}>
-          <div className={styles.container}>
-            <div className={styles.whyGrid}>
-              <div className={styles.whyVisual}>
-                <span className={styles.eyebrow}>Por qué PIXO</span>
-                <div className={styles.whyPhoto}>
-                  <Image
-                    src="/assets/montevideo.webp"
-                    alt="Una mirada a Montevideo, la ciudad desde donde trabaja PIXO"
-                    fill
-                    sizes="(max-width: 760px) 85vw, 35vw"
-                  />
-                </div>
-                <span className={styles.whyHandwriting}>
-                  Montevideo → LATAM
-                </span>
-                <p>
-                  Ideas reales.
-                  <br />
-                  Resultados concretos.
-                </p>
-              </div>
-              <div className={styles.whyContent}>
-                <Reveal as="h2">
-                  Un estudio chico.
-                  <br />
-                  <em>Una mirada propia.</em>
-                </Reveal>
-                <p className={styles.whyLead}>
-                  Nos involucramos en lo que hacemos. Hablás con quienes
-                  piensan, diseñan y construyen tu proyecto.
-                </p>
-                <div>
-                  {WHY.map(([title, description]) => (
-                    <Reveal key={title} className={styles.reason}>
+        <section id="porque" className={digital.about}>
+          <div className={`${digital.container} ${digital.aboutGrid}`}>
+            <div className={digital.aboutVisual}>
+              <Image
+                src="/assets/montevideo.webp"
+                alt="Palacio Salvo, Montevideo: la ciudad desde donde trabaja PIXO"
+                fill
+                sizes="(max-width: 700px) 90vw, 38vw"
+              />
+              <span className={digital.aboutLocation}>
+                UY
+                <br />
+                <span aria-hidden="true">↗</span>
+                <small>MONTEVIDEO / LATAM</small>
+              </span>
+            </div>
+            <div className={digital.aboutContent}>
+              <p className={digital.eyebrow}>
+                <span className={digital.dot} /> Somos PIXO
+              </p>
+              <Reveal as="h2">
+                Un estudio chico.
+                <br />
+                <span className={digital.blue}>Ideas que van lejos.</span>
+              </Reveal>
+              <p className={digital.aboutLead}>
+                Diseño, código y una conversación directa. Hablás con quienes
+                piensan y construyen tu proyecto, desde la primera idea hasta el
+                lanzamiento.
+              </p>
+              <div className={digital.reasons}>
+                {WHY.map(([title, description]) => (
+                  <div key={title} className={digital.reason}>
+                    <span aria-hidden="true">↗</span>
+                    <div>
                       <h3>{title}</h3>
                       <p>{description}</p>
-                    </Reveal>
-                  ))}
-                </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section id="proceso" className={styles.section}>
-          <div className={styles.container}>
-            <div className={styles.sectionTop}>
-              <span className={styles.eyebrow}>Cómo trabajamos</span>
-              <span className={styles.eyebrow}>Conversar. Crear. Lanzar.</span>
-            </div>
-            <Reveal className={styles.sectionHeading}>
-              <h2>
-                Las buenas ideas
-                <br />
-                <em>se construyen juntos.</em>
-              </h2>
+        <section id="proceso" className={digital.section}>
+          <div className={digital.container}>
+            <div className={digital.sectionHeading}>
+              <div>
+                <p className={digital.eyebrow}>
+                  <span className={digital.dot} /> Así trabajamos
+                </p>
+                <h2>
+                  DEL “TENGO UNA IDEA”
+                  <br />
+                  AL “YA ESTÁ ONLINE”.
+                </h2>
+              </div>
               <p>
-                Un proceso claro, con espacio para probar, conversar y tomar
-                buenas decisiones.
+                Un proceso claro.
+                <br />
+                Vos sos parte en cada paso.
               </p>
-            </Reveal>
-            <div className={styles.process}>
-              {PROCESS.map(([title, description]) => (
-                <Reveal key={title} className={styles.processStep}>
-                  <span aria-hidden="true">↗</span>
+            </div>
+            <div className={digital.process}>
+              {PROCESS.map(([title, description], index) => (
+                <Reveal className={digital.processStep} key={title} delay={index * 80}>
+                  <span className={digital.stepMarker} aria-hidden="true">
+                    ↗
+                  </span>
                   <h3>{title}</h3>
                   <p>{description}</p>
                 </Reveal>
@@ -520,35 +494,35 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="precios" className={styles.pricing}>
-          <div className={styles.container}>
-            <div className={styles.sectionTop}>
-              <span className={styles.eyebrow}>Inversión</span>
-              <span className={styles.eyebrow}>
-                Alcances claros. Precios honestos.
-              </span>
-            </div>
-            <Reveal className={styles.sectionHeading}>
-              <h2>
-                Un punto
-                <br />
-                <em>de partida.</em>
-              </h2>
+        <section id="precios" className={digital.pricing}>
+          <div className={digital.container}>
+            <div className={digital.sectionHeading}>
+              <div>
+                <p className={digital.eyebrow}>
+                  <span className={digital.dot} /> Inversión
+                </p>
+                <h2>
+                  UN BUEN PUNTO
+                  <br />
+                  DE PARTIDA<span className={digital.blue}>.</span>
+                </h2>
+              </div>
               <p>
-                Estos son nuestros precios de referencia. Cada proyecto tiene su
-                contexto y lo cotizamos según tus necesidades.
+                Precios de referencia, sin letra chica.
+                <br />
+                Cada proyecto se cotiza según su alcance.
               </p>
-            </Reveal>
+            </div>
             <div>
               {PRICING.map((plan) => (
-                <Reveal key={plan.name} className={styles.priceRow}>
+                <div key={plan.name} className={digital.priceRow}>
                   <div>
                     <h3>{plan.name}</h3>
                     <p>{plan.desc}</p>
                   </div>
                   <div>
-                    <span className={styles.price}>{plan.price}</span>
-                    <details className={styles.priceDetails}>
+                    <span className={digital.price}>{plan.price}</span>
+                    <details className={digital.priceDetails}>
                       <summary>
                         Qué incluye <span aria-hidden="true">+</span>
                       </summary>
@@ -559,27 +533,70 @@ export default function Home() {
                       </ul>
                     </details>
                   </div>
-                  <a className={styles.textLink} href={plan.cta.href}>
-                    {plan.cta.label} <Arrow />
+                  <a className={digital.textLink} href={plan.cta.href}>
+                    {plan.cta.label} <ForwardArrow />
                   </a>
-                </Reveal>
+                </div>
               ))}
             </div>
-            <p className={styles.pricingNote}>
+            <p className={digital.pricingNote}>
               Todos los precios en USD. Aceptamos transferencia, MercadoPago y
               crypto. Facturación disponible.
             </p>
           </div>
         </section>
 
-        <section id="faq" className={styles.section}>
-          <div className={`${styles.container} ${styles.faqLayout}`}>
-            <div>
-              <span className={styles.eyebrow}>Preguntas frecuentes</span>
-              <h2>
-                Antes de
+        <section id="blog" className={digital.section}>
+          <div className={digital.container}>
+            <div className={digital.sectionHeading}>
+              <div>
+                <p className={digital.eyebrow}>
+                  <span className={digital.dot} /> Blog · Ideas útiles
+                </p>
+                <h2>
+                  ANTES DEL
+                  <br />
+                  PRÓXIMO CLIC<span className={digital.blue}>.</span>
+                </h2>
+              </div>
+              <p>
+                Notas cortas para pensar
                 <br />
-                <em>empezar.</em>
+                tu próximo proyecto digital.
+              </p>
+            </div>
+            <div className={digital.notes}>
+              {NOTES.map((note) => (
+                <article className={digital.note} key={note.title}>
+                  <span className={digital.eyebrow}>{note.category}</span>
+                  <h3>{note.title}</h3>
+                  <p>{note.intro}</p>
+                  <details>
+                    <summary>
+                      Leer nota <span aria-hidden="true">+</span>
+                    </summary>
+                    <div>
+                      {note.paragraphs.map((paragraph) => (
+                        <p key={paragraph}>{paragraph}</p>
+                      ))}
+                    </div>
+                  </details>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" className={digital.faqSection}>
+          <div className={`${digital.container} ${digital.faqLayout}`}>
+            <div>
+              <p className={digital.eyebrow}>
+                <span className={digital.dot} /> Preguntas frecuentes
+              </p>
+              <h2>
+                TODO CLARO
+                <br />
+                DESDE EL INICIO.
               </h2>
               <p>Las dudas también son parte del proceso.</p>
             </div>
@@ -587,33 +604,34 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contacto" className={styles.contact}>
-          <div className={styles.container}>
-            <div className={styles.sectionTop}>
-              <span className={styles.eyebrow}>¿Tenés una idea?</span>
-              <span className={styles.eyebrow}>Hagámosla realidad.</span>
+        <section id="contacto" className={digital.contact}>
+          <div className={digital.container}>
+            <div className={digital.contactTop}>
+              <span className={digital.eyebrow}>
+                Tu próximo proyecto empieza acá
+              </span>
+              <span aria-hidden="true">UY → LATAM</span>
             </div>
             <Reveal as="h2">
-              Hagamos algo
+              ¿TENÉS UNA IDEA?
               <br />
-              que valga la pena
+              HAGAMOS QUE
               <br />
-              <em>mirar.</em>
-              <Asterisk className={styles.contactAsterisk} />
+              <span>FUNCIONE.</span>
             </Reveal>
-            <div className={styles.contactBottom}>
-              <a href={WHATSAPP} className={styles.contactCta}>
-                Hablemos <Arrow />
+            <div className={digital.contactBottom}>
+              <a href={WHATSAPP} className={digital.contactCta}>
+                Hablemos de tu proyecto <ForwardArrow />
               </a>
               <p>
                 Contanos qué tenés en mente.
                 <br />
-                La primera conversación es el comienzo.
+                Nosotros te ayudamos a darle forma.
               </p>
             </div>
           </div>
         </section>
-      </main>
+      </HomepageMotion>
       <footer className={styles.footer}>
         <div className={styles.container}>
           <div className={styles.footerTop}>
