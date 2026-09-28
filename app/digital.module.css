@@ -227,10 +227,10 @@
   z-index: 2;
 }
 .headline {
-  font-size: clamp(66px, 7vw, 106px);
+  font-size: clamp(38px, 4.05vw, 62px);
   font-weight: 800;
   letter-spacing: -0.075em;
-  line-height: 0.94;
+  line-height: 1.08;
   margin: 29px 0;
 }
 .headline > span {
@@ -243,14 +243,15 @@
   animation-delay: 0.18s;
 }
 .headline > span:nth-child(3) {
-  font-size: 0.9em;
+  font-size: 1.28em;
+  color: var(--blue);
   animation-delay: 0.26s;
 }
 .underscore {
   color: var(--blue);
 }
 .heroDescription {
-  max-width: 440px;
+  max-width: 460px;
   color: var(--ink-soft);
   font-size: 16px;
   line-height: 1.75;
@@ -371,7 +372,7 @@
   top: 4%;
   width: 48px;
   aspect-ratio: 1;
-  background: var(--blue);
+  font-size: 36px;
   transform: rotate(-9deg);
 }
 .orangeMark {
@@ -621,6 +622,7 @@
   letter-spacing: -0.065em;
   font-weight: 800;
   margin-bottom: 17px;
+  min-height: 2.12em;
 }
 .service p {
   font-size: 15px;
@@ -1040,6 +1042,7 @@
 .contactBottom p {
   font-size: 14px;
   line-height: 1.75;
+  max-width: 410px;
 }
 .contact :focus-visible {
   outline-color: var(--lime);
@@ -1078,7 +1081,7 @@
     gap: 20px;
   }
   .headline {
-    font-size: clamp(64px, 6.8vw, 77px);
+    font-size: clamp(35px, 4vw, 44px);
   }
   .heroDescription {
     font-size: 15px;
@@ -1108,6 +1111,7 @@
   }
   .blueSquare {
     width: 38px;
+    font-size: 29px;
   }
   .orangeMark {
     width: 55px;
@@ -1252,7 +1256,7 @@
     max-width: 600px;
   }
   .headline {
-    font-size: 94px;
+    font-size: 60px;
     margin-top: 25px;
   }
   .heroDescription {
@@ -1407,12 +1411,12 @@
     font-size: 9px;
   }
   .headline {
-    font-size: clamp(51px, 14.2vw, 88px);
+    font-size: clamp(30px, 8.15vw, 54px);
     margin: 26px 0 24px;
     letter-spacing: -0.075em;
   }
   .headline > span:nth-child(3) {
-    font-size: 0.94em;
+    font-size: 1.28em;
   }
   .heroDescription {
     font-size: 16px;
@@ -1478,7 +1482,8 @@
     bottom: 25%;
   }
   .blueSquare {
-    width: 26px;
+    width: 34px;
+    font-size: 26px;
     top: 2%;
     left: 18%;
   }
@@ -1586,6 +1591,7 @@
   }
   .service h3 {
     font-size: 31px;
+    min-height: 0;
   }
   .service p {
     font-size: 16px;
@@ -1911,10 +1917,6 @@
   0%, 100% { translate: 0 0; }
   50% { translate: 0 -5px; }
 }
-@keyframes blueDrift {
-  0%, 100% { translate: -4px 0; }
-  50% { translate: 4px 0; }
-}
 @keyframes orangeBreathe {
   0%, 100% { scale: 1; }
   50% { scale: 1.04; }
@@ -1942,8 +1944,6 @@
   }
   .blueSquare {
     transform: translate3d(calc(var(--pointer-x, 0px) * -1), var(--color-scroll, 0px), 0) rotate(-9deg);
-    animation: blueDrift 6.8s ease-in-out 1.15s infinite;
-    will-change: transform, translate;
   }
   .orangeMark {
     transform: translate3d(calc(var(--pointer-x, 0px) * -0.5), var(--color-scroll, 0px), 0) rotate(8deg);
@@ -2015,4 +2015,101 @@
   .navCta:active,
   .contactCta:active,
   .mobileMenuCta:active { transform: none; }
+}
+
+/* PIXO signature: four bounded stops, never an overlay over the content. */
+.heroActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 25px;
+}
+.heroActions > .textLink {
+  text-transform: none;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+.signature {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 112px;
+  margin-bottom: 24px;
+  pointer-events: none;
+  user-select: none;
+}
+.signatureRail {
+  position: absolute;
+  inset-inline: 0;
+  top: 88px;
+  height: 1px;
+  background: var(--line);
+  transform-origin: left;
+  transition: transform 0.8s var(--motion-ease);
+}
+.signatureRail::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 5px;
+  height: 5px;
+  background: var(--blue);
+}
+.signatureDock {
+  position: relative;
+  display: block;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+.signatureMark {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background: var(--blue);
+  font-family: var(--sans);
+  font-size: 49px;
+  font-weight: 800;
+  line-height: 1;
+  transition: opacity 0.25s;
+}
+.signature_projects .signatureDock { margin-left: 32px; }
+.signature_services .signatureDock { margin-left: auto; margin-right: 96px; }
+.signature_services .signatureMark,
+.signature_contact .signatureMark { background: var(--lime); color: var(--ink); }
+.signature_contact .signatureDock { margin-left: 62%; }
+.signature_contact .signatureRail { background: #ffffff55; }
+.signature_contact .signatureRail::after { background: var(--lime); }
+.signature_hero {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.signature_hero .signatureDock { width: 100%; height: 100%; }
+.signature_hero .signatureMark { font-size: inherit; }
+.signature_hero .signatureRail { display: none; }
+.signature[data-brand-ready]:not([data-brand-seen]) .signatureMark { opacity: 0; }
+.signature[data-brand-ready]:not([data-brand-seen]) .signatureRail { transform: scaleX(0.08); }
+@media (max-width: 900px), (pointer: coarse) {
+  .signature { height: 70px; margin-bottom: 20px; }
+  .signatureRail { top: 58px; }
+  .signatureDock { width: 44px; height: 44px; }
+  .signatureMark { font-size: 34px; transition: transform 0.6s var(--motion-ease), opacity 0.4s; }
+  .signature_projects .signatureDock { margin-left: 12px; }
+  .signature_services .signatureDock { margin-right: 20px; }
+  .signature_contact .signatureDock { margin-left: auto; margin-right: 20px; }
+  .signature_hero { height: 100%; margin: 0; }
+  .signature[data-brand-ready]:not([data-brand-seen]) .signatureMark { transform: translate3d(0, -12px, 0) rotate(-8deg); }
+}
+@media (max-width: 700px) {
+  .heroActions { gap: 6px 20px; }
+  .heroProof { line-height: 1.6; align-items: flex-start; }
+  .signature_contact { margin-bottom: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .signature .signatureMark { transform: none !important; opacity: 1 !important; transition: none; }
+  .signature .signatureRail { transform: none !important; transition: none; }
 }

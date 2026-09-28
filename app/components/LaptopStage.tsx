@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "../digital.module.css";
+import BrandSignature from "./BrandSignature";
 
 /** A lightweight device composition displaying an actual PIXO project. */
 export default function LaptopStage() {
@@ -18,11 +19,13 @@ export default function LaptopStage() {
       </div>
       <div className={styles.concreteBlock} aria-hidden="true" />
       <div className={styles.limeBlock} aria-hidden="true" />
-      <div className={styles.blueSquare} aria-hidden="true" />
+      <div className={styles.blueSquare} aria-hidden="true">
+        <BrandSignature stop="hero" />
+      </div>
       <div className={styles.orangeMark} aria-hidden="true">
         ↗
       </div>
-      <div className={styles.laptop}>
+      <div className={styles.laptop} data-laptop>
         <div className={styles.screen}>
           <span className={styles.camera} aria-hidden="true" />
           <Image

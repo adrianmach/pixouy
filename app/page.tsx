@@ -2,9 +2,10 @@ import Image from "next/image";
 import Header from "./components/Header";
 import Reveal from "./components/Reveal";
 import HomepageMotion from "./components/HomepageMotion";
+import BrandSignature from "./components/BrandSignature";
 import FAQAccordion from "./components/FAQAccordion";
-import LaptopStage from "./components/LaptopStage";
-import ServiceSymbol, { type ServiceKind } from "./components/ServiceSymbol";
+import Experience from "./components/Experience";
+import experience from "./experience.module.css";
 import digital from "./digital.module.css";
 import styles from "./page.module.css";
 
@@ -12,7 +13,7 @@ const PRICING = [
   {
     name: "Landing Page",
     price: "desde USD 180",
-    desc: "Una página profesional para presentar tu negocio o producto.",
+    desc: "Tu negocio bien presentado, con un recorrido claro hasta la consulta.",
     features: [
       "Diseño a medida",
       "Responsive",
@@ -21,13 +22,13 @@ const PRICING = [
       "Hosting configurado",
       "Entrega en 5-7 días",
     ],
-    cta: { label: "COTIZAR", href: "https://wa.me/59898955038" },
+    cta: { label: "QUIERO MI WEB", href: "https://wa.me/59898955038" },
     variant: "outline",
   },
   {
     name: "Tienda Online",
     price: "desde USD 400",
-    desc: "Tienda completa lista para vender online 24/7.",
+    desc: "Del primer producto al pago: una tienda lista para recibir pedidos.",
     features: [
       "Todo lo de Landing",
       "Catálogo de productos",
@@ -37,7 +38,7 @@ const PRICING = [
       "Panel de administración",
       "Cálculo de envíos",
     ],
-    cta: { label: "COTIZAR", href: "https://wa.me/59898955038" },
+    cta: { label: "QUIERO MI TIENDA", href: "https://wa.me/59898955038" },
     variant: "filled",
     featured: true,
     badge: "MÁS ELEGIDO",
@@ -45,7 +46,7 @@ const PRICING = [
   {
     name: "Desarrollo a Medida",
     price: "Cotización personalizada",
-    desc: "Software, automatizaciones e integraciones específicas para tu operación.",
+    desc: "Automatizaciones con IA e integraciones para las tareas que hoy te quitan tiempo.",
     features: [
       "Sistemas web complejos",
       "Automatizaciones",
@@ -54,7 +55,7 @@ const PRICING = [
       "IA aplicada",
       "Soporte dedicado",
     ],
-    cta: { label: "AGENDAR LLAMADA", href: "https://wa.me/59898955038" },
+    cta: { label: "HABLEMOS DEL PROCESO", href: "https://wa.me/59898955038" },
     variant: "outlineTeal",
   },
 ];
@@ -87,69 +88,6 @@ const FAQ = [
 ];
 
 const WHATSAPP = "https://wa.me/59898955038";
-const PROJECTS = [
-  {
-    name: "Benji$",
-    category: "Ecommerce · Moda independiente",
-    image: "benjis",
-    href: "https://benjis-production.up.railway.app/",
-    description:
-      "Una tienda con identidad propia. Catálogo, piezas únicas, pedidos personalizados y gestión en un mismo lugar.",
-  },
-  {
-    name: "Inmobiliaria",
-    category: "Plataforma inmobiliaria · IA",
-    image: "niko",
-    href: "https://inmo-intel.vercel.app/",
-    description:
-      "Propiedades, búsqueda y mapa. Una plataforma con inteligencia artificial que simplifica el trabajo de todos los días.",
-  },
-  {
-    name: "Branda",
-    category: "Software · Dirección creativa con IA",
-    image: "branda",
-    href: "https://branda-production-9d47.up.railway.app/",
-    description:
-      "Del brief a la campaña. Una plataforma para crear contenido sin perder la identidad de cada marca.",
-    status: "En desarrollo",
-  },
-];
-const SERVICES = [
-  {
-    title: "Web Design",
-    kind: "web",
-    description:
-      "Sitios con identidad. Diseño y desarrollo a medida para que tu marca se vea bien y funcione mejor.",
-    detail: "Diseño · Desarrollo · SEO",
-  },
-  {
-    title: "Ecommerce",
-    kind: "shop",
-    description:
-      "Tu próxima venta empieza con una buena experiencia. Tiendas con catálogo, pagos y gestión simple.",
-    detail: "Tiendas · Pagos · Gestión",
-  },
-  {
-    title: "Automatizaciones",
-    kind: "automation",
-    description:
-      "Menos tareas repetidas. Conectamos tus herramientas para que pedidos, mensajes y reportes fluyan.",
-    detail: "Procesos · APIs · Integraciones",
-  },
-  {
-    title: "Desarrollo + IA",
-    kind: "ai",
-    description:
-      "Inteligencia artificial con un propósito. Creamos plataformas y herramientas para problemas reales.",
-    detail: "Software · Plataformas · IA",
-  },
-] satisfies {
-  title: string;
-  kind: ServiceKind;
-  description: string;
-  detail: string;
-}[];
-
 const NOTES = [
   {
     category: "Web · Planificación",
@@ -187,20 +125,20 @@ const NOTES = [
 
 const WHY = [
   ["Código tuyo, sin ataduras", "El código y los accesos quedan a tu nombre."],
-  ["Acompañamiento real", "Estamos antes, durante y después del lanzamiento."],
+  ["Hablás con quien lo hace", "Diseñamos, programamos y respondemos tus preguntas. Sin pasar de equipo en equipo."],
   [
-    "Diseño a medida",
-    "Cada proyecto se diseña pensando en tu marca y tus objetivos.",
+    "Primero, entender tu negocio",
+    "Definimos qué tiene que resolver la web o el proceso antes de elegir la tecnología.",
   ],
   [
-    "Resultados que impulsan tu negocio",
-    "Lo que hacemos no solo tiene que verse bien. Tiene que funcionar.",
+    "Cada decisión tiene una función",
+    "Una consulta más fácil. Un pedido mejor organizado. Una tarea menos para tu equipo.",
   ],
 ];
 const PROCESS = [
   [
     "Consulta",
-    "Nos contás tu idea. Escuchamos, preguntamos y entendemos lo que tu negocio necesita.",
+    "Nos mostrás qué vendés, cómo trabajás y dónde se tranca el día. De ahí sale el punto de partida.",
   ],
   [
     "Propuesta",
@@ -208,7 +146,7 @@ const PROCESS = [
   ],
   [
     "Diseño + desarrollo",
-    "Damos forma a la idea y la construimos. Compartimos avances y ajustamos con vos.",
+    "Diseñamos la web o el flujo, lo construimos y lo probamos con vos. Ves avances, no una sorpresa al final.",
   ],
   [
     "Lanzamiento",
@@ -239,182 +177,7 @@ export default function Home() {
       </a>
       <Header />
       <HomepageMotion>
-        <section id="top" className={digital.hero}>
-          <div className={digital.container}>
-            <div className={digital.heroGrid}>
-              <div className={digital.heroCopy}>
-                <p className={digital.eyebrow}>
-                  <span className={digital.dot} /> Estudio digital en Uruguay
-                </p>
-                <h1 className={digital.headline}>
-                  <span>IDEAS</span>
-                  <span>QUE</span>
-                  <span>
-                    FUNCIONAN<span className={digital.underscore}>_</span>
-                  </span>
-                </h1>
-                <p className={digital.heroDescription}>
-                  Diseñamos y desarrollamos sitios web, ecommerce,
-                  automatizaciones e integraciones con IA para marcas que
-                  quieren ir más lejos.
-                </p>
-                <a href={WHATSAPP} className={digital.button}>
-                  Hablemos de tu proyecto <ForwardArrow />
-                </a>
-                <p className={digital.heroProof}>
-                  <span aria-hidden="true">↳</span> Diseño propio. Código tuyo.
-                  Trato directo.
-                </p>
-              </div>
-              <LaptopStage />
-            </div>
-            <div className={digital.heroBottom}>
-              <span>De Montevideo al mundo.</span>
-              <span>34°54′ S · 56°11′ O</span>
-              <a href="#trabajos">
-                Explorá lo que hacemos <span aria-hidden="true">↓</span>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section id="trabajos" className={digital.work}>
-          <div className={digital.container}>
-            <div className={digital.sectionBar}>
-              <h2 className={digital.eyebrow}>
-                <span className={digital.dot} /> Proyectos destacados
-              </h2>
-              <a
-                className={digital.textLink}
-                href="/portfolio-adrian-machin.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ver todos los proyectos <ForwardArrow />
-                <span className={digital.pdfLabel}>PDF</span>
-              </a>
-            </div>
-            <div className={digital.projects}>
-              {PROJECTS.map((project, index) => (
-                <Reveal
-                  as="article"
-                  key={project.name}
-                  className={digital.project}
-                  delay={index * 100}
-                >
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Ver proyecto ${project.name} (abre en otra pestaña)`}
-                  >
-                    <div
-                      className={`${digital.projectImage} ${digital[project.image]}`}
-                    >
-                      <Image
-                        src={`/assets/projects/${project.image}.webp`}
-                        alt={`Captura real del sitio de ${project.name}`}
-                        width={1440}
-                        height={1000}
-                        sizes="(max-width: 700px) 90vw, 30vw"
-                      />
-                      <span className={digital.projectView} aria-hidden="true">
-                        Ver proyecto →
-                      </span>
-                    </div>
-                    <div className={digital.projectCategory}>
-                      {project.category}
-                    </div>
-                    <div className={digital.projectTitle}>
-                      <h3>{project.name}</h3>
-                      <ForwardArrow />
-                    </div>
-                    <p>{project.description}</p>
-                    {project.status && (
-                      <span className={digital.projectStatus}>
-                        {project.status}
-                      </span>
-                    )}
-                  </a>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="servicios" className={digital.servicesSection}>
-          <div className={digital.container}>
-            <div className={digital.sectionHeading}>
-              <div>
-                <p className={digital.eyebrow}>
-                  <span className={digital.dot} /> Lo que hacemos
-                </p>
-                <h2>
-                  NUESTROS
-                  <br />
-                  SERVICIOS<span className={digital.blue}>.</span>
-                </h2>
-              </div>
-              <p className={digital.sectionAside}>
-                Soluciones para
-                <br />
-                un mundo real <span aria-hidden="true">↗</span>
-              </p>
-            </div>
-            <div className={digital.services}>
-              {SERVICES.map((service, index) => (
-                <Reveal
-                  as="article"
-                  key={service.title}
-                  className={`${digital.service} ${digital[service.kind]}`}
-                  delay={index * 100}
-                >
-                  <a
-                    href={WHATSAPP}
-                    aria-label={`Consultar por ${service.title}`}
-                  >
-                    <div className={digital.serviceIcon}>
-                      <ServiceSymbol kind={service.kind} />
-                    </div>
-                    <h3>{service.title}</h3>
-                    <p>{service.description}</p>
-                    <div className={digital.serviceBottom}>
-                      <span>{service.detail}</span>
-                      <span className={digital.circleArrow} aria-hidden="true">
-                        ↗
-                      </span>
-                    </div>
-                  </a>
-                </Reveal>
-              ))}
-            </div>
-            <div className={digital.inmoNote}>
-              <div>
-                <span className={digital.eyebrow}>
-                  También para inmobiliarias
-                </span>
-                <h3>
-                  Menos carga de datos.
-                  <br />
-                  Más tiempo para tus clientes.
-                </h3>
-              </div>
-              <div>
-                <p>
-                  Fotos, datos esenciales y una descripción. La IA arma la ficha
-                  para que revises y publiques. Con mapa, bot multi-idioma y
-                  administración de propiedades.
-                </p>
-                <a className={digital.textLink} href={WHATSAPP}>
-                  Quiero mi plataforma <ForwardArrow />
-                </a>
-                <span className={digital.smallNote}>
-                  Desde USD 400 · Demo disponible
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Experience />
 
         <section id="porque" className={digital.about}>
           <div className={`${digital.container} ${digital.aboutGrid}`}>
@@ -437,14 +200,15 @@ export default function Home() {
                 <span className={digital.dot} /> Somos PIXO
               </p>
               <Reveal as="h2">
-                Un estudio chico.
+                DISEÑO QUE CONECTA.
                 <br />
-                <span className={digital.blue}>Ideas que van lejos.</span>
+                <span className={digital.blue}>TECNOLOGÍA QUE SIMPLIFICA.</span>
               </Reveal>
               <p className={digital.aboutLead}>
-                Diseño, código y una conversación directa. Hablás con quienes
-                piensan y construyen tu proyecto, desde la primera idea hasta el
-                lanzamiento.
+                Somos PIXO, un estudio digital en Montevideo. Juntamos estrategia,
+                diseño y desarrollo para crear páginas web y automatizaciones con IA.
+                Vos conocés tu negocio. Nosotros te ayudamos a llevarlo a una web,
+                una tienda o un proceso que funcione mejor.
               </p>
               <div className={digital.reasons}>
                 {WHY.map(([title, description]) => (
@@ -475,9 +239,8 @@ export default function Home() {
                 </h2>
               </div>
               <p>
-                Un proceso claro.
-                <br />
-                Vos sos parte en cada paso.
+                Una web nueva o una tarea que querés automatizar:
+                empezamos por entender qué necesitás resolver.
               </p>
             </div>
             <div className={digital.process}>
@@ -502,9 +265,9 @@ export default function Home() {
                   <span className={digital.dot} /> Inversión
                 </p>
                 <h2>
-                  UN BUEN PUNTO
+                  HABLEMOS
                   <br />
-                  DE PARTIDA<span className={digital.blue}>.</span>
+                  DE NÚMEROS<span className={digital.blue}>.</span>
                 </h2>
               </div>
               <p>
@@ -551,18 +314,17 @@ export default function Home() {
             <div className={digital.sectionHeading}>
               <div>
                 <p className={digital.eyebrow}>
-                  <span className={digital.dot} /> Blog · Ideas útiles
+                  <span className={digital.dot} /> Notas de PIXO
                 </p>
                 <h2>
-                  ANTES DEL
+                  DECISIONES CHICAS.
                   <br />
-                  PRÓXIMO CLIC<span className={digital.blue}>.</span>
+                  MEJORES PROYECTOS<span className={digital.blue}>.</span>
                 </h2>
               </div>
               <p>
-                Notas cortas para pensar
-                <br />
-                tu próximo proyecto digital.
+                Qué tener claro antes de hacer tu web,
+                abrir una tienda o automatizar una tarea.
               </p>
             </div>
             <div className={digital.notes}>
@@ -598,35 +360,36 @@ export default function Home() {
                 <br />
                 DESDE EL INICIO.
               </h2>
-              <p>Las dudas también son parte del proceso.</p>
+              <p>Plazos, pagos y qué pasa después de publicar. Sin vueltas.</p>
             </div>
             <FAQAccordion items={FAQ} />
           </div>
         </section>
 
-        <section id="contacto" className={digital.contact}>
+        <section id="contacto" className={`${digital.contact} ${experience.contact}`}>
           <div className={digital.container}>
+            <BrandSignature stop="contact" />
             <div className={digital.contactTop}>
               <span className={digital.eyebrow}>
-                Tu próximo proyecto empieza acá
+                Una web nueva. Una tarea menos. Empecemos.
               </span>
               <span aria-hidden="true">UY → LATAM</span>
             </div>
             <Reveal as="h2">
-              ¿TENÉS UNA IDEA?
+              TU NEGOCIO
               <br />
-              HAGAMOS QUE
+              PUEDE VERSE
               <br />
-              <span>FUNCIONE.</span>
+              <span>MUCHO MEJOR.</span>
             </Reveal>
             <div className={digital.contactBottom}>
               <a href={WHATSAPP} className={digital.contactCta}>
-                Hablemos de tu proyecto <ForwardArrow />
+                HABLEMOS <ForwardArrow />
               </a>
               <p>
-                Contanos qué tenés en mente.
+                Y trabajar mucho mejor también.
                 <br />
-                Nosotros te ayudamos a darle forma.
+                Contanos qué querés construir o qué proceso querés dejar de hacer a mano.
               </p>
             </div>
           </div>
