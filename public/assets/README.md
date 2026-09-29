@@ -1,5 +1,9 @@
 # Editorial assets
 
+- projects/joyeria-central.webp: real homepage screenshot of https://www.joyeriacentraluy.com/, captured 2026-09-29 at 1440 × 1000, converted to WebP.
+- projects/hecho-en-casa.webp: real homepage screenshot of https://www.hechoencasauy.com/, captured 2026-09-29 at 1440 × 1000, converted to WebP.
+- projects/niko.webp is presented as a PIXO Lab demo, not a commissioned client project.
+
 - montevideo.webp: Francisco1892, Vista del Palacio Salvo desde el Centro de Fotografia de Montevideo. CC0 1.0. https://commons.wikimedia.org/wiki/File:Vista_del_Palacio_Salvo_desde_el_Centro_de_Fotograf%C3%ADa_de_Montevideo.jpg
 - studio.webp: Unsplash photograph https://images.unsplash.com/photo-1497366754035-f200968a6e72
 - objects.webp: Unsplash photograph https://images.unsplash.com/photo-1490312278390-ab64016e0aa9

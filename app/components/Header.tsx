@@ -6,7 +6,7 @@ import styles from "../digital.module.css";
 const LINKS = [
   { href: "#servicios", label: "Servicios" },
   { href: "#trabajos", label: "Proyectos" },
-  { href: "#porque", label: "Nosotros" },
+  { href: "#porque", label: "Sobre PIXO" },
   { href: "#blog", label: "Blog" },
   { href: "#contacto", label: "Contacto" },
 ];

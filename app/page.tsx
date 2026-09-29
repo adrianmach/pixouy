@@ -40,8 +40,6 @@ const PRICING = [
     ],
     cta: { label: "QUIERO MI TIENDA", href: "https://wa.me/59898955038" },
     variant: "filled",
-    featured: true,
-    badge: "MÁS ELEGIDO",
   },
   {
     name: "Desarrollo a Medida",
@@ -70,20 +68,20 @@ const FAQ = [
     a: "Sí. Al finalizar, el código y todos los accesos son tuyos. Sin dependencias ni ataduras.",
   },
   {
-    q: "¿Ofrecen soporte después de la entrega?",
-    a: "Sí. Incluimos un período de soporte post-lanzamiento y ofrecemos planes de mantenimiento mensual opcionales.",
+    q: "¿Ofrecés soporte después de la entrega?",
+    a: "Sí. Incluyo un período de soporte post-lanzamiento y ofrezco planes de mantenimiento mensual opcionales.",
   },
   {
     q: "¿Cómo son los pagos?",
-    a: "Trabajamos con un adelanto del 50% para comenzar y el resto contra entrega. Aceptamos transferencia, MercadoPago y crypto.",
+    a: "Trabajo con un adelanto del 50% para comenzar y el resto contra entrega. Acepto transferencia, MercadoPago y crypto.",
   },
   {
-    q: "¿Trabajan con clientes fuera de Uruguay?",
-    a: "Sí. Trabajamos con clientes de toda LATAM de forma 100% remota. Los precios están en USD.",
+    q: "¿Trabajás con clientes fuera de Uruguay?",
+    a: "Sí. Trabajo con clientes de toda LATAM de forma remota. Los precios están en USD.",
   },
   {
     q: "¿Qué pasa si necesito cambios durante el proyecto?",
-    a: "Está contemplado. Trabajamos con revisiones incluidas en cada etapa para que el resultado sea exactamente lo que necesitás.",
+    a: "Está contemplado. Trabajo con revisiones incluidas en cada etapa para que el resultado sea exactamente lo que necesitás.",
   },
 ];
 
@@ -124,33 +122,26 @@ const NOTES = [
 ];
 
 const WHY = [
-  ["Código tuyo, sin ataduras", "El código y los accesos quedan a tu nombre."],
-  ["Hablás con quien lo hace", "Diseñamos, programamos y respondemos tus preguntas. Sin pasar de equipo en equipo."],
-  [
-    "Primero, entender tu negocio",
-    "Definimos qué tiene que resolver la web o el proceso antes de elegir la tecnología.",
-  ],
-  [
-    "Cada decisión tiene una función",
-    "Una consulta más fácil. Un pedido mejor organizado. Una tarea menos para tu equipo.",
-  ],
+  ["HABLÁS CONMIGO.", "Sin comerciales ni intermediarios."],
+  ["DESARROLLO TU PROYECTO.", "Desde el diseño hasta el lanzamiento."],
+  ["EL PROYECTO ES TUYO.", "Código y accesos quedan en tus manos."],
 ];
 const PROCESS = [
   [
     "Consulta",
-    "Nos mostrás qué vendés, cómo trabajás y dónde se tranca el día. De ahí sale el punto de partida.",
+    "Me mostrás qué vendés, cómo trabajás y dónde se tranca el día. De ahí sale el punto de partida.",
   ],
   [
     "Propuesta",
-    "Definimos alcance, tiempos y un precio claro. Sabés qué vamos a hacer desde el principio.",
+    "Te propongo un alcance, tiempos y un precio claro. Sabés qué voy a construir desde el principio.",
   ],
   [
     "Diseño + desarrollo",
-    "Diseñamos la web o el flujo, lo construimos y lo probamos con vos. Ves avances, no una sorpresa al final.",
+    "Diseño la web o el flujo, lo construyo y lo pruebo con vos. Ves avances, no una sorpresa al final.",
   ],
   [
     "Lanzamiento",
-    "Publicamos, probamos y te acompañamos. El proyecto sale al mundo; seguimos cerca.",
+    "Publico, pruebo y te acompaño. El proyecto sale al mundo; sigo cerca.",
   ],
 ];
 
@@ -197,18 +188,21 @@ export default function Home() {
             </div>
             <div className={digital.aboutContent}>
               <p className={digital.eyebrow}>
-                <span className={digital.dot} /> Somos PIXO
+                <span className={digital.dot} /> Detrás de PIXO
               </p>
               <Reveal as="h2">
-                DISEÑO QUE CONECTA.
+                PIXO NO ES UNA AGENCIA ENORME.
                 <br />
-                <span className={digital.blue}>TECNOLOGÍA QUE SIMPLIFICA.</span>
+                <span className={digital.blue}>Y ESA ES LA IDEA.</span>
               </Reveal>
               <p className={digital.aboutLead}>
-                Somos PIXO, un estudio digital en Montevideo. Juntamos estrategia,
-                diseño y desarrollo para crear páginas web y automatizaciones con IA.
-                Vos conocés tu negocio. Nosotros te ayudamos a llevarlo a una web,
-                una tienda o un proceso que funcione mejor.
+                Soy Adrián y estoy detrás de PIXO. Diseño y desarrollo cada proyecto
+                de forma directa, desde la idea y la interfaz hasta el código,
+                el lanzamiento y las automatizaciones.
+              </p>
+              <p className={digital.aboutLead}>
+                Trabajo de forma cercana con cada cliente, sin intermediarios entre
+                la idea y la persona que realmente construye el proyecto.
               </p>
               <div className={digital.reasons}>
                 {WHY.map(([title, description]) => (
@@ -230,7 +224,7 @@ export default function Home() {
             <div className={digital.sectionHeading}>
               <div>
                 <p className={digital.eyebrow}>
-                  <span className={digital.dot} /> Así trabajamos
+                  <span className={digital.dot} /> Así trabajo
                 </p>
                 <h2>
                   DEL “TENGO UNA IDEA”
@@ -240,7 +234,7 @@ export default function Home() {
               </div>
               <p>
                 Una web nueva o una tarea que querés automatizar:
-                empezamos por entender qué necesitás resolver.
+                empiezo por entender qué necesitás resolver.
               </p>
             </div>
             <div className={digital.process}>
@@ -303,7 +297,7 @@ export default function Home() {
               ))}
             </div>
             <p className={digital.pricingNote}>
-              Todos los precios en USD. Aceptamos transferencia, MercadoPago y
+              Todos los precios en USD. Acepto transferencia, MercadoPago y
               crypto. Facturación disponible.
             </p>
           </div>
@@ -376,22 +370,22 @@ export default function Home() {
               <span aria-hidden="true">UY → LATAM</span>
             </div>
             <Reveal as="h2">
-              TU NEGOCIO
+              TENÉS UNA IDEA.
               <br />
-              PUEDE VERSE
+              YO PUEDO
               <br />
-              <span>MUCHO MEJOR.</span>
+              <span>CONSTRUIRLA.</span>
             </Reveal>
             <div className={digital.contactBottom}>
               <a href={WHATSAPP} className={digital.contactCta}>
                 HABLEMOS <ForwardArrow />
               </a>
               <p>
-                Y trabajar mucho mejor también.
-                <br />
-                Contanos qué querés construir o qué proceso querés dejar de hacer a mano.
+                Desde una página web hasta una automatización con IA. Contame qué
+                necesitás y vemos cómo llevarlo a digital.
               </p>
             </div>
+            <a href="#trabajos" className={experience.contactSecondary}>VER MIS TRABAJOS ↗</a>
           </div>
         </section>
       </HomepageMotion>

@@ -52,7 +52,7 @@
 .projectInfo small { display:block; font-size:10px; margin-top:13px; color:#b0b0b0; }
 .projectNumber { color:#919191; font-size:12px; }
 .portfolio { display:flex; justify-content:space-between; border-bottom:1px solid #ffffff40; margin:30px 4vw 0; padding:20px 0; font-size:12px; }
-.gallery[data-horizontal] { height:270vh; }
+.gallery[data-horizontal] { height:355vh; }
 .gallery[data-horizontal] .gallerySticky { position:sticky; top:85px; overflow:hidden; }
 .processing { background:var(--electric); color:var(--cream); padding:32px 4vw; overflow:hidden; }
 .processing>p { font-size:clamp(150px,32vw,510px); line-height:1.05; font-weight:800; letter-spacing:-.1em; }
@@ -60,6 +60,7 @@
 .processing>p>span { font-size:.1em; vertical-align:top; display:inline-block; padding:1.3em .6em; letter-spacing:0; }
 .automation { background:#101110; color:var(--cream); padding:100px 8vw; }
 .automationIntro h2 { margin:30px 0 45px; }
+.automationIntro h2 { font-size:clamp(40px,6vw,96px); }
 .automationIntro h2 span { color:var(--acid); }
 .automationCopy { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
 .automationCopy h3 { font-size:clamp(24px,3vw,44px); letter-spacing:-.04em; }
@@ -118,6 +119,15 @@
 .experience [data-mask][data-pending] { clip-path:inset(0 0 100%); transform:translateY(35px); }
 .projectPicture { clip-path:inset(0); transition:clip-path 1s cubic-bezier(.16,1,.3,1); }
 .projectPicture[data-pending] { clip-path:inset(0 0 100%); }
+.demoBadge { position:absolute; top:70px; left:50px; padding:10px 14px; background:#c9ff18; color:#090909; font-size:11px; font-weight:800; letter-spacing:.08em; }
+.projectCta { display:inline-block; margin-top:16px; font-size:11px; font-weight:800; border-bottom:1px solid currentColor; padding-bottom:5px; }
+.project:last-child h3 { font-size:clamp(26px,2.6vw,40px); line-height:1.05; }
+.projectInfo>div { min-width:0; }
+.possibleActions { max-width:750px; margin:45px auto 0; }
+.possibleActions ul { list-style:none; display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+.possibleActions li { padding:12px 16px; border:1px solid #5a6150; font-size:12px; }
+.contact .contactSecondary { display:inline-flex; align-items:center; min-height:44px; margin-top:24px; background:transparent; border-bottom:1px solid currentColor; font-size:12px; font-weight:600; }
+@media(max-width:600px) { .experience .automationIntro h2 { font-size:9vw; } .demoBadge { top:55px; left:25px; font-size:10px; } .project:last-child h3 { font-size:28px; } .possibleActions { margin-left:49px; } }
 .service { transition:transform .8s cubic-bezier(.2,1.35,.4,1); }
 .service[data-pending] { transform:translateY(65px) rotate(calc(var(--tilt) * 3)) scale(.94); }
 @keyframes maskUp { from { transform:translateY(115%); } to { transform:translateY(0); } }
