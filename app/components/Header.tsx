@@ -7,7 +7,6 @@ const LINKS = [
   { href: "#servicios", label: "Servicios" },
   { href: "#trabajos", label: "Proyectos" },
   { href: "#porque", label: "Sobre PIXO" },
-  { href: "#blog", label: "Blog" },
   { href: "#contacto", label: "Contacto" },
 ];
 

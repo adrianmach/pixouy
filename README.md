@@ -34,3 +34,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Contador de visitas
+
+El footer muestra solo el total de visitas mediante [Hits](https://github.com/dwyl/hits), sin base de datos propia, cuentas ni claves. Una ruta POST `/api/visits` consulta el contador compartido `https://hits.dwyl.com/adrianmach/pixouy-site-visits.json` desde Next.js para evitar restricciones CORS del proveedor.
+
+Registra una petición por carga de página en producción; en desarrollo y previews de Vercel queda oculto sin incrementar el total. Cuenta visitas, no personas únicas, y comienza desde su activación. Depende de un servicio externo público: no es una estadística auditada. Si la petición falla o el proveedor supera 8 segundos, el número se oculta sin bloquear la página.

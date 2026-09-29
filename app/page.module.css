@@ -1618,3 +1618,13 @@ a:hover .arrow {
 
 /* Keep the complete client artwork visible inside the editorial frame. */
 .benjis > img { object-fit: contain; background: #080a09; }
+
+.visitCounter {
+  margin-top: 24px;
+  min-height: 14px;
+  font-size: 10px;
+  line-height: 14px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  opacity: .5;
+}

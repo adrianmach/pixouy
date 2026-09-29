@@ -26,7 +26,6 @@ export default function HomepageMotion({ children }: { children: ReactNode }) {
       [`.${styles.reasons} > *`, 80, 0],
       [`.${styles.inmoNote} > *`, 100, 0],
       [`.${styles.priceRow}`, 100, 0],
-      [`.${styles.note}`, 100, 0],
       [`.${styles.faqLayout} > div:first-child > *`, 80, 0],
       [`.${styles.faqItem}`, 60, 0],
       [`.${styles.contactTop}`, 0, 0],

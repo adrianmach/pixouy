@@ -861,58 +861,6 @@
   line-height: 1.7;
   color: var(--ink-soft);
 }
-.notes {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 30px;
-}
-.note {
-  border-top: 2px solid var(--blue);
-  padding-top: 22px;
-}
-.note > .eyebrow {
-  font-size: 10px;
-  color: var(--ink-soft);
-}
-.note h3 {
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 1.17;
-  letter-spacing: -0.05em;
-  margin: 20px 0 17px;
-  max-width: 350px;
-}
-.note p {
-  font-size: 15px;
-  line-height: 1.75;
-  color: var(--ink-soft);
-}
-.note details {
-  margin-top: 22px;
-}
-.note summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line);
-  list-style: none;
-}
-.note summary::-webkit-details-marker {
-  display: none;
-}
-.note summary > span {
-  font-size: 23px;
-}
-.note details[open] summary > span {
-  transform: rotate(45deg);
-}
-.note details p {
-  margin-top: 18px;
-}
 .faqSection {
   padding: 45px 0 95px;
 }
@@ -1357,12 +1305,6 @@
     grid-column: 2;
     margin-top: -20px;
   }
-  .notes {
-    gap: 25px;
-  }
-  .note h3 {
-    font-size: 24px;
-  }
   .faqLayout {
     grid-template-columns: 1fr;
     gap: 35px;
@@ -1718,20 +1660,6 @@
   }
   .pricingNote {
     font-size: 11px;
-  }
-  .notes {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  .note h3 {
-    font-size: 28px;
-    max-width: 420px;
-  }
-  .note details {
-    margin-top: 15px;
-  }
-  .note summary {
-    min-height: 48px;
   }
   .faqSection {
     padding: 0 0 60px;

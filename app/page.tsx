@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Header from "./components/Header";
+import VisitCounter from "./components/VisitCounter";
 import Reveal from "./components/Reveal";
 import HomepageMotion from "./components/HomepageMotion";
 import BrandSignature from "./components/BrandSignature";
@@ -86,41 +87,6 @@ const FAQ = [
 ];
 
 const WHATSAPP = "https://wa.me/59898955038";
-const NOTES = [
-  {
-    category: "Web · Planificación",
-    title: "Antes de diseñar, hacete estas preguntas.",
-    intro: "Una web empieza con una idea clara de lo que tiene que resolver.",
-    paragraphs: [
-      "¿Quién va a entrar a tu sitio y qué necesita encontrar? Empezá por esa persona: qué dudas tiene, qué información busca y qué acción querés que pueda completar.",
-      "Reuní los textos, las fotos y la información de tu negocio. No hace falta tener todo perfecto, pero sí saber qué querés contar y qué te diferencia.",
-      "Elegí una prioridad para el lanzamiento: recibir consultas, mostrar tu trabajo o vender. Ese objetivo ayuda a decidir qué construir primero y qué puede esperar.",
-    ],
-  },
-  {
-    category: "Ecommerce · Experiencia",
-    title: "Una tienda es mucho más que un catálogo.",
-    intro:
-      "Comprar debería ser fácil, desde el primer producto hasta la entrega.",
-    paragraphs: [
-      "Mostrá el producto con fotos claras, medidas y una descripción útil. Lo que una persona preguntaría en tu local también necesita encontrarlo en tu tienda.",
-      "Explicá cómo se paga, cuánto cuesta el envío y cuándo llega el pedido. Esa información tiene que estar disponible antes del último paso.",
-      "Probá el recorrido completo desde tu celular. Buscar, elegir una variante, agregar al carrito y consultar una duda son parte del diseño, tanto como la portada.",
-    ],
-  },
-  {
-    category: "Automatización · Negocios",
-    title: "¿Qué tarea podrías dejar de repetir?",
-    intro:
-      "El mejor punto de partida suele estar en tu rutina de todos los días.",
-    paragraphs: [
-      "Anotá las tareas que hacés una y otra vez: copiar pedidos, enviar avisos, actualizar una planilla. Buscá una que tenga pasos claros y se repita con frecuencia.",
-      "Antes de conectar herramientas, definí de dónde salen los datos, a dónde van y qué debería pasar si falta información. Automatizar también implica pensar las excepciones.",
-      "Empezá con un flujo pequeño y revisá su resultado. Conservá una forma de intervenir cuando haga falta; la herramienta tiene que ayudarte a trabajar mejor.",
-    ],
-  },
-];
-
 const WHY = [
   ["HABLÁS CONMIGO.", "Sin comerciales ni intermediarios."],
   ["DESARROLLO TU PROYECTO.", "Desde el diseño hasta el lanzamiento."],
@@ -303,46 +269,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="blog" className={digital.section}>
-          <div className={digital.container}>
-            <div className={digital.sectionHeading}>
-              <div>
-                <p className={digital.eyebrow}>
-                  <span className={digital.dot} /> Notas de PIXO
-                </p>
-                <h2>
-                  DECISIONES CHICAS.
-                  <br />
-                  MEJORES PROYECTOS<span className={digital.blue}>.</span>
-                </h2>
-              </div>
-              <p>
-                Qué tener claro antes de hacer tu web,
-                abrir una tienda o automatizar una tarea.
-              </p>
-            </div>
-            <div className={digital.notes}>
-              {NOTES.map((note) => (
-                <article className={digital.note} key={note.title}>
-                  <span className={digital.eyebrow}>{note.category}</span>
-                  <h3>{note.title}</h3>
-                  <p>{note.intro}</p>
-                  <details>
-                    <summary>
-                      Leer nota <span aria-hidden="true">+</span>
-                    </summary>
-                    <div>
-                      {note.paragraphs.map((paragraph) => (
-                        <p key={paragraph}>{paragraph}</p>
-                      ))}
-                    </div>
-                  </details>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="faq" className={digital.faqSection}>
           <div className={`${digital.container} ${digital.faqLayout}`}>
             <div>
@@ -430,6 +356,7 @@ export default function Home() {
             <span>© 2026 PIXO</span>
             <span>Diseño + tecnología + dirección creativa.</span>
           </div>
+          <VisitCounter />
         </div>
       </footer>
     </div>
