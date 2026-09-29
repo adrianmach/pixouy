@@ -429,9 +429,6 @@ export default function Home() {
           <div className={styles.footerBottom}>
             <span>© 2026 PIXO</span>
             <span>Diseño + tecnología + dirección creativa.</span>
-            <a href="/portfolio-adrian-machin.pdf" download>
-              Descargar portfolio técnico <Arrow />
-            </a>
           </div>
         </div>
       </footer>

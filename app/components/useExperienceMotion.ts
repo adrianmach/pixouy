@@ -77,7 +77,8 @@ export function useExperienceMotion(ref: RefObject<HTMLElement | null>) {
         }
         if (visible.has(processing)) {
           const progress = clamp((h - pr.top) / (h + pr.height));
-          processingP.style.transform = `translateY(${Math.sin(progress * Math.PI) * -65}px) rotate(${Math.sin(progress * Math.PI * 2) * 9}deg)`;
+          // Keep the movement inside the wordmark's reserved space at every screen size.
+          processingP.style.transform = `translateY(${Math.sin(progress * Math.PI) * -.045}em) rotate(${Math.sin(progress * Math.PI * 2) * 3}deg)`;
         }
         nr.forEach((rect, i) => {
           const progress = clamp((h * .83 - rect.top) / (rect.height * .8));

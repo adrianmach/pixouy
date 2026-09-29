@@ -4,7 +4,7 @@ import s from "../experience.module.css";
 
 const wa = "https://wa.me/59898955038";
 const projects = [
-  { name: "Benji$", image: "benjis", category: "ECOMMERCE · DESARROLLO WEB", description: "Ecommerce desarrollado a medida con catálogo de productos, experiencia mobile-first y panel administrativo.", href: "https://benjis-production.up.railway.app/", tags: "Catálogo · Pedidos · Administración", demo: false },
+  { name: "Benji$", image: "benjis", category: "ECOMMERCE · DESARROLLO WEB", description: "Ecommerce desarrollado a medida con catálogo de productos, experiencia mobile-first y panel administrativo.", href: "https://www.benjisuy.com/", tags: "Catálogo · Pedidos · Administración", demo: false },
   { name: "Joyería Central", image: "joyeria-central", category: "ECOMMERCE · DESARROLLO WEB", description: "Rediseño y desarrollo de una experiencia digital para una joyería con trayectoria, con catálogo de productos, categorías, servicios y contacto directo.", href: "https://www.joyeriacentraluy.com/", tags: "Catálogo · Categorías · Servicios", demo: false },
   { name: "Hecho en Casa", image: "hecho-en-casa", category: "WEB · CATÁLOGO · UX", description: "Sitio web para una marca de pastelería artesanal, pensado para mostrar productos, recibir consultas y convertir visitas en pedidos.", href: "https://www.hechoencasauy.com/", tags: "Productos · Consultas · Pedidos", demo: false },
   { name: "Plataforma inmobiliaria con IA", image: "niko", category: "PIXO LAB · DEMO · IA", description: "Una demo creada por PIXO para explorar cómo una inmobiliaria puede combinar web, administración y automatización con inteligencia artificial.", href: "https://inmo-intel.vercel.app/", tags: "Propiedades · Contenido con IA · Buscador · Mapa · Administración", demo: true },
@@ -47,7 +47,6 @@ export default function Experience() {
           <div className={s.projectInfo}><div><span className={s.label}>{p.category}</span><h3>{p.name}<span>↗</span></h3></div><div><p>{p.description}</p><small>{p.tags}</small><span className={s.projectCta}>{p.demo ? "VER DEMO" : "VER PROYECTO"} ↗</span></div><span className={s.projectNumber}>0{i + 1}</span></div>
         </a></article>)}
       </div></div></div>
-      <a className={s.portfolio} href="/portfolio-adrian-machin.pdf" target="_blank" rel="noopener noreferrer">EL PORTFOLIO COMPLETO <span>PDF ↗</span></a>
     </section>
 
     <section className={s.processing} aria-label="De una web a un sistema conectado" data-processing><div><span>DE UNA WEB QUE IMPACTA</span><span>A UN NEGOCIO QUE AVANZA ↘</span></div><p aria-hidden="true"><b data-processing-p>P</b>IXO<span>®</span></p><div><span>DISEÑO × TECNOLOGÍA</span><span>PROCESSING THE NEXT MOVE…</span></div></section>
